@@ -1,0 +1,2282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best School Guide Sikar — School Directory, Ratings & Reviews 2026</title>
+  <meta name="description"
+    content="An independent guide to the best schools in Sikar, Rajasthan. Ranked by Google Maps reviews. All boards — CBSE, RBSE, ICSE, English medium and pre-foundation.">
+  <style>
+    :root {
+      --ink: #12242e;
+      --paper: #f6f2e9;
+      --paper-2: #efe9db;
+      --brand: #0a5c46;
+      --brand-2: #0d7a5c;
+      --accent: #e0703a;
+      --line: #d9d0be;
+      --muted: #5c6b6f;
+      --card: #fffdf7;
+      --gmaps: #e8b23a;
+      --verify: #1a8f5c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column
+    }
+
+    footer {
+      flex-shrink: 0
+    }
+
+    .sans {
+      font-family: 'Segoe UI', Helvetica, Arial, sans-serif
+    }
+
+    .wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 80px)
+    }
+
+    a {
+      color: inherit
+    }
+
+    header {
+      border-bottom: 1.5px solid var(--ink);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--paper)
+    }
+
+    .bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: -.01em;
+      color: var(--brand);
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit
+    }
+
+    .logo span {
+      color: var(--accent)
+    }
+
+    .tabs {
+      display: flex;
+      gap: 6px
+    }
+
+    .tab {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .86rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      padding: 9px 18px;
+      border: 1.5px solid transparent;
+      background: none;
+      cursor: pointer;
+      color: var(--muted);
+      border-radius: 8px
+    }
+
+    .tab:hover {
+      color: var(--ink)
+    }
+
+    .tab.active {
+      background: var(--brand);
+      color: #fff
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 1.5px solid var(--ink);
+      font-size: 1.1rem;
+      padding: 4px 10px;
+      cursor: pointer;
+      border-radius: 4px
+    }
+
+    .page {
+      display: none
+    }
+
+    .page.active {
+      display: block;
+      flex: 1 0 auto;
+      animation: fade .3s ease
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(6px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .eyebrow {
+      font-family: 'Segoe UI', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: .72rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 20px
+    }
+
+    .hero {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.4rem);
+      line-height: 1.03;
+      letter-spacing: -.02em;
+      font-weight: 700;
+      max-width: 16ch
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--brand)
+    }
+
+    .hero p {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 60ch;
+      margin-top: 24px
+    }
+
+    .hero-cta {
+      margin-top: 34px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 44px;
+      margin-top: 44px;
+      flex-wrap: wrap
+    }
+
+    .hero-stats .n {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--brand);
+      line-height: 1
+    }
+
+    .hero-stats .l {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      margin-top: 6px
+    }
+
+    .band {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .band.dark {
+      background: var(--ink);
+      color: var(--paper);
+      border: none
+    }
+
+    .band.dark .eyebrow {
+      color: var(--accent)
+    }
+
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center
+    }
+
+    .two h2 {
+      font-size: 2.1rem;
+      letter-spacing: -.01em;
+      margin-bottom: 16px;
+      max-width: 18ch
+    }
+
+    .two p {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 14px
+    }
+
+    .band.dark .two p {
+      color: #c9d2d0
+    }
+
+    .factlist {
+      list-style: none;
+      font-family: 'Segoe UI', sans-serif
+    }
+
+    .factlist li {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start
+    }
+
+    .band.dark .factlist li {
+      border-color: #2a3d45
+    }
+
+    .factlist .fn {
+      font-weight: 800;
+      color: var(--accent);
+      font-size: 1.1rem;
+      min-width: 34px
+    }
+
+    .factlist .ft {
+      font-size: .94rem
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 12px
+    }
+
+    .why-grid .item {
+      border-top: 2px solid var(--accent);
+      padding-top: 16px
+    }
+
+    .why-grid h4 {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 1.05rem;
+      margin-bottom: 8px
+    }
+
+    .why-grid p {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .92rem;
+      color: var(--muted)
+    }
+
+    .band.dark .why-grid p {
+      color: #c9d2d0
+    }
+
+    .voices {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 12px
+    }
+
+    .voice {
+      background: var(--card);
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 24px
+    }
+
+    .voice p {
+      font-size: 1rem;
+      font-style: italic;
+      color: #33454a;
+      margin-bottom: 16px
+    }
+
+    .voice .who {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--brand)
+    }
+
+    .voice .role {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .76rem;
+      color: var(--muted)
+    }
+
+    .voice .st {
+      color: var(--gmaps);
+      letter-spacing: 1px;
+      margin-bottom: 10px
+    }
+
+    h2.sec {
+      font-size: 2.1rem;
+      letter-spacing: -.01em;
+      margin-bottom: 8px
+    }
+
+    .sub {
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--muted);
+      margin-bottom: 30px
+    }
+
+    .page-head {
+      padding: 52px 0 8px
+    }
+
+    .page-head h1 {
+      font-size: clamp(2.1rem, 5vw, 3.2rem);
+      letter-spacing: -.02em;
+      font-weight: 700
+    }
+
+    .page-head h1 em {
+      font-style: italic;
+      color: var(--brand)
+    }
+
+    .page-head p {
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--muted);
+      margin-top: 12px;
+      max-width: 60ch
+    }
+
+    .filterbar {
+      padding: 24px 0 8px
+    }
+
+    .filterbar .row {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: space-between
+    }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .chip {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .82rem;
+      font-weight: 600;
+      padding: 9px 15px;
+      border: 1.5px solid var(--line);
+      background: var(--card);
+      border-radius: 20px;
+      cursor: pointer;
+      color: var(--muted);
+      white-space: nowrap
+    }
+
+    .chip.active {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #fff
+    }
+
+    .sortnote {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .8rem;
+      color: var(--muted)
+    }
+
+    .count {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .85rem;
+      color: var(--muted);
+      margin: 8px 0 20px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      padding-bottom: 40px
+    }
+
+    .card {
+      background: var(--card);
+      border: 1.5px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform .18s, box-shadow .18s
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -20px rgba(10, 92, 70, .55)
+    }
+
+    .card-photo {
+      height: 150px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 12px
+    }
+
+    .card-photo .rank {
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      font-family: 'Segoe UI', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      background: rgba(0, 0, 0, .32);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 20px
+    }
+
+    .card-photo .boards {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: flex-end;
+      max-width: 70%
+    }
+
+    .card-photo .board {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      background: rgba(255, 255, 255, .94);
+      color: var(--brand);
+      padding: 4px 8px;
+      border-radius: 5px
+    }
+
+    .card-photo .board.rbse {
+      color: var(--accent)
+    }
+
+    .card-photo .board.icse {
+      color: #7a3fb0
+    }
+
+    .card-photo .board.prefoundation {
+      color: #0d5aa8
+    }
+
+    .card-body {
+      padding: 16px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1
+    }
+
+    .card-body h3 {
+      font-size: 1.18rem;
+      line-height: 1.2;
+      letter-spacing: -.01em;
+      display: flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .verified {
+      color: var(--verify);
+      font-size: .9rem
+    }
+
+    .gm {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 8px;
+      font-family: 'Segoe UI', sans-serif
+    }
+
+    .gm .sc {
+      font-weight: 800
+    }
+
+    .gm .st {
+      color: var(--gmaps);
+      letter-spacing: 1px;
+      font-size: .9rem
+    }
+
+    .gm .ct {
+      font-size: .78rem;
+      color: var(--muted)
+    }
+
+    .card-body .loc {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .82rem;
+      color: var(--muted);
+      margin-top: 10px
+    }
+
+    .card-body .ph {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .86rem;
+      font-weight: 600;
+      color: var(--brand);
+      margin-top: 6px
+    }
+
+    .card-body .open {
+      margin-top: 14px;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .05em
+    }
+
+    .card.featured {
+      border: 2px solid var(--accent);
+      box-shadow: 0 10px 28px -16px rgba(224, 112, 58, .55)
+    }
+
+    .card.featured:hover {
+      box-shadow: 0 18px 36px -18px rgba(224, 112, 58, .6)
+    }
+
+    .feat-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      background: var(--accent);
+      color: #fff;
+      padding: 5px 11px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, .25)
+    }
+
+    .tagline-bar {
+      font-family: 'Segoe UI', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #fff;
+      background: linear-gradient(90deg, var(--brand), var(--brand-2));
+      padding: 14px 22px;
+      border-radius: 10px;
+      margin: 0 0 26px;
+      text-align: center;
+      letter-spacing: .01em
+    }
+
+    .usp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 0 0 26px
+    }
+
+    .usp {
+      background: var(--card);
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 16px;
+      border-left: 3px solid var(--accent)
+    }
+
+    .usp-t {
+      font-family: 'Segoe UI', sans-serif;
+      font-weight: 700;
+      font-size: .92rem;
+      margin-bottom: 4px;
+      color: var(--brand)
+    }
+
+    .usp-d {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.45
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 26px
+    }
+
+    .pill {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .82rem;
+      font-weight: 600;
+      background: var(--paper-2);
+      border: 1.5px solid var(--line);
+      color: var(--ink);
+      padding: 7px 14px;
+      border-radius: 20px
+    }
+
+    .tick-list {
+      list-style: none;
+      margin: 0 0 26px;
+      font-family: 'Segoe UI', sans-serif
+    }
+
+    .tick-list li {
+      padding: 9px 0 9px 30px;
+      position: relative;
+      font-size: .94rem;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .tick-list li:before {
+      content: "\2714";
+      position: absolute;
+      left: 0;
+      top: 9px;
+      color: var(--verify);
+      font-weight: 800
+    }
+
+    .tick-list.award li:before {
+      content: "\1F3C6";
+    }
+
+    .fee-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0 0 12px;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden
+    }
+
+    .fee-table th {
+      background: var(--brand);
+      color: #fff;
+      text-align: left;
+      padding: 12px 16px;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .05em
+    }
+
+    .fee-table td {
+      padding: 11px 16px;
+      border-top: 1px solid var(--line);
+      font-size: .94rem
+    }
+
+    .fee-table td:last-child {
+      font-weight: 700;
+      color: var(--brand);
+      text-align: right
+    }
+
+    .fee-table tr:nth-child(even) td {
+      background: var(--paper-2)
+    }
+
+    .feeyear {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      background: var(--accent);
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 20px;
+      vertical-align: middle;
+      margin-left: 8px
+    }
+
+    .feenote {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .8rem;
+      color: var(--muted);
+      margin: 0 0 20px;
+      line-height: 1.5
+    }
+
+    .euro-spotlight {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      background: var(--card);
+      border: 2px solid var(--accent);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 18px 44px -24px rgba(224, 112, 58, .5)
+    }
+
+    .es-media {
+      min-height: 320px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .es-logo {
+      width: 70%;
+      max-width: 260px
+    }
+
+    .es-body {
+      padding: 38px 40px
+    }
+
+    .es-body h2 {
+      font-size: 2.2rem;
+      letter-spacing: -.01em;
+      margin-bottom: 12px
+    }
+
+    .es-tag {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.6
+    }
+
+    .es-stats {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 28px
+    }
+
+    .es-stats .esn {
+      display: block;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--brand);
+      line-height: 1
+    }
+
+    .es-stats .esl {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .74rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted)
+    }
+
+    .es-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .inline-euro {
+      color: var(--accent);
+      font-weight: 700;
+      cursor: pointer;
+      border-bottom: 1.5px solid var(--accent)
+    }
+
+    .inline-euro:hover {
+      color: var(--brand);
+      border-color: var(--brand)
+    }
+
+    @media(max-width:760px) {
+      .euro-spotlight {
+        grid-template-columns: 1fr
+      }
+
+      .es-media {
+        min-height: 200px
+      }
+    }
+
+    .back {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--brand);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 24px 0 0
+    }
+
+    .detail-hero {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      padding: 16px 0 24px;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .detail-hero h1 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      letter-spacing: -.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .detail-hero .loc {
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--muted);
+      margin-top: 8px
+    }
+
+    .detail-hero .boards {
+      margin-top: 12px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap
+    }
+
+    .tagpill {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      background: var(--paper-2);
+      color: var(--brand);
+      border: 1px solid var(--line);
+      padding: 4px 10px;
+      border-radius: 20px
+    }
+
+    .detail-score {
+      text-align: right;
+      font-family: 'Segoe UI', sans-serif;
+      min-width: 150px
+    }
+
+    .detail-score .big {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--ink)
+    }
+
+    .detail-score .st {
+      color: var(--gmaps);
+      letter-spacing: 2px;
+      font-size: 1.1rem
+    }
+
+    .detail-score .ct {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-top: 4px
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+      height: 340px;
+      margin: 28px 0
+    }
+
+    .gallery div {
+      border-radius: 12px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .gallery div:first-child {
+      grid-row: 1/3
+    }
+
+    .gallery .lbl {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(0, 0, 0, .35);
+      padding: 3px 9px;
+      border-radius: 6px
+    }
+
+    .detail-cols {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 44px;
+      padding-bottom: 48px
+    }
+
+    .detail-cols h3 {
+      font-size: 1.4rem;
+      margin: 8px 0 14px
+    }
+
+    .detail-cols p.about {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 1rem;
+      color: #33454a;
+      margin-bottom: 24px
+    }
+
+    .rev {
+      background: var(--card);
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 14px
+    }
+
+    .rev .st {
+      color: var(--gmaps);
+      letter-spacing: 1px;
+      font-size: .9rem;
+      margin-bottom: 8px
+    }
+
+    .rev p {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .92rem;
+      color: #33454a
+    }
+
+    .infobox {
+      background: var(--card);
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 22px;
+      font-family: 'Segoe UI', sans-serif;
+      position: sticky;
+      top: 90px
+    }
+
+    .infobox .ir {
+      display: flex;
+      justify-content: space-between;
+      padding: 11px 0;
+      border-top: 1px solid var(--line);
+      font-size: .9rem;
+      gap: 12px
+    }
+
+    .infobox .ir:first-child {
+      border-top: none
+    }
+
+    .infobox .ik {
+      color: var(--muted)
+    }
+
+    .infobox .iv {
+      font-weight: 700;
+      text-align: right
+    }
+
+    .infobox .maplink {
+      display: block;
+      margin-top: 16px;
+      text-align: center;
+      text-decoration: none
+    }
+
+    .blog-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      padding: 8px 0 40px
+    }
+
+    .blog {
+      background: var(--card);
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform .18s, box-shadow .18s
+    }
+
+    .blog:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px -18px rgba(10, 92, 70, .5)
+    }
+
+    .blog-img {
+      height: 150px;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+      background-size: cover;
+      background-position: center
+    }
+
+    .blog-tag {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #fff;
+      background: rgba(0, 0, 0, .3);
+      padding: 4px 10px;
+      border-radius: 20px
+    }
+
+    .blog-body {
+      padding: 18px 22px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column
+    }
+
+    .blog-body h4 {
+      font-size: 1.15rem;
+      line-height: 1.2;
+      margin-bottom: 8px
+    }
+
+    .blog-body p {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .88rem;
+      color: var(--muted);
+      flex: 1
+    }
+
+    .blog-date {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .74rem;
+      color: var(--muted);
+      margin-top: 14px;
+      text-transform: uppercase;
+      letter-spacing: .06em
+    }
+
+    .admin-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px
+    }
+
+    .admin-actions button {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .76rem;
+      font-weight: 700;
+      padding: 7px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1.5px solid var(--line);
+      background: var(--paper-2);
+      color: var(--ink)
+    }
+
+    .admin-actions button.del {
+      border-color: #e0b4ac;
+      color: #b5402f;
+      background: #faeae7
+    }
+
+    .admin-actions button:hover {
+      filter: brightness(.97)
+    }
+
+    .admin-badge {
+      display: inline-block;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #fff;
+      background: var(--accent);
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-left: 8px
+    }
+
+    .btn {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .9rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 1.5px solid var(--brand);
+      display: inline-block;
+      background: none;
+      color: var(--brand)
+    }
+
+    .btn.primary {
+      background: var(--brand);
+      color: #fff
+    }
+
+    .btn.primary:hover {
+      background: var(--brand-2)
+    }
+
+    .btn.accent {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff
+    }
+
+    .modal-bg {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 36, 46, .6);
+      z-index: 100;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 20px;
+      overflow: auto
+    }
+
+    .modal-bg.open {
+      display: flex
+    }
+
+    .modal {
+      background: var(--paper);
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+      padding: 34px;
+      border: 1.5px solid var(--ink)
+    }
+
+    .modal h3 {
+      font-size: 1.6rem;
+      margin-bottom: 6px
+    }
+
+    .modal .msub {
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 22px
+    }
+
+    .field {
+      margin-bottom: 18px
+    }
+
+    .field label {
+      display: block;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted);
+      margin-bottom: 6px
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .95rem;
+      padding: 11px 14px;
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--ink);
+      resize: vertical
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      outline: none;
+      border-color: var(--brand)
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 8px
+    }
+
+    .err {
+      color: #c0392b;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .82rem;
+      margin-top: 4px;
+      display: none
+    }
+
+    footer {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 56px 0 28px
+    }
+
+    .foot-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+      font-family: 'Segoe UI', sans-serif
+    }
+
+    footer .flogo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 10px
+    }
+
+    footer .flogo span {
+      color: var(--accent)
+    }
+
+    footer p {
+      font-size: .88rem;
+      color: #b9c4c2;
+      max-width: 34ch
+    }
+
+    footer h5 {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 12px;
+      color: #fff
+    }
+
+    footer ul {
+      list-style: none
+    }
+
+    footer li {
+      margin-bottom: 8px
+    }
+
+    footer .fl {
+      color: #b9c4c2;
+      text-decoration: none;
+      font-size: .9rem;
+      cursor: pointer
+    }
+
+    footer .fl:hover {
+      color: var(--accent)
+    }
+
+    .copyright {
+      border-top: 1px solid #2a3d45;
+      margin-top: 36px;
+      padding-top: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: .78rem;
+      color: #8a9997;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    @media(max-width:1160px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    @media(max-width:900px) {
+
+      .grid,
+      .blog-grid,
+      .why-grid,
+      .voices {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .two,
+      .detail-cols {
+        grid-template-columns: 1fr;
+        gap: 28px
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+        grid-template-rows: none
+      }
+
+      .gallery div:first-child {
+        grid-row: auto;
+        height: 180px
+      }
+
+      .gallery div {
+        height: 120px
+      }
+
+      .infobox {
+        position: static
+      }
+    }
+
+    @media(max-width:640px) {
+      .tabs {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        flex-direction: column;
+        background: var(--paper);
+        border: 1.5px solid var(--ink);
+        border-radius: 10px;
+        padding: 10px;
+        gap: 4px
+      }
+
+      .tabs.show {
+        display: flex
+      }
+
+      .menu-btn {
+        display: block
+      }
+
+      .grid,
+      .blog-grid,
+      .why-grid,
+      .voices {
+        grid-template-columns: 1fr
+      }
+
+      .hero-stats {
+        gap: 26px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="wrap bar">
+      <button class="logo" onclick="go('home')">Best School Guide<span> Sikar</span></button>
+      <nav class="tabs" id="tabs">
+        <button class="tab active" data-tab="home" onclick="go('home')">Home</button>
+        <button class="tab" data-tab="schools" onclick="go('schools')">Schools</button>
+        <button class="tab" data-tab="blogs" onclick="go('blogs')">Blogs</button>
+        <button class="tab" data-tab="about" onclick="go('about')">About</button>
+      </nav>
+      <button class="menu-btn sans" onclick="document.getElementById('tabs').classList.toggle('show')">&#9776;</button>
+    </div>
+  </header>
+
+  <main id="page-home" class="page active">
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Sikar, Rajasthan &middot; 2026&ndash;27 Session</div>
+        <h1>Every good school in <em>Sikar</em>, in one honest place.</h1>
+        <p>Best School Guide Sikar is an independent directory that helps parents compare schools across every board
+          &mdash; CBSE, RBSE, ICSE, English medium and pre-foundation. Ranked by how many families have actually
+          reviewed them on Google Maps.</p>
+        <div class="hero-cta">
+          <button class="btn primary" onclick="go('schools')">Browse Schools</button>
+          <button class="btn" onclick="go('about')">About This Guide</button>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="n" id="statSchools">&mdash;</div>
+            <div class="l">Schools listed</div>
+          </div>
+          <div>
+            <div class="n" id="statReviews">&mdash;</div>
+            <div class="l">Google reviews counted</div>
+          </div>
+          <div>
+            <div class="n">5</div>
+            <div class="l">Boards &amp; streams</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" style="border:none;padding-bottom:0">
+      <div class="wrap">
+        <div class="euro-spotlight">
+          <div class="es-media"
+            style="background-image:linear-gradient(rgba(10,26,20,.35),rgba(10,26,20,.55)),url('https://eurointernationalschool.in/images/slider/xxl/slider02.jpg')">
+            <img src="https://eurointernationalschool.in/images/logos/logo-white-orange-340.png"
+              alt="Euro International School" class="es-logo">
+          </div>
+          <div class="es-body">
+            <div class="eyebrow" style="margin-bottom:12px">Sikar's Top-Rated CBSE School</div>
+            <h2>Euro International School</h2>
+            <p class="es-tag">The First Futuristic CBSE School in Sikar &mdash; where coding, financial literacy, a
+              Finland-model preschool and 120+ national gold medals meet the best CBSE board results in Sikar.</p>
+            <div class="es-stats">
+              <div><span class="esn">20+</span><span class="esl">Years</span></div>
+              <div><span class="esn">2000+</span><span class="esl">Students</span></div>
+              <div><span class="esn">1:16</span><span class="esl">Teacher Ratio</span></div>
+              <div><span class="esn">120+</span><span class="esl">Gold Medals</span></div>
+            </div>
+            <div class="es-cta">
+              <button class="btn primary" onclick="openSchool('euro')">View Full Profile</button>
+              <a class="btn accent" href="https://eurointernationalschool.in" target="_blank" rel="noopener">Visit
+                Official Website &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap two">
+        <div>
+          <div class="eyebrow">About the guide</div>
+          <h2>Choosing a school shouldn't mean guessing.</h2>
+          <p>Every admission season, parents in Sikar juggle a dozen brochures, WhatsApp forwards and conflicting "top
+            10" lists &mdash; most of them paid placements. We built something simpler.</p>
+          <p>This guide gathers real, publicly available Google Maps ratings and parent reviews for schools across
+            Sikar, and ranks them so families can compare with confidence. Topping the list is <span class="inline-euro"
+              onclick="openSchool('euro')">Euro International School</span> &mdash; Sikar's first futuristic CBSE
+            school.</p>
+          <p>It's free for parents, always.</p>
+        </div>
+        <ul class="factlist">
+          <li><span class="fn">01</span><span class="ft"><strong>Featured school.</strong> <span class="inline-euro"
+                onclick="openSchool('euro')">Euro International School</span> leads our directory &mdash; <a
+                href="https://eurointernationalschool.in" target="_blank" rel="noopener">visit their site</a>.</span>
+          </li>
+          <li><span class="fn">02</span><span class="ft"><strong>All boards.</strong> CBSE, RBSE, ICSE, English medium
+              and pre-foundation campuses, side by side.</span></li>
+          <li><span class="fn">03</span><span class="ft"><strong>Real reviews.</strong> Ratings and comments sourced
+              from Google Maps.</span></li>
+          <li><span class="fn">04</span><span class="ft"><strong>Parent-first.</strong> Photos, contact numbers and
+              locations so you can visit and decide.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band dark">
+      <div class="wrap two">
+        <div>
+          <div class="eyebrow">The Sikar story</div>
+          <h2>A desert town that became Rajasthan's classroom.</h2>
+          <p>Once known mainly for its coaching institutes, Sikar has quietly grown into one of India's most
+            talked-about education hubs. Families from Jaipur, Delhi and across the Shekhawati region now send their
+            children here for strong board results and early competitive-exam foundations &mdash; without the pressure
+            and cost of a metro.</p>
+          <p>Today the city offers everything from playgroup-to-12 day schools with reliable transport to disciplined
+            residential campuses with hostels, NDA academies and pre-foundation programmes for JEE and NEET.</p>
+        </div>
+        <div class="why-grid">
+          <div class="item">
+            <h4>Results that travel</h4>
+            <p>Consistently strong CBSE and RBSE board results, with early JEE/NEET foundations built in.</p>
+          </div>
+          <div class="item">
+            <h4>Modern campuses</h4>
+            <p>Smart classrooms, science and computer labs, sports grounds and wellness programmes as standard.</p>
+          </div>
+          <div class="item">
+            <h4>Day &amp; boarding</h4>
+            <p>Real choice for local and outstation families, from transport routes to supervised hostels.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <div class="eyebrow">What parents say</div>
+        <h2 class="sec">Voices from Sikar families</h2>
+        <p class="sub">Real comments left on Google Maps by parents and students of Sikar schools.</p>
+        <div class="voices" id="homeVoices"></div>
+      </div>
+    </section>
+
+    <section class="band" style="text-align:center;border:none">
+      <div class="wrap">
+        <h2 class="sec" style="max-width:24ch;margin:0 auto 12px">Give your child Sikar's most future-ready education
+        </h2>
+        <p class="sub" style="max-width:52ch;margin:0 auto 24px">Explore Euro International School &mdash; the first
+          futuristic CBSE school in Sikar &mdash; or compare every school in the directory.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <button class="btn primary" onclick="openSchool('euro')">View Euro's Profile</button>
+          <a class="btn accent" href="https://eurointernationalschool.in" target="_blank" rel="noopener">Visit
+            eurointernationalschool.in &rarr;</a>
+          <button class="btn" onclick="go('schools')">Explore the Directory</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <main id="page-schools" class="page">
+    <div class="wrap page-head">
+      <h1>Schools in <em>Sikar</em></h1>
+      <p>Ranked by number of Google Maps reviews &mdash; the more families who've weighed in, the higher the trust. Tap
+        any school to see photos, reviews, location and contact details.</p>
+    </div>
+    <div class="wrap filterbar">
+      <div class="row">
+        <div class="chips" id="chips">
+          <div class="chip active" data-filter="all" onclick="setFilter(this)">All</div>
+          <div class="chip" data-filter="cbse" onclick="setFilter(this)">CBSE</div>
+          <div class="chip" data-filter="rbse" onclick="setFilter(this)">RBSE</div>
+          <div class="chip" data-filter="icse" onclick="setFilter(this)">ICSE</div>
+          <div class="chip" data-filter="english" onclick="setFilter(this)">English Medium</div>
+          <div class="chip" data-filter="prefoundation" onclick="setFilter(this)">Pre-Foundation</div>
+        </div>
+        <div class="sortnote">&darr; Sorted by Google Maps reviews</div>
+      </div>
+      <div class="count" id="resultCount"></div>
+    </div>
+    <div class="wrap">
+      <div class="grid" id="schoolGrid"></div>
+    </div>
+  </main>
+
+  <main id="page-detail" class="page">
+    <div class="wrap">
+      <button class="back" onclick="go('schools')">&larr; Back to all schools</button>
+      <div id="detailContent"></div>
+    </div>
+  </main>
+
+  <main id="page-blogs" class="page">
+    <div class="wrap page-head">
+      <div class="blog-top">
+        <div>
+          <h1>The <em>Blog</em></h1>
+          <p>Guides and advice for Sikar parents &mdash; admissions, boards, fees and campus life.</p>
+        </div>
+        <button class="btn primary" id="adminAddBtn" onclick="openBlogModal()" style="display:none">&#43; Add a Blog
+          Post</button>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="blog-grid" id="blogGrid"></div>
+    </div>
+    <div class="wrap" id="blogEmpty" style="display:none;padding:20px 0 60px">
+      <div
+        style="text-align:center;font-family:'Segoe UI',sans-serif;color:var(--muted);padding:48px 20px;border:1.5px dashed var(--line);border-radius:14px">
+        No blog posts yet. Check back soon for guides and advice for Sikar parents.
+      </div>
+    </div>
+  </main>
+
+  <main id="page-blogpost" class="page">
+    <div class="wrap" style="max-width:780px">
+      <button class="back" onclick="go('blogs')">&larr; Back to blog</button>
+      <div id="blogPostContent"></div>
+    </div>
+  </main>
+
+  <main id="page-about" class="page">
+    <div class="wrap page-head">
+      <h1>About <em>Best School Guide Sikar</em></h1>
+      <p>Why this guide exists, how it works, and how we rank schools.</p>
+    </div>
+    <div class="wrap band" style="border:none;padding-top:24px">
+      <div class="two">
+        <div>
+          <div class="eyebrow">Our mission</div>
+          <h2>Make school choice in Sikar transparent and free.</h2>
+          <p>Best School Guide Sikar is an independent directory of schools across Sikar city and district. We don't run
+            any school and we don't take money to move a school up the list. Our goal is simple: give parents one
+            trustworthy place to compare their options.</p>
+          <p>We list schools across every board and stream in Sikar &mdash; CBSE, RBSE, ICSE, English medium and
+            pre-foundation &mdash; with the information parents actually ask for: real ratings, honest reviews, photos,
+            location and a phone number.</p>
+        </div>
+        <ul class="factlist">
+          <li><span class="fn">1</span><span class="ft"><strong>How we rank.</strong> Schools are ordered by the number
+              of Google Maps reviews. More reviews means more families have shared real experiences, which we treat as
+              the strongest signal of a school's footprint in Sikar.</span></li>
+          <li><span class="fn">2</span><span class="ft"><strong>Where data comes from.</strong> Ratings, review counts
+              and comments are drawn from public Google Maps listings. We display them as-is and link out so you can
+              verify.</span></li>
+          <li><span class="fn">3</span><span class="ft"><strong>Always verify.</strong> Fees, timings and affiliation
+              numbers change. Always confirm details directly with the school before admission.</span></li>
+          <li><span class="fn">4</span><span class="ft"><strong>Get listed or corrected.</strong> Run a Sikar school and
+              want to be added or update your details? Reach out and we'll review it.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap band" style="text-align:center">
+      <h2 class="sec" style="margin-bottom:12px">Run a school in Sikar?</h2>
+      <p class="sub" style="max-width:48ch;margin:0 auto 24px">Get your institution listed in the guide and reach
+        thousands of parents every admission season.</p>
+      <button class="btn accent" onclick="go('schools')">See the Directory</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div style="max-width:340px">
+          <div class="flogo">Best School Guide<span> Sikar</span></div>
+          <p>An independent guide helping parents in Sikar, Rajasthan compare and choose the right school for their
+            child.</p>
+        </div>
+        <div>
+          <h5>Explore</h5>
+          <ul>
+            <li><span class="fl" onclick="go('home')">Home</span></li>
+            <li><span class="fl" onclick="go('schools')">Schools</span></li>
+            <li><span class="fl" onclick="go('blogs')">Blogs</span></li>
+            <li><span class="fl" onclick="go('about')">About</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5>Boards</h5>
+          <ul>
+            <li><span class="fl" onclick="go('schools');setFilterByKey('cbse')">CBSE Schools</span></li>
+            <li><span class="fl" onclick="go('schools');setFilterByKey('rbse')">RBSE Schools</span></li>
+            <li><span class="fl" onclick="go('schools');setFilterByKey('icse')">ICSE Schools</span></li>
+            <li><span class="fl" onclick="go('schools');setFilterByKey('prefoundation')">Pre-Foundation</span></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Guide</h5>
+          <ul>
+            <li><span class="fl" onclick="go('about')">How we rank</span></li>
+            <li><span class="fl" id="adminFootLink" onclick="handleAdminLink()">Admin</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <span>&copy; 2026 Best School Guide Sikar &middot; Ratings from Google Maps &mdash; verify details directly with
+          schools.</span>
+        <span id="adminStatus">Made in Sikar</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-bg" id="blogModal">
+    <div class="modal">
+      <h3 id="modalTitle">Add a Blog Post</h3>
+      <div class="msub" id="modalSub">Publish a new post to the blog.</div>
+      <div class="field">
+        <label>Title</label>
+        <input id="bTitle" placeholder="e.g. 5 questions to ask on a school visit">
+        <div class="err" id="errTitle">Please add a title.</div>
+      </div>
+      <div class="field">
+        <label>Category</label>
+        <select id="bCat">
+          <option>Admissions</option>
+          <option>Boards</option>
+          <option>Fees</option>
+          <option>Campus Life</option>
+          <option>Parenting</option>
+          <option>Exams</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Author</label>
+        <input id="bAuthor" placeholder="Your name">
+      </div>
+      <div class="field">
+        <label>Cover image (optional)</label>
+        <input id="bImage" type="file" accept="image/*" onchange="previewBlogImage(event)">
+        <div id="bImgPreview"
+          style="display:none;margin-top:12px;border-radius:10px;overflow:hidden;border:1.5px solid var(--line)">
+          <img id="bImgTag" alt="preview" style="width:100%;max-height:220px;object-fit:cover;display:block">
+        </div>
+      </div>
+      <div class="field">
+        <label>Content</label>
+        <textarea id="bBody" rows="7" placeholder="Write your post here..."></textarea>
+        <div class="err" id="errBody">Please add some content.</div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closeBlogModal()">Cancel</button>
+        <button class="btn primary" id="modalSubmit" onclick="submitBlog()">Publish Post</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN LOGIN MODAL -->
+  <div class="modal-bg" id="adminModal">
+    <div class="modal" style="max-width:420px">
+      <h3>Admin Login</h3>
+      <div class="msub">Enter the admin password to manage blog posts.</div>
+      <div class="field">
+        <label>Password</label>
+        <input id="adminPass" type="password" placeholder="Enter password"
+          onkeydown="if(event.key==='Enter')doAdminLogin()">
+        <div class="err" id="errAdmin">Incorrect password.</div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closeAdminModal()">Cancel</button>
+        <button class="btn primary" onclick="doAdminLogin()">Log In</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Supabase client library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    /* ============================================================
+       SUPABASE CONFIG  —  paste your two values here
+       Project Settings -> API  (in your Supabase dashboard)
+       ============================================================ */
+    const SB_URL = "PASTE_YOUR_PROJECT_URL_HERE".trim();   // e.g. https://abcd1234.supabase.co
+    const SB_KEY = "PASTE_YOUR_ANON_PUBLIC_KEY_HERE".trim();
+
+    // If keys are filled in, we use the live database. If not, the site
+    // silently falls back to the built-in demo posts so it still works.
+    const SB_ENABLED = SB_URL.indexOf("http") === 0 && SB_KEY.length > 20;
+    const sb = SB_ENABLED ? supabase.createClient(SB_URL, SB_KEY) : null;
+    console.log(SB_ENABLED ? "[BSG] Supabase ENABLED - using live database" : "[BSG] Supabase DISABLED - demo mode (changes won't persist)");
+
+    const SCHOOLS = [
+      {
+        id: "pcp", img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&q=70&auto=format&fit=crop", name: "PCP Sikar (Prince Prime Campus)", boards: ["cbse", "english", "prefoundation"], tags: ["CBSE", "Pre-Foundation"], rating: 4.4, reviews: 1013, verified: true,
+        phone: "+91 96108 92222", area: "Palwas Rd, near Life Care Hospital, Kalwaria Kunj", lat: 27.6099136, lng: 75.1216651, grades: "Class VI - XII + Foundation", hue: 210,
+        about: "One of Sikar's largest and most reviewed campuses. Known for a disciplined, motivating environment with experienced faculty and strong JEE/NEET pre-foundation and dropper programmes. Well-maintained infrastructure with a structured academic support system.",
+        revs: ["Prince Prime Campus is one of the best educational campuses for students who are serious about their studies and future goals - disciplined and motivating with highly experienced faculty.", "The learning environment is positive and encouraging, the mentors provide individual guidance, and the study plan is well-structured.", "Experienced and dedicated faculty with clear explanations that strengthened my understanding of core JEE concepts.", "One of the most memorable and transformative phases of my life - three years across 11th, 12th and dropper preparing for JEE."]
+      },
+      {
+        id: "euro", featured: true, website: "https://eurointernationalschool.in", img: "https://eurointernationalschool.in/images/slider/xxl/slider02.jpg", logo: "https://eurointernationalschool.in/images/logos/logo-white-orange-340.png", name: "Euro International School", boards: ["cbse", "english"], tags: ["CBSE", "English Medium", "First Futuristic School"], rating: 4.6, reviews: 430, verified: true,
+        phone: "+91 70092 70097", email: "hello@eurointernationalschool.in", area: "Chandpura Chauraha, Near Todi Nagar, Bajaj Gram-Sanwali", lat: 27.5776895, lng: 75.13737, grades: "Playgroup - Class 12", hue: 158,
+        tagline: "The First Futuristic CBSE School in Sikar",
+        usps: [
+          ["Coding Curriculum", "First CBSE school in Sikar to teach coding (since 2016), with 10+ international coders."],
+          ["Finland-Model Preschool", "World's best early-education model for your child's most formative years."],
+          ["Exceptional Academics", "Best CBSE board results in Sikar - multiple district toppers & a state topper."],
+          ["120+ National Gold Medals", "Expert coaches and national-level sports training."],
+          ["Financial Literacy", "Weekly finance classes teaching every child to earn and manage money."],
+          ["Entrepreneurship", "Real startups born from Euro - producing young entrepreneurs for the world."],
+          ["2 Full-Time Psychologists", "Genuine focus on students' emotional well-being."],
+          ["Foreign Universities", "Global admissions guidance to top international universities."]
+        ],
+        facilities: ["Smart Classrooms", "Computer Lab", "Science Lab", "Digital Library", "Finland Model Preschool", "Sports Complex", "Playground", "Dhamma Hall (meditation)", "World-Class Transport"],
+        achievements: ["CBSE State Topper & multiple district toppers", "120+ National Sports Gold Medals", "Students win international coding hackathons", "Foreign university admissions worldwide", "Alumni-founded startups"],
+        awards: ["Rajiv Gandhi Innovation Award — Government of Rajasthan", "Best School in North India — Education Today", "Best Futuristic School in Rajasthan — EW India"],
+        fees: [
+          ["Play Group – UKG", "₹70,000"],
+          ["Class I – II", "₹80,000"],
+          ["Class III – V", "₹87,000"],
+          ["Class VI – VIII", "₹95,000"],
+          ["Class IX", "₹1,01,000"],
+          ["Class X", "₹1,06,000"],
+          ["Class XI (All Streams)", "₹1,22,000"],
+          ["Class XII (All Streams)", "₹1,34,000"]
+        ],
+        feeNote: "Annual tuition fee for 2026-27, payable in two installments (at admission & by 31st July). Merit, sports, olympiad & coding scholarships available. Confirm current figures with the school.",
+        about: "Euro International School (EIS) is widely regarded as the best CBSE school in Sikar - a co-educational, future-ready campus that blends strong academics with real-world skills. Over 20+ years, EIS has grown into an army of 2,000+ future leaders, becoming the first CBSE school in Sikar to introduce coding (2016), and pioneering financial literacy, entrepreneurship and a Finland-model preschool. With a 1:16 teacher-student ratio, two full-time psychologists, weekly finance classes and career counselling, EIS focuses on the whole child - academically, emotionally and beyond. Its CBSE board results are among the best in Sikar, producing multiple district toppers and even a CBSE state topper, while students win international coding hackathons, earn foreign-university admissions and have brought home 120+ national sports gold medals.",
+        revs: ["If your child's all-round development is your focus, Euro International School is the ultimate choice. Both kids love going to school and are growing up into happy learners.", "Euro International School was my second home for all of my schooling years - it gave me mentors, friends and a strong foundation.", "I came here for admission and my experience was very good. The management is supportive and well-organized, and the students are well-disciplined.", "From the very beginning, the warmth and support made me feel part of a close-knit family. The education was transformative."]
+      },
+      {
+        id: "prince", img: "https://images.unsplash.com/photo-1562774053-701939374585?w=900&q=70&auto=format&fit=crop", name: "Prince Academy of Higher Education", boards: ["cbse", "english", "prefoundation"], tags: ["CBSE", "Pre-Foundation"], rating: 4.7, reviews: 325, verified: true,
+        phone: "+91 96107 52222", area: "Jaipur-Bikaner Bypass, Palwas Rd", lat: 27.6073251, lng: 75.1066687, grades: "Class VI - XII", hue: 24,
+        about: "Performance-oriented senior campus with a well-managed hostel and disciplined environment. Strong competitive-exam preparation woven into school academics, with consistently high parent and student ratings.",
+        revs: ["Wonderful school with a positive atmosphere, great leadership and outstanding education quality. Excellent facilities and caring faculty.", "The campus is very good and the environment is the best I have ever seen - the faculty are outstanding.", "My bestest time of school life. Very grateful to be part of this institution.", "Highly disciplined, well-managed hostel with excellent food - everything reflects dedication and success."]
+      },
+      {
+        id: "swami", img: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=900&q=70&auto=format&fit=crop", name: "Swami Keshwanand School", boards: ["cbse", "rbse", "english"], tags: ["CBSE", "RBSE"], rating: 4.4, reviews: 303, verified: true,
+        phone: "+91 98292 19402", area: "NH-52, Bhadhadar, Sikar", lat: 27.6805883, lng: 75.0825876, grades: "Class I - XII (Boarding)", hue: 130,
+        about: "A disciplined residential school on a clean, secure campus 12 km from Sikar. Strong hostel facilities for boys and girls with proper supervision, plus NDA/NEET/JEE academies and sports. Praised by parents for communication and care.",
+        revs: ["Very happy with the environment. Teachers are caring and dedicated, focusing on both academics and personal development.", "One of the best boarding schools in Sikar with excellent, safe hostel facilities and proper supervision.", "The campus is well-maintained, clean and welcoming, with a visible sense of discipline and creativity.", "Situated in a very pleasant environment; the Director has a commendable demeanor and is easily approachable for parents and students."]
+      },
+      {
+        id: "prince-sainik", img: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=900&q=70&auto=format&fit=crop", name: "Prince Sainik School", boards: ["cbse", "english", "prefoundation"], tags: ["CBSE", "Pre-Foundation"], rating: 4.8, reviews: 226, verified: true,
+        phone: "+91 96108 72222", area: "Palwas Rd, Sikar", lat: 27.6003422, lng: 75.0975397, grades: "Class VI - XII (NDA focus)", hue: 222,
+        about: "A residential campus structured around NDA and defence-exam preparation, with a disciplined curriculum and strong safety record. Widely regarded as one of North India's leading Sainik-style academies, including dedicated, secure facilities for girls.",
+        revs: ["Grooming children with the best and great discipline environment.", "Great campus, brilliant team and structured curriculum aligned with defence exam goals.", "Best coaching for Sainik in North India - perfect for girls with the best safety. All the girls are happy.", "Best school environment, food facilities and sports - all good."]
+      },
+      {
+        id: "vidyabharati", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=70&auto=format&fit=crop", name: "Vidya Bharati Public School", boards: ["cbse", "english"], tags: ["CBSE", "English Medium"], rating: 4.1, reviews: 259, verified: true,
+        phone: "+91 93528 12501", area: "Todi Nagar, Rd No. 3, Sikar", lat: 27.5784197, lng: 75.1457592, grades: "Class I - XII", hue: 280,
+        about: "A large, long-established campus known for a disciplined environment and quality education. Modern teaching methods with well-organised sports and cultural activities supporting holistic development.",
+        revs: ["Known for its disciplined environment and quality education, with focus on individual growth.", "The teachers use modern teaching methods and sports and cultural activities are well-organized.", "A large campus that conducts major exams and competitions.", "Ensures holistic development of students through balanced academics and activities."]
+      },
+      {
+        id: "prince-lotus", img: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=900&q=70&auto=format&fit=crop", name: "Prince Lotus Valley School", boards: ["cbse", "english"], tags: ["CBSE", "English Medium"], rating: 4.7, reviews: 148, verified: true,
+        phone: "+91 96103 02222", area: "Palwas Road Campus, Sikar", lat: 27.6060276, lng: 75.1048306, grades: "Class I - XII", hue: 190,
+        about: "A premier day campus known for personalised attention, top-notch facilities and a balance of academics, sports and extracurriculars in a nurturing, safe setting. Strong focus on communication, confidence and behaviour.",
+        revs: ["The most premier school in Sikar - an outstanding learning environment fostering academic and personal growth.", "Best education facilities, experienced teachers and smart classrooms with a positive environment.", "Special focus on overall development of the child - spoken skills, confidence and good behaviour.", "Top-notch resources and facilities allowing a well-rounded education."]
+      },
+      {
+        id: "mhs-world", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=900&q=70&auto=format&fit=crop", name: "MHS World School", boards: ["cbse", "rbse", "english", "prefoundation"], tags: ["CBSE", "RBSE", "Pre-Foundation"], rating: 4.9, reviews: 110, verified: true,
+        phone: "+91 92160 61999", area: "Piprali Rd, near Saket City, Sikar", lat: 27.6293339, lng: 75.1831741, grades: "Class I - XII", hue: 16,
+        about: "A modern new campus with smart classrooms and engaging teaching methods, offering both CBSE and RBSE streams alongside a pre-foundation programme. Highly rated by early reviewers for facilities and teaching quality.",
+        revs: ["New campus, nice facilities and good teachers.", "The smart classrooms and modern teaching methods make learning very engaging - one of the finest schools in Sikar.", "A great learning environment with supportive teachers and excellent academic guidance.", "The pre-foundation program is good; students need to stay consistent to get the best results."]
+      },
+      {
+        id: "tagore", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=900&q=70&auto=format&fit=crop", name: "Tagore International School", boards: ["cbse", "english"], tags: ["CBSE", "English Medium"], rating: 4.8, reviews: 64, verified: true,
+        phone: "+91 80947 70888", area: "Bhadwasi Rd, Kurli, Sikar", lat: 27.651163, lng: 75.1699254, grades: "Class I - XII", hue: 172,
+        about: "A well-regarded campus with a peaceful, disciplined atmosphere, smart classes, sports and cultural activities. Parents highlight moral values, character building and effective, simple teaching methods.",
+        revs: ["A truly outstanding school with dedicated teachers, quality education and a positive atmosphere.", "Very nice campus with a positive and peaceful environment and proper care for every student.", "Focuses on discipline, moral values and character building with experienced, supportive teachers.", "Excellent environment and excellent education - the most satisfying schooling."]
+      },
+      {
+        id: "floreto", img: "https://images.unsplash.com/photo-1587691592099-24045742c181?w=900&q=70&auto=format&fit=crop", name: "Floreto World School", boards: ["cbse", "english"], tags: ["CBSE", "English Medium"], rating: 4.8, reviews: 50, verified: true,
+        phone: "+91 96107 12222", area: "Jaipur-Bikaner Highway, Palwas Rd Crossing", lat: 27.6052611, lng: 75.1053358, grades: "Montessori - Senior Secondary", hue: 300,
+        about: "An activity-rich campus with a strong Montessori and early-years programme, digitalised learning and weekly new activities across games, culture and robotics. Parents note individual care and visible behavioural growth in young children.",
+        revs: ["New activities every week - games, culture, robotics. A good environment and excellent school.", "The teachers are very helpful and new students never feel strange in the school environment.", "My kid is in Montessori and the change in his behaviour is fabulous. Thank you Floreto.", "Beautiful infrastructure and a fabulous combination of digitalised learning."]
+      },
+      {
+        id: "narayana", img: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=900&q=70&auto=format&fit=crop", name: "Narayana e-Techno School", boards: ["cbse", "english", "prefoundation"], tags: ["CBSE", "Pre-Foundation"], rating: 4.8, reviews: 50, verified: true,
+        phone: "+91 1800 102 3344", area: "Nawalgarh Rd, near Vaishali Nagar, Bhadwasi", lat: 27.6477202, lng: 75.1575095, grades: "Playgroup - Class 12", hue: 206,
+        about: "Part of the national Narayana group, this campus is academically focused with concept-clarity teaching, regular assessments and a competitive-exam orientation. Well-maintained classrooms and disciplined culture.",
+        revs: ["Strong focus on concept clarity and regular practice - helps students perform well in exams.", "Excellent academic standards with dedicated teachers and clear, interactive teaching methods.", "Dedicated staff, a safe environment and balanced, holistic development.", "Best schooling - superb academics plus all-round development through activities."]
+      },
+      {
+        id: "prince-rbse", img: "https://images.unsplash.com/photo-1610484826967-09c5720778c7?w=900&q=70&auto=format&fit=crop", name: "Prince RBSE School - Palwas Road", boards: ["rbse", "english"], tags: ["RBSE", "English Medium"], rating: 4.6, reviews: 30, verified: true,
+        phone: "+91 96106 92222", area: "Kalwaria Kunj, Palwas Rd, Sikar", lat: 27.6099375, lng: 75.1213125, grades: "Class I - XII (RBSE)", hue: 38,
+        about: "The RBSE-stream campus of the Prince group, offering a positive learning environment with smart classrooms, safe transport, medical room, playgrounds and science and computer labs. Caring staff and good discipline.",
+        revs: ["A positive learning environment with supportive teachers.", "Nice school with caring staff.", "Discipline is good.", "Smart classrooms, safe transportation, medical room, playgrounds, science and computer labs - very good facilities."]
+      },
+      {
+        id: "vardhan", img: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=900&q=70&auto=format&fit=crop", name: "Vardhan World School", boards: ["cbse", "english"], tags: ["CBSE", "English Medium"], rating: 5.0, reviews: 17, verified: true,
+        phone: "+91 78911 11295", area: "Saket Nand City, Jaipur-Bikaner Bypass Rd", lat: 27.5992634, lng: 75.1126807, grades: "Playgroup - Class 12", hue: 146,
+        about: "A newer campus with a peaceful environment, supportive staff and strong transport facilities. Parents highlight a positive atmosphere and a good mix of activities alongside academics and personality development.",
+        revs: ["Peaceful and best environment for kids to study. Staff is very supportive and caring, with amazing transport facilities.", "One of the best schools in the area - focuses on both academics and student growth.", "Very good environment for child development, with a positive vibe.", "Excellent teaching quality and friendly teachers, with focus on overall personality development."]
+      }
+    ];
+
+    let BLOGS = [
+      {
+        id: 1, img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=70&auto=format&fit=crop", title: "How to choose the right school in Sikar", cat: "Admissions", author: "Editorial Team", date: "Feb 2026", hue: 158,
+        body: "Choosing a school is one of the biggest decisions a parent makes, and in a city like Sikar with dozens of options, it can feel overwhelming. Start with the practical basics: which board fits your child's long-term goals, how far the school is from home, and what the real all-in cost looks like once transport and extras are added.\nVisit in person before you decide. A brochure can't tell you whether classrooms are actually used well, whether children look happy, or how staff respond to questions. Ask about class sizes, teacher retention, and how the school communicates with parents through the year.\nFinally, talk to current parents. Google Maps reviews are a good starting signal, but a five-minute conversation at the school gate often tells you more than any rating."
+      },
+      {
+        id: 2, img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=900&q=70&auto=format&fit=crop", title: "CBSE vs RBSE vs ICSE: what fits your child", cat: "Boards", author: "Editorial Team", date: "Jan 2026", hue: 24,
+        body: "Sikar offers schools across CBSE, RBSE and ICSE, and each suits a slightly different path. CBSE is the national standard, widely chosen by families aiming for JEE, NEET and other competitive exams, with a syllabus that aligns closely to those tests.\nRBSE, the Rajasthan state board, is strong for students who plan to stay within the state system and can offer a more locally-rooted curriculum, often at a lower fee. ICSE tends to go deeper on English and project work, which some families value for communication skills.\nThere is no single best board - only the best fit for your child's strengths and goals. Decide the destination first, then pick the board that gets them there most comfortably."
+      },
+      {
+        id: 3, img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&q=70&auto=format&fit=crop", title: "Understanding school fees in Sikar", cat: "Fees", author: "Editorial Team", date: "Jan 2026", hue: 222,
+        body: "Advertised tuition is rarely the full story. When budgeting for a Sikar school, add transport, admission and registration charges, uniforms, books, activity fees and - for boarding schools - hostel and mess costs.\nAsk for a written fee structure that lists every head, and check whether fees are quoted per term or per year. Clarify the refund policy if you withdraw, and ask about annual increments so you aren't surprised in year two.\nMany Sikar schools offer scholarships based on merit or need. It's always worth asking - a good school would rather have a bright, motivated student than an empty seat."
+      }
+    ];
+    let blogSeq = 100;
+
+    function go(tab) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + tab).classList.add('active');
+      document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab || (tab === 'detail' && t.dataset.tab === 'schools') || (tab === 'blogpost' && t.dataset.tab === 'blogs')));
+      document.getElementById('tabs').classList.remove('show');
+      window.scrollTo({ top: 0 });
+    }
+
+    function renderVoices() {
+      const picks = [
+        { q: SCHOOLS.find(s => s.id === 'euro').revs[0], who: "Parent", role: "Euro International School" },
+        { q: SCHOOLS.find(s => s.id === 'prince').revs[0], who: "Student", role: "Prince Academy" },
+        { q: SCHOOLS.find(s => s.id === 'swami').revs[1], who: "Parent", role: "Swami Keshwanand School" }
+      ];
+      document.getElementById('homeVoices').innerHTML = picks.map(p =>
+        '<div class="voice"><div class="st">\u2605\u2605\u2605\u2605\u2605</div><p>"' + p.q + '"</p><div class="who">' + p.who + '</div><div class="role">' + p.role + '</div></div>'
+      ).join('');
+      document.getElementById('statSchools').textContent = SCHOOLS.length;
+      const tot = SCHOOLS.reduce((a, s) => a + s.reviews, 0);
+      document.getElementById('statReviews').textContent = (tot >= 1000 ? (tot / 1000).toFixed(1) + 'k' : tot);
+    }
+
+    let activeFilter = "all";
+    function setFilter(el) { document.querySelectorAll('.chip').forEach(c => c.classList.remove('active')); el.classList.add('active'); activeFilter = el.dataset.filter; renderSchools(); }
+    function setFilterByKey(k) { const el = document.querySelector('.chip[data-filter="' + k + '"]'); if (el) setFilter(el); }
+    function stars(r) { let f = Math.round(r); return "\u2605\u2605\u2605\u2605\u2605".slice(0, f) + "\u2606\u2606\u2606\u2606\u2606".slice(0, 5 - f); }
+    function shortName(s) { return s.id === 'euro' ? 'Euro' : s.name.split(' ').slice(0, 2).join(' '); }
+    function photoBg(hue) { return "background:linear-gradient(135deg,hsl(" + hue + ",42%,42%),hsl(" + ((hue + 40) % 360) + ",38%,30%));"; }
+    const BOARD_LABEL = { cbse: "CBSE", rbse: "RBSE", icse: "ICSE", english: "English Medium", prefoundation: "Pre-Foundation" };
+    function badgeHtml(s) {
+      // show board/stream badges (skip generic 'english' unless it's the only one)
+      let list = s.boards.filter(b => b !== 'english');
+      if (!list.length) list = s.boards;
+      return list.map(b => '<span class="board ' + b + '">' + BOARD_LABEL[b] + '</span>').join('');
+    }
+    function cardPhoto(s) {
+      if (s.img) return "background-image:linear-gradient(rgba(10,30,25,.12),rgba(10,30,25,.30)),url('" + s.img + "');background-size:cover;background-position:center;";
+      return photoBg(s.hue);
+    }
+
+    function renderSchools() {
+      const list = SCHOOLS.slice().sort((a, b) => {
+        if (a.id === 'euro') return -1;   // Euro always first
+        if (b.id === 'euro') return 1;
+        return b.reviews - a.reviews;    // everyone else by review count
+      });
+      const filtered = list.filter(s => activeFilter === "all" || s.boards.indexOf(activeFilter) > -1);
+      document.getElementById('resultCount').textContent = filtered.length + (filtered.length === 1 ? " school" : " schools");
+      document.getElementById('schoolGrid').innerHTML = filtered.map((s, i) =>
+        '<div class="card' + (s.featured ? ' featured' : '') + '" onclick="openSchool(\'' + s.id + '\')">'
+        + '<div class="card-photo" style="' + cardPhoto(s) + '"><span class="rank">#' + (i + 1) + '</span>'
+        + (s.featured ? '<span class="feat-badge">\u2605 Featured</span>' : '')
+        + '<span class="boards">' + badgeHtml(s) + '</span></div>'
+        + '<div class="card-body">'
+        + '<h3>' + s.name + (s.verified ? ' <span class="verified" title="Verified listing">\u2714</span>' : '') + '</h3>'
+        + '<div class="gm"><span class="sc">' + s.rating.toFixed(1) + '</span><span class="st">' + stars(s.rating) + '</span><span class="ct">' + s.reviews + ' reviews</span></div>'
+        + '<div class="loc">\uD83D\uDCCD ' + s.area + '</div>'
+        + '<div class="ph">\uD83D\uDCDE ' + s.phone + '</div>'
+        + '<div class="open">View full details \u2192</div>'
+        + '</div></div>'
+      ).join('');
+    }
+
+    function openSchool(id) {
+      const s = SCHOOLS.find(x => x.id === id); if (!s) return;
+      const gm = "https://www.google.com/maps/search/?api=1&query=" + s.lat + "," + s.lng;
+      const lbls = ["Campus", "Classrooms", "Activities", "Sports", "Events"];
+      const gallery = [0, 1, 2, 3, 4].map(n => {
+        if (n === 0 && s.img) {
+          return '<div style="background-image:linear-gradient(rgba(10,30,25,.05),rgba(10,30,25,.30)),url(\'' + s.img + '\');background-size:cover;background-position:center"><span class="lbl">' + lbls[n] + '</span></div>';
+        }
+        const h = (s.hue + n * 22) % 360;
+        return '<div style="background:linear-gradient(135deg,hsl(' + h + ',44%,' + (46 - n * 3) + '%),hsl(' + ((h + 50) % 360) + ',40%,' + (30 - n * 2) + '%))"><span class="lbl">' + lbls[n] + '</span></div>';
+      }).join('');
+      document.getElementById('detailContent').innerHTML =
+        '<div class="detail-hero"><div>'
+        + '<h1>' + s.name + (s.verified ? ' <span class="verified" style="font-size:1.3rem">\u2714</span>' : '') + '</h1>'
+        + '<div class="loc">\uD83D\uDCCD ' + s.area + ', Sikar, Rajasthan</div>'
+        + '<div class="boards">' + s.tags.map(t => '<span class="tagpill">' + t + '</span>').join('') + '</div>'
+        + '</div>'
+        + '<div class="detail-score"><div class="big">' + s.rating.toFixed(1) + '</div><div class="st">' + stars(s.rating) + '</div><div class="ct">' + s.reviews + ' Google reviews</div></div>'
+        + '</div>'
+        + '<div class="gallery">' + gallery + '</div>'
+        + (s.tagline ? '<div class="tagline-bar">' + esc(s.tagline) + '</div>' : '')
+        + '<div class="detail-cols"><div>'
+        + '<h3>About the school</h3><p class="about">' + s.about + '</p>'
+        + (s.website ? '<a class="btn accent" href="' + s.website + '" target="_blank" rel="noopener" style="margin-bottom:26px">Visit Official Website \u2192</a>' : '')
+        + (s.usps ? '<h3>Why ' + shortName(s) + '</h3><div class="usp-grid">'
+          + s.usps.map(u => '<div class="usp"><div class="usp-t">' + esc(u[0]) + '</div><div class="usp-d">' + esc(u[1]) + '</div></div>').join('')
+          + '</div>' : '')
+        + (s.facilities ? '<h3>World-Class Facilities</h3><div class="pill-row">'
+          + s.facilities.map(f => '<span class="pill">' + esc(f) + '</span>').join('') + '</div>' : '')
+        + (s.achievements ? '<h3>Achievements</h3><ul class="tick-list">'
+          + s.achievements.map(a => '<li>' + esc(a) + '</li>').join('') + '</ul>' : '')
+        + (s.awards ? '<h3>Awards &amp; Recognition</h3><ul class="tick-list award">'
+          + s.awards.map(a => '<li>' + esc(a) + '</li>').join('') + '</ul>' : '')
+        + (s.fees ? '<h3>Fee Structure <span class="feeyear">2026-27</span></h3>'
+          + '<table class="fee-table"><thead><tr><th>Grade</th><th>Annual Tuition Fee</th></tr></thead><tbody>'
+          + s.fees.map(f => '<tr><td>' + esc(f[0]) + '</td><td>' + esc(f[1]) + '</td></tr>').join('')
+          + '</tbody></table>'
+          + (s.feeNote ? '<p class="feenote">' + esc(s.feeNote) + '</p>' : '')
+          + (s.website ? '<a class="btn" href="' + s.website + '/admissions-euro-international-school#fee_structure" target="_blank" rel="noopener" style="margin-top:6px">See full fees & scholarships \u2192</a>' : '') : '')
+        + '<h3>What parents &amp; students say</h3>'
+        + s.revs.map(r => '<div class="rev"><div class="st">\u2605\u2605\u2605\u2605\u2605</div><p>"' + r + '"</p></div>').join('')
+        + '</div><div>'
+        + '<div class="infobox">'
+        + (s.logo ? '<img src="' + s.logo + '" alt="' + esc(s.name) + '" style="width:100%;max-height:70px;object-fit:contain;background:var(--ink);border-radius:8px;padding:10px;margin-bottom:16px">' : '')
+        + '<div class="ir"><span class="ik">Google rating</span><span class="iv">' + s.rating.toFixed(1) + ' \u2605</span></div>'
+        + '<div class="ir"><span class="ik">Reviews</span><span class="iv">' + s.reviews + '</span></div>'
+        + '<div class="ir"><span class="ik">Board / stream</span><span class="iv">' + s.tags.join(', ') + '</span></div>'
+        + '<div class="ir"><span class="ik">Grades</span><span class="iv">' + s.grades + '</span></div>'
+        + '<div class="ir"><span class="ik">Contact</span><span class="iv">' + s.phone + '</span></div>'
+        + (s.email ? '<div class="ir"><span class="ik">Email</span><span class="iv" style="font-size:.8rem">' + s.email + '</span></div>' : '')
+        + '<div class="ir"><span class="ik">Status</span><span class="iv" style="color:var(--verify)">' + (s.verified ? 'Verified \u2714' : 'Listed') + '</span></div>'
+        + (s.website ? '<a class="btn primary maplink" href="' + s.website + '" target="_blank" rel="noopener">Visit Official Website</a>'
+          + '<a class="btn maplink" href="' + s.website + '/admissions-euro-international-school" target="_blank" rel="noopener">Apply for Admission</a>'
+          + '<a class="btn maplink" href="' + gm + '" target="_blank" rel="noopener">Open in Google Maps</a>'
+          + '<a class="btn maplink" href="tel:' + s.phone.replace(/\s/g, '') + '">Call the school</a>'
+          : '<a class="btn primary maplink" href="' + gm + '" target="_blank" rel="noopener">Open in Google Maps</a>'
+          + '<a class="btn maplink" href="tel:' + s.phone.replace(/\s/g, '') + '">Call the school</a>')
+        + '</div></div></div>';
+      go('detail');
+    }
+
+    function renderBlogs() {
+      const grid = document.getElementById('blogGrid');
+      const empty = document.getElementById('blogEmpty');
+      if (!BLOGS.length) {
+        grid.innerHTML = '';
+        if (empty) empty.style.display = 'block';
+        return;
+      }
+      if (empty) empty.style.display = 'none';
+      grid.innerHTML = BLOGS.map(b =>
+        '<div class="blog">'
+        + '<div class="blog-img" style="' + blogBg(b) + '" onclick="openBlog(' + jid(b.id) + ')"><span class="blog-tag">' + esc(b.cat) + '</span></div>'
+        + '<div class="blog-body" onclick="openBlog(' + jid(b.id) + ')" style="cursor:pointer"><h4>' + esc(b.title) + '</h4>'
+        + '<p>' + esc(b.body.replace(/\n/g, ' ').slice(0, 110)) + (b.body.length > 110 ? '...' : '') + '</p>'
+        + '<div class="blog-date">' + esc(b.date) + ' \u00B7 ' + esc(b.author) + '</div></div>'
+        + (ADMIN ? '<div class="admin-actions" style="padding:0 22px 20px">'
+          + '<button onclick="editBlog(' + jid(b.id) + ')">Edit</button>'
+          + '<button class="del" onclick="deleteBlog(' + jid(b.id) + ')">Delete</button></div>' : '')
+        + '</div>'
+      ).join('');
+    }
+    function jid(id) { return typeof id === 'number' ? id : "'" + id + "'"; }
+
+    function openBlog(id) {
+      const b = BLOGS.find(x => x.id === id); if (!b) return;
+      document.getElementById('blogPostContent').innerHTML =
+        '<div style="height:260px;border-radius:14px;margin:16px 0 24px;' + blogBg(b) + 'display:flex;align-items:flex-end;padding:18px"><span class="blog-tag">' + esc(b.cat) + '</span></div>'
+        + '<h1 style="font-size:clamp(1.9rem,4vw,2.8rem);letter-spacing:-.02em;line-height:1.1">' + esc(b.title) + '</h1>'
+        + '<div class="sans" style="color:var(--muted);font-size:.85rem;margin:12px 0 24px;text-transform:uppercase;letter-spacing:.06em">' + esc(b.date) + ' \u00B7 ' + esc(b.author) + ' \u00B7 ' + esc(b.cat) + '</div>'
+        + b.body.split('\n').filter(x => x.trim()).map(p => '<p class="sans" style="font-size:1.05rem;color:#2b3b40;margin-bottom:18px">' + esc(p) + '</p>').join('');
+      go('blogpost');
+    }
+    function esc(t) { return (t || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+    function blogBg(b) {
+      if (b.img) return "background-image:linear-gradient(rgba(10,30,25,.12),rgba(10,30,25,.34)),url('" + b.img + "');background-size:cover;background-position:center;";
+      return photoBg(b.hue);
+    }
+
+    let blogImageData = null;
+    let editingId = null;   // null = adding, otherwise editing this post id
+    function previewBlogImage(ev) {
+      const file = ev.target.files && ev.target.files[0];
+      if (!file) { blogImageData = null; document.getElementById('bImgPreview').style.display = 'none'; return; }
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        blogImageData = e.target.result;
+        document.getElementById('bImgTag').src = blogImageData;
+        document.getElementById('bImgPreview').style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
+    function openBlogModal() {
+      if (!ADMIN) return;                 // guard: only admins
+      editingId = null; blogImageData = null;
+      document.getElementById('modalTitle').textContent = 'Add a Blog Post';
+      document.getElementById('modalSub').textContent = 'Publish a new post to the blog.';
+      document.getElementById('modalSubmit').textContent = 'Publish Post';
+      resetBlogForm();
+      document.getElementById('blogModal').classList.add('open');
+    }
+    function editBlog(id) {
+      if (!ADMIN) return;
+      const b = BLOGS.find(x => x.id === id); if (!b) return;
+      editingId = id; blogImageData = null;
+      document.getElementById('modalTitle').textContent = 'Edit Blog Post';
+      document.getElementById('modalSub').textContent = 'Update this post. Leave the image empty to keep the current one.';
+      document.getElementById('modalSubmit').textContent = 'Save Changes';
+      document.getElementById('bTitle').value = b.title;
+      document.getElementById('bBody').value = b.body;
+      document.getElementById('bAuthor').value = b.author;
+      document.getElementById('bCat').value = b.cat;
+      document.getElementById('bImage').value = '';
+      document.getElementById('bImgPreview').style.display = 'none';
+      document.getElementById('blogModal').classList.add('open');
+    }
+    function closeBlogModal() {
+      document.getElementById('blogModal').classList.remove('open');
+      ['errTitle', 'errBody'].forEach(e => document.getElementById(e).style.display = 'none');
+    }
+
+    function submitBlog() {
+      const t = document.getElementById('bTitle').value.trim();
+      const body = document.getElementById('bBody').value.trim();
+      const author = document.getElementById('bAuthor').value.trim() || "Guest Contributor";
+      const cat = document.getElementById('bCat').value;
+      let ok = true;
+      if (t) { document.getElementById('errTitle').style.display = 'none'; } else { document.getElementById('errTitle').style.display = 'block'; ok = false; }
+      if (body) { document.getElementById('errBody').style.display = 'none'; } else { document.getElementById('errBody').style.display = 'block'; ok = false; }
+      if (!ok) return;
+
+      if (SB_ENABLED) { submitBlogToSupabase(t, body, author, cat); return; }
+
+      // ---- fallback: in-memory (no database configured) ----
+      if (editingId !== null) {
+        const b = BLOGS.find(x => x.id === editingId);
+        if (b) { b.title = t; b.body = body; b.author = author; b.cat = cat; if (blogImageData) b.img = blogImageData; }
+      } else {
+        const hues = [158, 24, 222, 300, 190, 16, 130];
+        BLOGS.unshift({ id: ++blogSeq, img: blogImageData, title: t, cat: cat, author: author, date: new Date().toLocaleDateString('en-IN', { month: 'short', year: 'numeric' }), hue: hues[Math.floor(Math.random() * hues.length)], body: body });
+      }
+      resetBlogForm(); closeBlogModal(); renderBlogs(); go('blogs');
+    }
+
+    function deleteBlog(id) {
+      if (!ADMIN) return;
+      if (!confirm('Delete this post permanently?')) return;
+      if (SB_ENABLED) { deleteBlogFromSupabase(id); return; }
+      BLOGS = BLOGS.filter(x => x.id !== id);
+      renderBlogs();
+    }
+
+    function resetBlogForm() {
+      document.getElementById('bTitle').value = ''; document.getElementById('bBody').value = ''; document.getElementById('bAuthor').value = '';
+      document.getElementById('bImage').value = ''; document.getElementById('bImgPreview').style.display = 'none'; blogImageData = null;
+    }
+
+    /* ---- Supabase: add OR edit a post ---- */
+    async function submitBlogToSupabase(t, body, author, cat) {
+      const btn = document.getElementById('modalSubmit');
+      const oldLabel = btn.textContent; btn.textContent = 'Saving...'; btn.style.opacity = .7;
+      try {
+        let image_url = null;
+        const file = document.getElementById('bImage').files[0];
+        if (file) {
+          const path = Date.now() + '-' + file.name.replace(/[^a-zA-Z0-9.]/g, '_');
+          const up = await sb.storage.from('blog-images').upload(path, file);
+          if (up.error) throw up.error;
+          image_url = sb.storage.from('blog-images').getPublicUrl(path).data.publicUrl;
+        }
+        if (editingId !== null) {
+          const patch = { title: t, category: cat, author: author, body: body };
+          if (image_url) patch.image_url = image_url;   // only overwrite image if a new one was chosen
+          const up = await sb.from('blog_posts').update(patch).eq('id', editingId).select();
+          if (up.error) throw up.error;
+          if (!up.data || !up.data.length) throw new Error('Update affected 0 rows. Your UPDATE policy is probably missing (see setup).');
+        } else {
+          const ins = await sb.from('blog_posts').insert({ title: t, category: cat, author: author, body: body, image_url: image_url }).select();
+          if (ins.error) throw ins.error;
+          if (!ins.data || !ins.data.length) throw new Error('Insert affected 0 rows. Your INSERT policy is probably missing (see setup).');
+        }
+        resetBlogForm(); closeBlogModal(); await loadBlogs(); go('blogs');
+      } catch (err) {
+        alert('Could not save: ' + (err.message || err));
+      } finally {
+        btn.textContent = oldLabel; btn.style.opacity = 1;
+      }
+    }
+
+    async function deleteBlogFromSupabase(id) {
+      try {
+        const del = await sb.from('blog_posts').delete().eq('id', id).select();
+        if (del.error) throw del.error;
+        if (!del.data || !del.data.length) throw new Error('Delete affected 0 rows. Your DELETE policy is probably missing (see setup).');
+        await loadBlogs();
+      } catch (err) {
+        alert('Could not delete: ' + (err.message || err));
+      }
+    }
+
+    /* ---- Supabase: load all posts (newest first) ---- */
+    async function loadBlogs() {
+      if (!SB_ENABLED) { renderBlogs(); return; }
+      try {
+        const { data, error } = await sb.from('blog_posts').select('*').order('created_at', { ascending: false });
+        if (error) throw error;
+        console.log("[BSG] Loaded " + data.length + " posts from database");
+        const hues = [158, 24, 222, 300, 190, 16, 130];
+        BLOGS = data.map((p, i) => ({
+          id: p.id, title: p.title, cat: p.category, author: p.author, body: p.body, img: p.image_url,
+          date: new Date(p.created_at).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' }),
+          hue: hues[i % hues.length]
+        }));
+        renderBlogs();
+      } catch (err) {
+        console.error('[BSG] loadBlogs failed:', err);
+        alert('Could not load posts from database:\n' + (err.message || err));
+        renderBlogs();
+      }
+    }
+
+    /* ============================================================
+       ADMIN ACCESS  (blog management only, hidden from the site)
+       Change the password below to whatever you want.
+       Open the "Admin" link in the footer to log in.
+       ============================================================ */
+    const ADMIN_PASSWORD = "sikar2026";   // <-- change this
+    let ADMIN = (sessionStorage.getItem('bsg_admin') === '1');
+
+    function handleAdminLink() {
+      if (ADMIN) { adminLogout(); }
+      else { document.getElementById('adminModal').classList.add('open'); setTimeout(() => document.getElementById('adminPass').focus(), 50); }
+    }
+    function closeAdminModal() {
+      document.getElementById('adminModal').classList.remove('open');
+      document.getElementById('errAdmin').style.display = 'none';
+      document.getElementById('adminPass').value = '';
+    }
+    function doAdminLogin() {
+      const p = document.getElementById('adminPass').value;
+      if (p === ADMIN_PASSWORD) {
+        ADMIN = true; sessionStorage.setItem('bsg_admin', '1');
+        closeAdminModal(); applyAdminUI(); renderBlogs(); go('blogs');
+      } else {
+        document.getElementById('errAdmin').style.display = 'block';
+      }
+    }
+    function adminLogout() {
+      ADMIN = false; sessionStorage.removeItem('bsg_admin');
+      applyAdminUI(); renderBlogs();
+    }
+    function applyAdminUI() {
+      document.getElementById('adminAddBtn').style.display = ADMIN ? 'inline-block' : 'none';
+      document.getElementById('adminFootLink').textContent = ADMIN ? 'Log out' : 'Admin';
+      document.getElementById('adminStatus').innerHTML = ADMIN
+        ? 'Made in Sikar <span class="admin-badge">Admin mode</span>'
+        : 'Made in Sikar';
+    }
+
+    document.getElementById('blogModal').addEventListener('click', function (e) { if (e.target === this) closeBlogModal(); });
+    document.getElementById('adminModal').addEventListener('click', function (e) { if (e.target === this) closeAdminModal(); });
+
+    renderVoices();
+    renderSchools();
+    applyAdminUI();
+    loadBlogs();
+  </script>
+</body>
+
+</html>
