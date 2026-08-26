@@ -1,2316 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Best School Guide Sikar — School Directory, Ratings & Reviews 2026</title>
-  <meta name="description"
-    content="An independent guide to the best schools in Sikar, Rajasthan. Ranked by Google Maps reviews. All boards — CBSE, RBSE, ICSE, English medium and pre-foundation.">
-  <style>
-    :root {
-      --ink: #12242e;
-      --paper: #f6f2e9;
-      --paper-2: #efe9db;
-      --brand: #0a5c46;
-      --brand-2: #0d7a5c;
-      --accent: #e0703a;
-      --line: #d9d0be;
-      --muted: #5c6b6f;
-      --card: #fffdf7;
-      --gmaps: #e8b23a;
-      --verify: #1a8f5c;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      background: var(--paper);
-      color: var(--ink);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column
-    }
-
-    footer {
-      flex-shrink: 0
-    }
-
-    .sans {
-      font-family: 'Segoe UI', Helvetica, Arial, sans-serif
-    }
-
-    .wrap {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 0 clamp(20px, 5vw, 80px)
-    }
-
-    a {
-      color: inherit
-    }
-
-    header {
-      border-bottom: 1.5px solid var(--ink);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: var(--paper)
-    }
-
-    .bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.3rem;
-      letter-spacing: -.01em;
-      color: var(--brand);
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-family: inherit
-    }
-
-    .logo span {
-      color: var(--accent)
-    }
-
-    .tabs {
-      display: flex;
-      gap: 6px
-    }
-
-    .tab {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .86rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-      padding: 9px 18px;
-      border: 1.5px solid transparent;
-      background: none;
-      cursor: pointer;
-      color: var(--muted);
-      border-radius: 8px
-    }
-
-    .tab:hover {
-      color: var(--ink)
-    }
-
-    .tab.active {
-      background: var(--brand);
-      color: #fff
-    }
-
-    .menu-btn {
-      display: none;
-      background: none;
-      border: 1.5px solid var(--ink);
-      font-size: 1.1rem;
-      padding: 4px 10px;
-      cursor: pointer;
-      border-radius: 4px
-    }
-
-    .page {
-      display: none
-    }
-
-    .page.active {
-      display: block;
-      flex: 1 0 auto;
-      animation: fade .3s ease
-    }
-
-    @keyframes fade {
-      from {
-        opacity: 0;
-        transform: translateY(6px)
-      }
-
-      to {
-        opacity: 1;
-        transform: none
-      }
-    }
-
-    .eyebrow {
-      font-family: 'Segoe UI', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: .22em;
-      font-size: .72rem;
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: 20px
-    }
-
-    .hero {
-      padding: 64px 0 48px;
-      border-bottom: 1px solid var(--line)
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.4rem);
-      line-height: 1.03;
-      letter-spacing: -.02em;
-      font-weight: 700;
-      max-width: 16ch
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--brand)
-    }
-
-    .hero p {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 1.12rem;
-      color: var(--muted);
-      max-width: 60ch;
-      margin-top: 24px
-    }
-
-    .hero-cta {
-      margin-top: 34px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 44px;
-      margin-top: 44px;
-      flex-wrap: wrap
-    }
-
-    .hero-stats .n {
-      font-size: 2.3rem;
-      font-weight: 700;
-      color: var(--brand);
-      line-height: 1
-    }
-
-    .hero-stats .l {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .78rem;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--muted);
-      margin-top: 6px
-    }
-
-    .band {
-      padding: 64px 0;
-      border-bottom: 1px solid var(--line)
-    }
-
-    .band.dark {
-      background: var(--ink);
-      color: var(--paper);
-      border: none
-    }
-
-    .band.dark .eyebrow {
-      color: var(--accent)
-    }
-
-    .two {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center
-    }
-
-    .two h2 {
-      font-size: 2.1rem;
-      letter-spacing: -.01em;
-      margin-bottom: 16px;
-      max-width: 18ch
-    }
-
-    .two p {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 1rem;
-      color: var(--muted);
-      margin-bottom: 14px
-    }
-
-    .band.dark .two p {
-      color: #c9d2d0
-    }
-
-    .factlist {
-      list-style: none;
-      font-family: 'Segoe UI', sans-serif
-    }
-
-    .factlist li {
-      padding: 14px 0;
-      border-top: 1px solid var(--line);
-      display: flex;
-      gap: 14px;
-      align-items: flex-start
-    }
-
-    .band.dark .factlist li {
-      border-color: #2a3d45
-    }
-
-    .factlist .fn {
-      font-weight: 800;
-      color: var(--accent);
-      font-size: 1.1rem;
-      min-width: 34px
-    }
-
-    .factlist .ft {
-      font-size: .94rem
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      margin-top: 12px
-    }
-
-    .why-grid .item {
-      border-top: 2px solid var(--accent);
-      padding-top: 16px
-    }
-
-    .why-grid h4 {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 1.05rem;
-      margin-bottom: 8px
-    }
-
-    .why-grid p {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .92rem;
-      color: var(--muted)
-    }
-
-    .band.dark .why-grid p {
-      color: #c9d2d0
-    }
-
-    .voices {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 12px
-    }
-
-    .voice {
-      background: var(--card);
-      border: 1.5px solid var(--line);
-      border-radius: 12px;
-      padding: 24px
-    }
-
-    .voice p {
-      font-size: 1rem;
-      font-style: italic;
-      color: #33454a;
-      margin-bottom: 16px
-    }
-
-    .voice .who {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .82rem;
-      font-weight: 700;
-      color: var(--brand)
-    }
-
-    .voice .role {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .76rem;
-      color: var(--muted)
-    }
-
-    .voice .st {
-      color: var(--gmaps);
-      letter-spacing: 1px;
-      margin-bottom: 10px
-    }
-
-    h2.sec {
-      font-size: 2.1rem;
-      letter-spacing: -.01em;
-      margin-bottom: 8px
-    }
-
-    .sub {
-      font-family: 'Segoe UI', sans-serif;
-      color: var(--muted);
-      margin-bottom: 30px
-    }
-
-    .page-head {
-      padding: 52px 0 8px
-    }
-
-    .page-head h1 {
-      font-size: clamp(2.1rem, 5vw, 3.2rem);
-      letter-spacing: -.02em;
-      font-weight: 700
-    }
-
-    .page-head h1 em {
-      font-style: italic;
-      color: var(--brand)
-    }
-
-    .page-head p {
-      font-family: 'Segoe UI', sans-serif;
-      color: var(--muted);
-      margin-top: 12px;
-      max-width: 60ch
-    }
-
-    .filterbar {
-      padding: 24px 0 8px
-    }
-
-    .filterbar .row {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: space-between
-    }
-
-    .chips {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap
-    }
-
-    .chip {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .82rem;
-      font-weight: 600;
-      padding: 9px 15px;
-      border: 1.5px solid var(--line);
-      background: var(--card);
-      border-radius: 20px;
-      cursor: pointer;
-      color: var(--muted);
-      white-space: nowrap
-    }
-
-    .chip.active {
-      background: var(--brand);
-      border-color: var(--brand);
-      color: #fff
-    }
-
-    .sortnote {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .8rem;
-      color: var(--muted)
-    }
-
-    .count {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .85rem;
-      color: var(--muted);
-      margin: 8px 0 20px
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-      padding-bottom: 40px
-    }
-
-    .card {
-      background: var(--card);
-      border: 1.5px solid var(--line);
-      border-radius: 14px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      transition: transform .18s, box-shadow .18s
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 32px -20px rgba(10, 92, 70, .55)
-    }
-
-    .card-photo {
-      height: 150px;
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      padding: 12px
-    }
-
-    .card-photo .rank {
-      position: absolute;
-      top: 10px;
-      left: 12px;
-      font-family: 'Segoe UI', sans-serif;
-      font-weight: 800;
-      font-size: 1rem;
-      background: rgba(0, 0, 0, .32);
-      color: #fff;
-      padding: 4px 10px;
-      border-radius: 20px
-    }
-
-    .card-photo .boards {
-      position: absolute;
-      top: 10px;
-      right: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      justify-content: flex-end;
-      max-width: 70%
-    }
-
-    .card-photo .board {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .62rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      background: rgba(255, 255, 255, .94);
-      color: var(--brand);
-      padding: 4px 8px;
-      border-radius: 5px
-    }
-
-    .card-photo .board.rbse {
-      color: var(--accent)
-    }
-
-    .card-photo .board.icse {
-      color: #7a3fb0
-    }
-
-    .card-photo .board.prefoundation {
-      color: #0d5aa8
-    }
-
-    .card-body {
-      padding: 16px 20px 20px;
-      display: flex;
-      flex-direction: column;
-      flex: 1
-    }
-
-    .card-body h3 {
-      font-size: 1.18rem;
-      line-height: 1.2;
-      letter-spacing: -.01em;
-      display: flex;
-      align-items: center;
-      gap: 7px
-    }
-
-    .verified {
-      color: var(--verify);
-      font-size: .9rem
-    }
-
-    .gm {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      margin-top: 8px;
-      font-family: 'Segoe UI', sans-serif
-    }
-
-    .gm .sc {
-      font-weight: 800
-    }
-
-    .gm .st {
-      color: var(--gmaps);
-      letter-spacing: 1px;
-      font-size: .9rem
-    }
-
-    .gm .ct {
-      font-size: .78rem;
-      color: var(--muted)
-    }
-
-    .card-body .loc {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .82rem;
-      color: var(--muted);
-      margin-top: 10px
-    }
-
-    .card-body .ph {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .86rem;
-      font-weight: 600;
-      color: var(--brand);
-      margin-top: 6px
-    }
-
-    .card-body .open {
-      margin-top: 14px;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .8rem;
-      font-weight: 700;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: .05em
-    }
-
-    .card.featured {
-      border: 2px solid var(--accent);
-      box-shadow: 0 10px 28px -16px rgba(224, 112, 58, .55)
-    }
-
-    .card.featured:hover {
-      box-shadow: 0 18px 36px -18px rgba(224, 112, 58, .6)
-    }
-
-    .feat-badge {
-      position: absolute;
-      bottom: 12px;
-      right: 12px;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .68rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      background: var(--accent);
-      color: #fff;
-      padding: 5px 11px;
-      border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, .25)
-    }
-
-    .tagline-bar {
-      font-family: 'Segoe UI', sans-serif;
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: #fff;
-      background: linear-gradient(90deg, var(--brand), var(--brand-2));
-      padding: 14px 22px;
-      border-radius: 10px;
-      margin: 0 0 26px;
-      text-align: center;
-      letter-spacing: .01em
-    }
-
-    .usp-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin: 0 0 26px
-    }
-
-    .usp {
-      background: var(--card);
-      border: 1.5px solid var(--line);
-      border-radius: 10px;
-      padding: 14px 16px;
-      border-left: 3px solid var(--accent)
-    }
-
-    .usp-t {
-      font-family: 'Segoe UI', sans-serif;
-      font-weight: 700;
-      font-size: .92rem;
-      margin-bottom: 4px;
-      color: var(--brand)
-    }
-
-    .usp-d {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .82rem;
-      color: var(--muted);
-      line-height: 1.45
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 0 0 26px
-    }
-
-    .pill {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .82rem;
-      font-weight: 600;
-      background: var(--paper-2);
-      border: 1.5px solid var(--line);
-      color: var(--ink);
-      padding: 7px 14px;
-      border-radius: 20px
-    }
-
-    .tick-list {
-      list-style: none;
-      margin: 0 0 26px;
-      font-family: 'Segoe UI', sans-serif
-    }
-
-    .tick-list li {
-      padding: 9px 0 9px 30px;
-      position: relative;
-      font-size: .94rem;
-      border-bottom: 1px solid var(--line)
-    }
-
-    .tick-list li:before {
-      content: "\2714";
-      position: absolute;
-      left: 0;
-      top: 9px;
-      color: var(--verify);
-      font-weight: 800
-    }
-
-    .tick-list.award li:before {
-      content: "\1F3C6";
-    }
-
-    .fee-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0 0 12px;
-      border: 1.5px solid var(--line);
-      border-radius: 10px;
-      overflow: hidden
-    }
-
-    .fee-table th {
-      background: var(--brand);
-      color: #fff;
-      text-align: left;
-      padding: 12px 16px;
-      font-size: .82rem;
-      text-transform: uppercase;
-      letter-spacing: .05em
-    }
-
-    .fee-table td {
-      padding: 11px 16px;
-      border-top: 1px solid var(--line);
-      font-size: .94rem
-    }
-
-    .fee-table td:last-child {
-      font-weight: 700;
-      color: var(--brand);
-      text-align: right
-    }
-
-    .fee-table tr:nth-child(even) td {
-      background: var(--paper-2)
-    }
-
-    .feeyear {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .72rem;
-      font-weight: 700;
-      background: var(--accent);
-      color: #fff;
-      padding: 3px 10px;
-      border-radius: 20px;
-      vertical-align: middle;
-      margin-left: 8px
-    }
-
-    .feenote {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .8rem;
-      color: var(--muted);
-      margin: 0 0 20px;
-      line-height: 1.5
-    }
-
-    .euro-spotlight {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      background: var(--card);
-      border: 2px solid var(--accent);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 18px 44px -24px rgba(224, 112, 58, .5)
-    }
-
-    .es-media {
-      min-height: 320px;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center
-    }
-
-    .es-logo {
-      width: 70%;
-      max-width: 260px
-    }
-
-    .es-body {
-      padding: 38px 40px
-    }
-
-    .es-body h2 {
-      font-size: 2.2rem;
-      letter-spacing: -.01em;
-      margin-bottom: 12px
-    }
-
-    .es-tag {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 1rem;
-      color: var(--muted);
-      margin-bottom: 24px;
-      line-height: 1.6
-    }
-
-    .es-stats {
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-bottom: 28px
-    }
-
-    .es-stats .esn {
-      display: block;
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: var(--brand);
-      line-height: 1
-    }
-
-    .es-stats .esl {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .74rem;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--muted)
-    }
-
-    .es-cta {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap
-    }
-
-    .inline-euro {
-      color: var(--accent);
-      font-weight: 700;
-      cursor: pointer;
-      border-bottom: 1.5px solid var(--accent)
-    }
-
-    .inline-euro:hover {
-      color: var(--brand);
-      border-color: var(--brand)
-    }
-
-    @media(max-width:760px) {
-      .euro-spotlight {
-        grid-template-columns: 1fr
-      }
-
-      .es-media {
-        min-height: 200px
-      }
-    }
-
-    .back {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .85rem;
-      font-weight: 600;
-      color: var(--brand);
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 24px 0 0
-    }
-
-    .detail-hero {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      padding: 16px 0 24px;
-      border-bottom: 1px solid var(--line)
-    }
-
-    .detail-hero h1 {
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
-      letter-spacing: -.02em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap
-    }
-
-    .detail-hero .loc {
-      font-family: 'Segoe UI', sans-serif;
-      color: var(--muted);
-      margin-top: 8px
-    }
-
-    .detail-hero .boards {
-      margin-top: 12px;
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap
-    }
-
-    .tagpill {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      background: var(--paper-2);
-      color: var(--brand);
-      border: 1px solid var(--line);
-      padding: 4px 10px;
-      border-radius: 20px
-    }
-
-    .detail-score {
-      text-align: right;
-      font-family: 'Segoe UI', sans-serif;
-      min-width: 150px
-    }
-
-    .detail-score .big {
-      font-size: 2.6rem;
-      font-weight: 800;
-      line-height: 1;
-      color: var(--ink)
-    }
-
-    .detail-score .st {
-      color: var(--gmaps);
-      letter-spacing: 2px;
-      font-size: 1.1rem
-    }
-
-    .detail-score .ct {
-      font-size: .82rem;
-      color: var(--muted);
-      margin-top: 4px
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 10px;
-      height: 340px;
-      margin: 28px 0
-    }
-
-    .gallery div {
-      border-radius: 12px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      overflow: hidden
-    }
-
-    .gallery div:first-child {
-      grid-row: 1/3
-    }
-
-    .gallery .lbl {
-      position: absolute;
-      bottom: 10px;
-      left: 12px;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .72rem;
-      font-weight: 700;
-      color: #fff;
-      background: rgba(0, 0, 0, .35);
-      padding: 3px 9px;
-      border-radius: 6px
-    }
-
-    .detail-cols {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 44px;
-      padding-bottom: 48px
-    }
-
-    .detail-cols h3 {
-      font-size: 1.4rem;
-      margin: 8px 0 14px
-    }
-
-    .detail-cols p.about {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 1rem;
-      color: #33454a;
-      margin-bottom: 24px
-    }
-
-    .rev {
-      background: var(--card);
-      border: 1.5px solid var(--line);
-      border-radius: 12px;
-      padding: 18px 20px;
-      margin-bottom: 14px
-    }
-
-    .rev .st {
-      color: var(--gmaps);
-      letter-spacing: 1px;
-      font-size: .9rem;
-      margin-bottom: 8px
-    }
-
-    .rev p {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .92rem;
-      color: #33454a
-    }
-
-    .infobox {
-      background: var(--card);
-      border: 1.5px solid var(--line);
-      border-radius: 12px;
-      padding: 22px;
-      font-family: 'Segoe UI', sans-serif;
-      position: sticky;
-      top: 90px
-    }
-
-    .infobox .ir {
-      display: flex;
-      justify-content: space-between;
-      padding: 11px 0;
-      border-top: 1px solid var(--line);
-      font-size: .9rem;
-      gap: 12px
-    }
-
-    .infobox .ir:first-child {
-      border-top: none
-    }
-
-    .infobox .ik {
-      color: var(--muted)
-    }
-
-    .infobox .iv {
-      font-weight: 700;
-      text-align: right
-    }
-
-    .infobox .maplink {
-      display: block;
-      margin-top: 16px;
-      text-align: center;
-      text-decoration: none
-    }
-
-    .blog-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 16px
-    }
-
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      padding: 8px 0 40px
-    }
-
-    .blog {
-      background: var(--card);
-      border: 1.5px solid var(--line);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      transition: transform .18s, box-shadow .18s
-    }
-
-    .blog:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 30px -18px rgba(10, 92, 70, .5)
-    }
-
-    .blog-img {
-      height: 150px;
-      display: flex;
-      align-items: flex-end;
-      padding: 16px;
-      background-size: cover;
-      background-position: center
-    }
-
-    .blog-tag {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: #fff;
-      background: rgba(0, 0, 0, .3);
-      padding: 4px 10px;
-      border-radius: 20px
-    }
-
-    .blog-body {
-      padding: 18px 22px 22px;
-      flex: 1;
-      display: flex;
-      flex-direction: column
-    }
-
-    .blog-body h4 {
-      font-size: 1.15rem;
-      line-height: 1.2;
-      margin-bottom: 8px
-    }
-
-    .blog-body p {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .88rem;
-      color: var(--muted);
-      flex: 1
-    }
-
-    .blog-date {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .74rem;
-      color: var(--muted);
-      margin-top: 14px;
-      text-transform: uppercase;
-      letter-spacing: .06em
-    }
-
-    .admin-actions {
-      display: flex;
-      gap: 8px;
-      margin-top: 14px
-    }
-
-    .admin-actions button {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .76rem;
-      font-weight: 700;
-      padding: 7px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      border: 1.5px solid var(--line);
-      background: var(--paper-2);
-      color: var(--ink)
-    }
-
-    .admin-actions button.del {
-      border-color: #e0b4ac;
-      color: #b5402f;
-      background: #faeae7
-    }
-
-    .admin-actions button:hover {
-      filter: brightness(.97)
-    }
-
-    .admin-badge {
-      display: inline-block;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: #fff;
-      background: var(--accent);
-      padding: 3px 10px;
-      border-radius: 20px;
-      margin-left: 8px
-    }
-
-    .btn {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .9rem;
-      font-weight: 700;
-      text-decoration: none;
-      padding: 12px 22px;
-      border-radius: 8px;
-      cursor: pointer;
-      border: 1.5px solid var(--brand);
-      display: inline-block;
-      background: none;
-      color: var(--brand)
-    }
-
-    .btn.primary {
-      background: var(--brand);
-      color: #fff
-    }
-
-    .btn.primary:hover {
-      background: var(--brand-2)
-    }
-
-    .btn.accent {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff
-    }
-
-    .modal-bg {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(18, 36, 46, .6);
-      z-index: 100;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 40px 20px;
-      overflow: auto
-    }
-
-    .modal-bg.open {
-      display: flex
-    }
-
-    .modal {
-      background: var(--paper);
-      border-radius: 16px;
-      max-width: 600px;
-      width: 100%;
-      padding: 34px;
-      border: 1.5px solid var(--ink)
-    }
-
-    .modal h3 {
-      font-size: 1.6rem;
-      margin-bottom: 6px
-    }
-
-    .modal .msub {
-      font-family: 'Segoe UI', sans-serif;
-      color: var(--muted);
-      font-size: .9rem;
-      margin-bottom: 22px
-    }
-
-    .field {
-      margin-bottom: 18px
-    }
-
-    .field label {
-      display: block;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--muted);
-      margin-bottom: 6px
-    }
-
-    .field input,
-    .field textarea,
-    .field select {
-      width: 100%;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .95rem;
-      padding: 11px 14px;
-      border: 1.5px solid var(--line);
-      border-radius: 8px;
-      background: var(--card);
-      color: var(--ink);
-      resize: vertical
-    }
-
-    .field input:focus,
-    .field textarea:focus,
-    .field select:focus {
-      outline: none;
-      border-color: var(--brand)
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 10px;
-      justify-content: flex-end;
-      margin-top: 8px
-    }
-
-    .err {
-      color: #c0392b;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .82rem;
-      margin-top: 4px;
-      display: none
-    }
-
-    footer {
-      background: var(--ink);
-      color: var(--paper);
-      padding: 56px 0 28px
-    }
-
-    .foot-grid {
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-      flex-wrap: wrap;
-      font-family: 'Segoe UI', sans-serif
-    }
-
-    footer .flogo {
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: #fff;
-      margin-bottom: 10px
-    }
-
-    footer .flogo span {
-      color: var(--accent)
-    }
-
-    footer p {
-      font-size: .88rem;
-      color: #b9c4c2;
-      max-width: 34ch
-    }
-
-    footer h5 {
-      font-size: .75rem;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      margin-bottom: 12px;
-      color: #fff
-    }
-
-    footer ul {
-      list-style: none
-    }
-
-    footer li {
-      margin-bottom: 8px
-    }
-
-    footer .fl {
-      color: #b9c4c2;
-      text-decoration: none;
-      font-size: .9rem;
-      cursor: pointer
-    }
-
-    footer .fl:hover {
-      color: var(--accent)
-    }
-
-    .copyright {
-      border-top: 1px solid #2a3d45;
-      margin-top: 36px;
-      padding-top: 20px;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: .78rem;
-      color: #8a9997;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px
-    }
-
-    @media(max-width:1160px) {
-      .grid {
-        grid-template-columns: repeat(3, 1fr)
-      }
-    }
-
-    @media(max-width:900px) {
-
-      .grid,
-      .blog-grid,
-      .why-grid,
-      .voices {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .two,
-      .detail-cols {
-        grid-template-columns: 1fr;
-        gap: 28px
-      }
-
-      .gallery {
-        grid-template-columns: 1fr 1fr;
-        height: auto;
-        grid-template-rows: none
-      }
-
-      .gallery div:first-child {
-        grid-row: auto;
-        height: 180px
-      }
-
-      .gallery div {
-        height: 120px
-      }
-
-      .infobox {
-        position: static
-      }
-    }
-
-    @media(max-width:640px) {
-      .tabs {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        flex-direction: column;
-        background: var(--paper);
-        border: 1.5px solid var(--ink);
-        border-radius: 10px;
-        padding: 10px;
-        gap: 4px
-      }
-
-      .tabs.show {
-        display: flex
-      }
-
-      .menu-btn {
-        display: block
-      }
-
-      .grid,
-      .blog-grid,
-      .why-grid,
-      .voices {
-        grid-template-columns: 1fr
-      }
-
-      .hero-stats {
-        gap: 26px
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best School Guide Sikar — School Directory, Ratings & Reviews 2026</title>
+<meta name="description" content="An independent guide to the best schools in Sikar, Rajasthan. All boards — CBSE, RBSE, ICSE, English medium and pre-foundation. Ratings from Google Maps.">
+<link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
-  <header>
-    <div class="wrap bar">
-      <button class="logo" onclick="go('home')">Best School Guide<span> Sikar</span></button>
-      <nav class="tabs" id="tabs">
-        <button class="tab active" data-tab="home" onclick="go('home')">Home</button>
-        <button class="tab" data-tab="schools" onclick="go('schools')">Schools</button>
-        <button class="tab" data-tab="blogs" onclick="go('blogs')">Blogs</button>
-        <button class="tab" data-tab="about" onclick="go('about')">About</button>
-      </nav>
-      <button class="menu-btn sans" onclick="document.getElementById('tabs').classList.toggle('show')">&#9776;</button>
-    </div>
-  </header>
+<header>
+  <div class="wrap bar">
+    <button class="logo" onclick="go('home')">Best School Guide<span> Sikar</span></button>
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-tab="home" onclick="go('home')">Home</button>
+      <button class="tab" data-tab="schools" onclick="go('schools')">Schools</button>
+      <button class="tab" data-tab="blogs" onclick="go('blogs')">Blogs</button>
+      <button class="tab" data-tab="about" onclick="go('about')">About</button>
+    </nav>
+    <button class="menu-btn sans" onclick="document.getElementById('tabs').classList.toggle('show')">&#9776;</button>
+  </div>
+</header>
 
-  <main id="page-home" class="page active">
-    <section class="hero">
-      <div class="wrap">
-        <div class="eyebrow">Sikar, Rajasthan &middot; 2026&ndash;27 Session</div>
-        <h1>Every good school in <em>Sikar</em>, in one honest place.</h1>
-        <p>Best School Guide Sikar is an independent directory that helps parents compare schools across every board
-          &mdash; CBSE, RBSE, ICSE, English medium and pre-foundation. Ranked by how many families have actually
-          reviewed them on Google Maps.</p>
-        <div class="hero-cta">
-          <button class="btn primary" onclick="go('schools')">Browse Schools</button>
-          <button class="btn" onclick="go('about')">About This Guide</button>
-        </div>
-        <div class="hero-stats">
-          <div>
-            <div class="n" id="statSchools">&mdash;</div>
-            <div class="l">Schools listed</div>
-          </div>
-          <div>
-            <div class="n" id="statReviews">&mdash;</div>
-            <div class="l">Google reviews counted</div>
-          </div>
-          <div>
-            <div class="n">5</div>
-            <div class="l">Boards &amp; streams</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band" style="border:none;padding-bottom:0">
-      <div class="wrap">
-        <div class="euro-spotlight">
-          <div class="es-media"
-            style="background-image:linear-gradient(rgba(10,26,20,.35),rgba(10,26,20,.55)),url('https://eurointernationalschool.in/images/slider/xxl/slider02.jpg')">
-            <img src="https://eurointernationalschool.in/images/logos/logo-white-orange-340.png"
-              alt="Euro International School" class="es-logo">
-          </div>
-          <div class="es-body">
-            <div class="eyebrow" style="margin-bottom:12px">Sikar's Top-Rated CBSE School</div>
-            <h2>Euro International School</h2>
-            <p class="es-tag">The First Futuristic CBSE School in Sikar &mdash; where coding, financial literacy, a
-              Finland-model preschool and 120+ national gold medals meet the best CBSE board results in Sikar.</p>
-            <div class="es-stats">
-              <div><span class="esn">20+</span><span class="esl">Years</span></div>
-              <div><span class="esn">2000+</span><span class="esl">Students</span></div>
-              <div><span class="esn">1:16</span><span class="esl">Teacher Ratio</span></div>
-              <div><span class="esn">120+</span><span class="esl">Gold Medals</span></div>
-            </div>
-            <div class="es-cta">
-              <button class="btn primary" onclick="openSchool('euro')">View Full Profile</button>
-              <a class="btn accent" href="https://eurointernationalschool.in" target="_blank" rel="noopener">Visit
-                Official Website &rarr;</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band">
-      <div class="wrap two">
-        <div>
-          <div class="eyebrow">About the guide</div>
-          <h2>Choosing a school shouldn't mean guessing.</h2>
-          <p>Every admission season, parents in Sikar juggle a dozen brochures, WhatsApp forwards and conflicting "top
-            10" lists &mdash; most of them paid placements. We built something simpler.</p>
-          <p>This guide gathers real, publicly available Google Maps ratings and parent reviews for schools across
-            Sikar, and ranks them so families can compare with confidence. Topping the list is <span class="inline-euro"
-              onclick="openSchool('euro')">Euro International School</span> &mdash; Sikar's first futuristic CBSE
-            school.</p>
-          <p>It's free for parents, always.</p>
-        </div>
-        <ul class="factlist">
-          <li><span class="fn">01</span><span class="ft"><strong>Featured school.</strong> <span class="inline-euro"
-                onclick="openSchool('euro')">Euro International School</span> leads our directory &mdash; <a
-                href="https://eurointernationalschool.in" target="_blank" rel="noopener">visit their site</a>.</span>
-          </li>
-          <li><span class="fn">02</span><span class="ft"><strong>All boards.</strong> CBSE, RBSE, ICSE, English medium
-              and pre-foundation campuses, side by side.</span></li>
-          <li><span class="fn">03</span><span class="ft"><strong>Real reviews.</strong> Ratings and comments sourced
-              from Google Maps.</span></li>
-          <li><span class="fn">04</span><span class="ft"><strong>Parent-first.</strong> Photos, contact numbers and
-              locations so you can visit and decide.</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="band dark">
-      <div class="wrap two">
-        <div>
-          <div class="eyebrow">The Sikar story</div>
-          <h2>A desert town that became Rajasthan's classroom.</h2>
-          <p>Once known mainly for its coaching institutes, Sikar has quietly grown into one of India's most
-            talked-about education hubs. Families from Jaipur, Delhi and across the Shekhawati region now send their
-            children here for strong board results and early competitive-exam foundations &mdash; without the pressure
-            and cost of a metro.</p>
-          <p>Today the city offers everything from playgroup-to-12 day schools with reliable transport to disciplined
-            residential campuses with hostels, NDA academies and pre-foundation programmes for JEE and NEET.</p>
-        </div>
-        <div class="why-grid">
-          <div class="item">
-            <h4>Results that travel</h4>
-            <p>Consistently strong CBSE and RBSE board results, with early JEE/NEET foundations built in.</p>
-          </div>
-          <div class="item">
-            <h4>Modern campuses</h4>
-            <p>Smart classrooms, science and computer labs, sports grounds and wellness programmes as standard.</p>
-          </div>
-          <div class="item">
-            <h4>Day &amp; boarding</h4>
-            <p>Real choice for local and outstation families, from transport routes to supervised hostels.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band">
-      <div class="wrap">
-        <div class="eyebrow">What parents say</div>
-        <h2 class="sec">Voices from Sikar families</h2>
-        <p class="sub">Real comments left on Google Maps by parents and students of Sikar schools.</p>
-        <div class="voices" id="homeVoices"></div>
-      </div>
-    </section>
-
-    <section class="band" style="text-align:center;border:none">
-      <div class="wrap">
-        <h2 class="sec" style="max-width:24ch;margin:0 auto 12px">Give your child Sikar's most future-ready education
-        </h2>
-        <p class="sub" style="max-width:52ch;margin:0 auto 24px">Explore Euro International School &mdash; the first
-          futuristic CBSE school in Sikar &mdash; or compare every school in the directory.</p>
-        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-          <button class="btn primary" onclick="openSchool('euro')">View Euro's Profile</button>
-          <a class="btn accent" href="https://eurointernationalschool.in" target="_blank" rel="noopener">Visit
-            eurointernationalschool.in &rarr;</a>
-          <button class="btn" onclick="go('schools')">Explore the Directory</button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <main id="page-schools" class="page">
-    <div class="wrap page-head">
-      <h1>Schools in <em>Sikar</em></h1>
-      <p>Ranked by number of Google Maps reviews &mdash; the more families who've weighed in, the higher the trust. Tap
-        any school to see photos, reviews, location and contact details.</p>
-    </div>
-    <div class="wrap filterbar">
-      <div class="row">
-        <div class="chips" id="chips">
-          <div class="chip active" data-filter="all" onclick="setFilter(this)">All</div>
-          <div class="chip" data-filter="cbse" onclick="setFilter(this)">CBSE</div>
-          <div class="chip" data-filter="rbse" onclick="setFilter(this)">RBSE</div>
-          <div class="chip" data-filter="icse" onclick="setFilter(this)">ICSE</div>
-          <div class="chip" data-filter="english" onclick="setFilter(this)">English Medium</div>
-          <div class="chip" data-filter="prefoundation" onclick="setFilter(this)">Pre-Foundation</div>
-        </div>
-        <div class="sortnote">&darr; Sorted by Google Maps reviews</div>
-      </div>
-      <div class="count" id="resultCount"></div>
-    </div>
+<!-- ================= HOME ================= -->
+<main id="page-home" class="page active">
+  <section class="hero">
     <div class="wrap">
-      <div class="grid" id="schoolGrid"></div>
+      <div class="eyebrow">Sikar, Rajasthan &middot; 2026&ndash;27 Session</div>
+      <h1>Every good school in <em>Sikar</em>, in one honest place.</h1>
+      <p>Best School Guide Sikar is an independent directory that helps parents compare schools across every board &mdash; CBSE, RBSE, ICSE, English medium and pre-foundation.</p>
+      <div class="hero-cta">
+        <button class="btn primary" onclick="go('schools')">Browse Schools</button>
+        <button class="btn" onclick="go('about')">About This Guide</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="n" id="statSchools">&mdash;</div><div class="l">Schools listed</div></div>
+        <div><div class="n" id="statReviews">&mdash;</div><div class="l">Google reviews counted</div></div>
+        <div><div class="n">5</div><div class="l">Boards &amp; streams</div></div>
+      </div>
     </div>
-  </main>
+  </section>
 
-  <main id="page-detail" class="page">
+  <section class="band" style="border:none;padding-bottom:0">
     <div class="wrap">
-      <button class="back" onclick="go('schools')">&larr; Back to all schools</button>
-      <div id="detailContent"></div>
-    </div>
-  </main>
-
-  <main id="page-blogs" class="page">
-    <div class="wrap page-head">
-      <div class="blog-top">
-        <div>
-          <h1>The <em>Blog</em></h1>
-          <p>Guides and advice for Sikar parents &mdash; admissions, boards, fees and campus life.</p>
+      <div class="euro-spotlight">
+        <div class="es-media" style="background-image:linear-gradient(rgba(10,26,20,.35),rgba(10,26,20,.55)),url('https://eurointernationalschool.in/images/slider/xxl/slider02.jpg')">
+          <img src="https://eurointernationalschool.in/images/logos/logo-white-orange-340.png" alt="Euro International School" class="es-logo">
         </div>
-        <button class="btn primary" id="adminAddBtn" onclick="openBlogModal()" style="display:none">&#43; Add a Blog
-          Post</button>
+        <div class="es-body">
+          <div class="eyebrow" style="margin-bottom:12px">Sikar's Top-Rated CBSE School</div>
+          <h2>Euro International School</h2>
+          <p class="es-tag">The First Futuristic CBSE School in Sikar &mdash; where coding, financial literacy, a Finland-model preschool and 120+ national gold medals meet the best CBSE board results in Sikar.</p>
+          <div class="es-stats">
+            <div><span class="esn">20+</span><span class="esl">Years</span></div>
+            <div><span class="esn">2000+</span><span class="esl">Students</span></div>
+            <div><span class="esn">1:16</span><span class="esl">Teacher Ratio</span></div>
+            <div><span class="esn">120+</span><span class="esl">Gold Medals</span></div>
+          </div>
+          <div class="es-cta">
+            <button class="btn primary" onclick="openSchool('euro')">View Full Profile</button>
+            <a class="btn accent" href="https://eurointernationalschool.in" target="_blank" rel="noopener">Visit Official Website &rarr;</a>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap two">
+      <div>
+        <div class="eyebrow">About the guide</div>
+        <h2>Choosing a school shouldn't mean guessing.</h2>
+        <p>Every admission season, parents in Sikar juggle a dozen brochures, WhatsApp forwards and conflicting "top 10" lists.</p>
+        <p>This guide gathers real, publicly available Google Maps ratings and parent reviews for schools across Sikar. Topping the list is <span class="inline-euro" onclick="openSchool('euro')">Euro International School</span> &mdash; Sikar's first futuristic CBSE school.</p>
+        <p>It's free for parents, always.</p>
+      </div>
+      <ul class="factlist">
+        <li><span class="fn">01</span><span class="ft"><strong>Featured school.</strong> <span class="inline-euro" onclick="openSchool('euro')">Euro International School</span> leads our directory &mdash; <a href="https://eurointernationalschool.in" target="_blank" rel="noopener">visit their site</a>.</span></li>
+        <li><span class="fn">02</span><span class="ft"><strong>All boards.</strong> CBSE, RBSE, ICSE, English medium and pre-foundation, side by side.</span></li>
+        <li><span class="fn">03</span><span class="ft"><strong>Real reviews.</strong> Ratings and comments sourced from Google Maps.</span></li>
+        <li><span class="fn">04</span><span class="ft"><strong>Parent-first.</strong> Photos, contact numbers and locations so you can visit and decide.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band dark">
+    <div class="wrap two">
+      <div>
+        <div class="eyebrow">The Sikar story</div>
+        <h2>A desert town that became Rajasthan's classroom.</h2>
+        <p>Once known mainly for its coaching institutes, Sikar has quietly grown into one of India's most talked-about education hubs. Families from Jaipur, Delhi and across the Shekhawati region now send their children here for strong board results and early competitive-exam foundations.</p>
+        <p>Today the city offers everything from playgroup-to-12 day schools with reliable transport to disciplined residential campuses with hostels, NDA academies and pre-foundation programmes for JEE and NEET.</p>
+      </div>
+      <div class="why-grid">
+        <div class="item"><h4>Results that travel</h4><p>Consistently strong CBSE and RBSE board results, with early JEE/NEET foundations built in.</p></div>
+        <div class="item"><h4>Modern campuses</h4><p>Smart classrooms, science and computer labs, sports grounds and wellness programmes as standard.</p></div>
+        <div class="item"><h4>Day &amp; boarding</h4><p>Real choice for local and outstation families, from transport routes to supervised hostels.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
     <div class="wrap">
-      <div class="blog-grid" id="blogGrid"></div>
+      <div class="eyebrow">What parents say</div>
+      <h2 class="sec">Voices from Sikar families</h2>
+      <p class="sub">Real comments left on Google Maps by parents and students of Sikar schools.</p>
+      <div class="voices" id="homeVoices"></div>
     </div>
-    <div class="wrap" id="blogEmpty" style="display:none;padding:20px 0 60px">
-      <div
-        style="text-align:center;font-family:'Segoe UI',sans-serif;color:var(--muted);padding:48px 20px;border:1.5px dashed var(--line);border-radius:14px">
-        No blog posts yet. Check back soon for guides and advice for Sikar parents.
-      </div>
-    </div>
-  </main>
+  </section>
 
-  <main id="page-blogpost" class="page">
-    <div class="wrap" style="max-width:780px">
-      <button class="back" onclick="go('blogs')">&larr; Back to blog</button>
-      <div id="blogPostContent"></div>
-    </div>
-  </main>
-
-  <main id="page-about" class="page">
-    <div class="wrap page-head">
-      <h1>About <em>Best School Guide Sikar</em></h1>
-      <p>Why this guide exists, how it works, and how we rank schools.</p>
-    </div>
-    <div class="wrap band" style="border:none;padding-top:24px">
-      <div class="two">
-        <div>
-          <div class="eyebrow">Our mission</div>
-          <h2>Make school choice in Sikar transparent and free.</h2>
-          <p>Best School Guide Sikar is an independent directory of schools across Sikar city and district. We don't run
-            any school and we don't take money to move a school up the list. Our goal is simple: give parents one
-            trustworthy place to compare their options.</p>
-          <p>We list schools across every board and stream in Sikar &mdash; CBSE, RBSE, ICSE, English medium and
-            pre-foundation &mdash; with the information parents actually ask for: real ratings, honest reviews, photos,
-            location and a phone number.</p>
-        </div>
-        <ul class="factlist">
-          <li><span class="fn">1</span><span class="ft"><strong>How we rank.</strong> Schools are ordered by the number
-              of Google Maps reviews. More reviews means more families have shared real experiences, which we treat as
-              the strongest signal of a school's footprint in Sikar.</span></li>
-          <li><span class="fn">2</span><span class="ft"><strong>Where data comes from.</strong> Ratings, review counts
-              and comments are drawn from public Google Maps listings. We display them as-is and link out so you can
-              verify.</span></li>
-          <li><span class="fn">3</span><span class="ft"><strong>Always verify.</strong> Fees, timings and affiliation
-              numbers change. Always confirm details directly with the school before admission.</span></li>
-          <li><span class="fn">4</span><span class="ft"><strong>Get listed or corrected.</strong> Run a Sikar school and
-              want to be added or update your details? Reach out and we'll review it.</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="wrap band" style="text-align:center">
-      <h2 class="sec" style="margin-bottom:12px">Run a school in Sikar?</h2>
-      <p class="sub" style="max-width:48ch;margin:0 auto 24px">Get your institution listed in the guide and reach
-        thousands of parents every admission season.</p>
-      <button class="btn accent" onclick="go('schools')">See the Directory</button>
-    </div>
-  </main>
-
-  <footer>
+  <section class="band" style="text-align:center;border:none">
     <div class="wrap">
-      <div class="foot-grid">
-        <div style="max-width:340px">
-          <div class="flogo">Best School Guide<span> Sikar</span></div>
-          <p>An independent guide helping parents in Sikar, Rajasthan compare and choose the right school for their
-            child.</p>
-        </div>
-        <div>
-          <h5>Explore</h5>
-          <ul>
-            <li><span class="fl" onclick="go('home')">Home</span></li>
-            <li><span class="fl" onclick="go('schools')">Schools</span></li>
-            <li><span class="fl" onclick="go('blogs')">Blogs</span></li>
-            <li><span class="fl" onclick="go('about')">About</span></li>
-          </ul>
-        </div>
-        <div>
-          <h5>Boards</h5>
-          <ul>
-            <li><span class="fl" onclick="go('schools');setFilterByKey('cbse')">CBSE Schools</span></li>
-            <li><span class="fl" onclick="go('schools');setFilterByKey('rbse')">RBSE Schools</span></li>
-            <li><span class="fl" onclick="go('schools');setFilterByKey('icse')">ICSE Schools</span></li>
-            <li><span class="fl" onclick="go('schools');setFilterByKey('prefoundation')">Pre-Foundation</span></li>
-          </ul>
-        </div>
-        <div>
-          <h5>Guide</h5>
-          <ul>
-            <li><span class="fl" onclick="go('about')">How we rank</span></li>
-            <li><span class="fl" id="adminFootLink" onclick="handleAdminLink()">Admin</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="copyright">
-        <span>&copy; 2026 Best School Guide Sikar &middot; Ratings from Google Maps &mdash; verify details directly with
-          schools.</span>
-        <span id="adminStatus">Made in Sikar</span>
+      <h2 class="sec" style="max-width:24ch;margin:0 auto 12px">Give your child Sikar's most future-ready education</h2>
+      <p class="sub" style="max-width:52ch;margin:0 auto 24px">Explore Euro International School &mdash; the first futuristic CBSE school in Sikar &mdash; or compare every school in the directory.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <button class="btn primary" onclick="openSchool('euro')">View Euro's Profile</button>
+        <a class="btn accent" href="https://eurointernationalschool.in" target="_blank" rel="noopener">Visit eurointernationalschool.in &rarr;</a>
+        <button class="btn" onclick="go('schools')">Explore the Directory</button>
       </div>
     </div>
-  </footer>
+  </section>
+</main>
 
-  <div class="modal-bg" id="blogModal">
-    <div class="modal">
-      <h3 id="modalTitle">Add a Blog Post</h3>
-      <div class="msub" id="modalSub">Publish a new post to the blog.</div>
-      <div class="field">
-        <label>Title</label>
-        <input id="bTitle" placeholder="e.g. 5 questions to ask on a school visit">
-        <div class="err" id="errTitle">Please add a title.</div>
+<!-- ================= SCHOOLS ================= -->
+<main id="page-schools" class="page">
+  <div class="wrap page-head">
+    <h1>Schools in <em>Sikar</em></h1>
+    <p>Ranked by Google Maps reviews. Tap any school to see photos, reviews, location and contact details.</p>
+  </div>
+  <div class="wrap filterbar">
+    <div class="row">
+      <div class="chips" id="chips">
+        <div class="chip active" data-filter="all" onclick="setFilter(this)">All</div>
+        <div class="chip" data-filter="cbse" onclick="setFilter(this)">CBSE</div>
+        <div class="chip" data-filter="rbse" onclick="setFilter(this)">RBSE</div>
+        <div class="chip" data-filter="icse" onclick="setFilter(this)">ICSE</div>
+        <div class="chip" data-filter="english" onclick="setFilter(this)">English Medium</div>
+        <div class="chip" data-filter="prefoundation" onclick="setFilter(this)">Pre-Foundation</div>
       </div>
-      <div class="field">
-        <label>Category</label>
-        <select id="bCat">
-          <option>Admissions</option>
-          <option>Boards</option>
-          <option>Fees</option>
-          <option>Campus Life</option>
-          <option>Parenting</option>
-          <option>Exams</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Author</label>
-        <input id="bAuthor" placeholder="Your name">
-      </div>
-      <div class="field">
-        <label>Cover image (optional)</label>
-        <input id="bImage" type="file" accept="image/*" onchange="previewBlogImage(event)">
-        <div id="bImgPreview"
-          style="display:none;margin-top:12px;border-radius:10px;overflow:hidden;border:1.5px solid var(--line)">
-          <img id="bImgTag" alt="preview" style="width:100%;max-height:220px;object-fit:cover;display:block">
-        </div>
-      </div>
-      <div class="field">
-        <label>Content</label>
-        <textarea id="bBody" rows="7" placeholder="Write your post here..."></textarea>
-        <div class="err" id="errBody">Please add some content.</div>
-      </div>
-      <div class="modal-actions">
-        <button class="btn" onclick="closeBlogModal()">Cancel</button>
-        <button class="btn primary" id="modalSubmit" onclick="submitBlog()">Publish Post</button>
+      <div class="sortnote">&darr; Sorted by Google Maps reviews</div>
+    </div>
+    <div class="count" id="resultCount"></div>
+  </div>
+  <div class="wrap"><div class="grid" id="schoolGrid"></div></div>
+</main>
+
+<!-- ================= SCHOOL DETAIL ================= -->
+<main id="page-detail" class="page">
+  <div class="wrap">
+    <button class="back" onclick="go('schools')">&larr; Back to all schools</button>
+    <div id="detailContent"></div>
+  </div>
+</main>
+
+<!-- ================= BLOGS ================= -->
+<main id="page-blogs" class="page">
+  <div class="wrap page-head">
+    <div class="blog-top">
+      <div>
+        <h1>The <em>Blog</em></h1>
+        <p>Guides and advice for Sikar parents &mdash; admissions, boards, fees and campus life.</p>
       </div>
     </div>
   </div>
-
-  <!-- ADMIN LOGIN MODAL -->
-  <div class="modal-bg" id="adminModal">
-    <div class="modal" style="max-width:420px">
-      <h3>Admin Login</h3>
-      <div class="msub">Enter the admin password to manage blog posts.</div>
-      <div class="field">
-        <label>Password</label>
-        <input id="adminPass" type="password" placeholder="Enter password"
-          onkeydown="if(event.key==='Enter')doAdminLogin()">
-        <div class="err" id="errAdmin">Incorrect password.</div>
-      </div>
-      <div class="modal-actions">
-        <button class="btn" onclick="closeAdminModal()">Cancel</button>
-        <button class="btn primary" onclick="doAdminLogin()">Log In</button>
-      </div>
+  <div class="wrap"><div class="blog-grid" id="blogGrid"></div></div>
+  <div class="wrap" id="blogEmpty" style="display:none;padding:20px 0 60px">
+    <div style="text-align:center;font-family:'Segoe UI',sans-serif;color:var(--muted);padding:48px 20px;border:1.5px dashed var(--line);border-radius:14px">
+      No blog posts yet. Check back soon for guides and advice for Sikar parents.
     </div>
   </div>
+</main>
 
-  <!-- Supabase client library -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- ================= BLOG DETAIL ================= -->
+<main id="page-blogpost" class="page">
+  <div class="wrap" style="max-width:780px">
+    <button class="back" onclick="go('blogs')">&larr; Back to blog</button>
+    <div id="blogPostContent"></div>
+  </div>
+</main>
 
-  <script>
-    /* ============================================================
-       SUPABASE CONFIG  —  paste your two values here
-       Project Settings -> API  (in your Supabase dashboard)
-       ============================================================ */
-    const SB_URL = "PASTE_YOUR_PROJECT_URL_HERE".trim();   // e.g. https://abcd1234.supabase.co
-    const SB_KEY = "PASTE_YOUR_ANON_PUBLIC_KEY_HERE".trim();
+<!-- ================= ABOUT ================= -->
+<main id="page-about" class="page">
+  <div class="wrap page-head">
+    <h1>About <em>Best School Guide Sikar</em></h1>
+    <p>Why this guide exists, how it works, and how we rank schools.</p>
+  </div>
+  <div class="wrap band" style="border:none;padding-top:24px">
+    <div class="two">
+      <div>
+        <div class="eyebrow">Our mission</div>
+        <h2>Make school choice in Sikar transparent and free.</h2>
+        <p>Best School Guide Sikar is an independent directory of schools across Sikar city and district. We list schools across every board and stream &mdash; CBSE, RBSE, ICSE, English medium and pre-foundation &mdash; with the information parents actually ask for: ratings, reviews, photos, location and a phone number.</p>
+      </div>
+      <ul class="factlist">
+        <li><span class="fn">1</span><span class="ft"><strong>How we rank.</strong> Schools are ordered by the number of Google Maps reviews &mdash; more reviews means more families have shared real experiences.</span></li>
+        <li><span class="fn">2</span><span class="ft"><strong>Where data comes from.</strong> Ratings, review counts and comments are drawn from public Google Maps listings. Always verify with the school.</span></li>
+        <li><span class="fn">3</span><span class="ft"><strong>Featured school.</strong> <span class="inline-euro" onclick="openSchool('euro')">Euro International School</span> is our featured campus.</span></li>
+        <li><span class="fn">4</span><span class="ft"><strong>Get listed.</strong> Run a Sikar school and want to be added or corrected? Reach out and we'll review it.</span></li>
+      </ul>
+    </div>
+  </div>
+</main>
 
-    // If keys are filled in, we use the live database. If not, the site
-    // silently falls back to the built-in demo posts so it still works.
-    const SB_ENABLED = SB_URL.indexOf("http") === 0 && SB_KEY.length > 20;
-    const sb = SB_ENABLED ? supabase.createClient(SB_URL, SB_KEY) : null;
-    console.log(SB_ENABLED ? "[BSG] Supabase ENABLED - using live database" : "[BSG] Supabase DISABLED - demo mode (changes won't persist)");
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="max-width:340px">
+        <div class="flogo">Best School Guide<span> Sikar</span></div>
+        <p>An independent guide helping parents in Sikar, Rajasthan compare and choose the right school for their child.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><span class="fl" onclick="go('home')">Home</span></li>
+          <li><span class="fl" onclick="go('schools')">Schools</span></li>
+          <li><span class="fl" onclick="go('blogs')">Blogs</span></li>
+          <li><span class="fl" onclick="go('about')">About</span></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Featured School</h5>
+        <ul>
+          <li><span class="fl" onclick="openSchool('euro')">Euro Int'l School Profile</span></li>
+          <li><a class="fl" href="https://eurointernationalschool.in" target="_blank" rel="noopener">Official Website</a></li>
+          <li><a class="fl" href="https://eurointernationalschool.in/admissions-euro-international-school" target="_blank" rel="noopener">Admissions</a></li>
+          <li><a class="fl" href="https://eurointernationalschool.in/admissions-euro-international-school#fee_structure" target="_blank" rel="noopener">Fee Structure</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Boards</h5>
+        <ul>
+          <li><span class="fl" onclick="go('schools');setFilterByKey('cbse')">CBSE Schools</span></li>
+          <li><span class="fl" onclick="go('schools');setFilterByKey('rbse')">RBSE Schools</span></li>
+          <li><span class="fl" onclick="go('schools');setFilterByKey('icse')">ICSE Schools</span></li>
+          <li><span class="fl" onclick="go('schools');setFilterByKey('prefoundation')">Pre-Foundation</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>&copy; 2026 Best School Guide Sikar &middot; Ratings from Google Maps &mdash; verify details directly with schools.</span>
+      <span>Made in Sikar</span>
+    </div>
+  </div>
+</footer>
 
-    const SCHOOLS = [
-      {
-        id: "pcp", website: "https://pcpsikar.com", img: "https://princecbse.com/assets/images/slider/CBSE-XII-Result-2026.png", logo: "https://princeeduhub.com/images/PrinceEduhubDark.png", name: "PCP Sikar (Prince Prime Campus)", boards: ["cbse", "english", "prefoundation"], tags: ["CBSE", "Pre-Foundation"], rating: 4.4, reviews: 1013, verified: true,
-        phone: "+91 96108 92222", email: "pcpsikar@gmail.com", area: "Palwas Rd, near Life Care Hospital, Kalwaria Kunj", lat: 27.6099136, lng: 75.1216651, grades: "Class VI - XII + Foundation", hue: 210,
-        about: "PCP Sikar (Prince Prime Campus) is the flagship JEE/NEET pre-foundation and senior campus of the Prince Eduhub group - India's fastest-growing education group with 13+ campuses across 250+ acres. PCP is renowned for historic competitive-exam results, including AIR-1 in NEET UG 2024 (first time in Sikar), AIR-87 in NEET 2026, 1000+ MBBS selections and 500+ JEE selections into IITs, NITs and IIITs. Alongside JEE/NEET, PCP dominates Olympiads (STSE, IAPT, UIMO) with a disciplined, mentor-driven environment.",
-        usps: [["AIR-1 NEET UG 2024", "First time from Sikar - Devesh Joshi topped India."], ["1000+ MBBS Selections", "NEET 2026 - among the best in Sikar."], ["500+ JEE Selections", "IITs, NITs & IIITs in JEE 2026."], ["Olympiad Powerhouse", "Historic results in STSE, IAPT, UIMO & more."]],
-        facilities: ["Smart Classrooms", "Science Labs", "Digital Library", "Hostel", "Study Rooms", "Medicare", "Cafeteria", "Transport"],
-        achievements: ["AIR-1 NEET UG 2024 (Devesh Joshi)", "AIR-87 NEET 2026", "500+ JEE selections 2026", "102 students >99 %ile JEE Mains 2026"],
-        revs: ["Prince Prime Campus is one of the best educational campuses for students who are serious about their studies and future goals - disciplined and motivating with highly experienced faculty.", "The learning environment is positive and encouraging, the mentors provide individual guidance, and the study plan is well-structured.", "Experienced and dedicated faculty with clear explanations that strengthened my understanding of core JEE concepts.", "One of the most memorable and transformative phases of my life - three years across 11th, 12th and dropper preparing for JEE."]
-      },
-      {
-        id: "euro", featured: true, website: "https://eurointernationalschool.in", img: "https://eurointernationalschool.in/images/slider/xxl/slider02.jpg", logo: "https://eurointernationalschool.in/images/logos/logo-white-orange-340.png", name: "Euro International School", boards: ["cbse", "english"], tags: ["CBSE", "English Medium", "First Futuristic School"], rating: 4.6, reviews: 430, verified: true,
-        phone: "+91 70092 70097", email: "hello@eurointernationalschool.in", area: "Chandpura Chauraha, Near Todi Nagar, Bajaj Gram-Sanwali", lat: 27.5776895, lng: 75.13737, grades: "Playgroup - Class 12", hue: 158,
-        tagline: "The First Futuristic CBSE School in Sikar",
-        gallery: ["https://eurointernationalschool.in/images/homepage/facilities/smart-classrooms.jpg", "https://eurointernationalschool.in/images/homepage/facilities/science-lab.jpg", "https://eurointernationalschool.in/images/homepage/facilities/computer-lab.jpg", "https://eurointernationalschool.in/images/homepage/facilities/digital-library.jpg", "https://eurointernationalschool.in/images/homepage/facilities/sports-complex.jpg"],
-        about: "Euro International School (EIS) is widely regarded as the best CBSE school in Sikar - a co-educational, future-ready campus that blends strong academics with real-world skills. Over 20+ years, EIS has grown into an army of 2,000+ future leaders, becoming the first CBSE school in Sikar to introduce coding (2016), and pioneering financial literacy, entrepreneurship and a Finland-model preschool. With a 1:16 teacher-student ratio, two full-time psychologists, weekly finance classes and career counselling, EIS focuses on the whole child - academically, emotionally and beyond. Its CBSE board results are among the best in Sikar, producing multiple district toppers and even a CBSE state topper, while students win international coding hackathons, earn foreign-university admissions and have brought home 120+ national sports gold medals.",
-        usps: [["Coding Curriculum", "First CBSE school in Sikar to teach coding (since 2016), with 10+ international coders."], ["Finland-Model Preschool", "World's best early-education model for your child's most formative years."], ["Exceptional Academics", "Best CBSE board results in Sikar - multiple district toppers & a state topper."], ["120+ National Gold Medals", "Expert coaches and national-level sports training."], ["Financial Literacy", "Weekly finance classes teaching every child to earn and manage money."], ["Entrepreneurship", "Real startups born from Euro - producing young entrepreneurs for the world."], ["2 Full-Time Psychologists", "Genuine focus on students' emotional well-being."], ["Foreign Universities", "Global admissions guidance to top international universities."]],
-        facilities: ["Smart Classrooms", "Computer Lab", "Science Lab", "Digital Library", "Finland Model Preschool", "Sports Complex", "Playground", "Dhamma Hall (meditation)", "World-Class Transport"],
-        achievements: ["CBSE State Topper & multiple district toppers", "120+ National Sports Gold Medals", "Students win international coding hackathons", "Foreign university admissions worldwide", "Alumni-founded startups"],
-        awards: ["Rajiv Gandhi Innovation Award - Government of Rajasthan", "Best School in North India - Education Today", "Best Futuristic School in Rajasthan - EW India"],
-        fees: [["Play Group - UKG", "Rs 70,000"], ["Class I - II", "Rs 80,000"], ["Class III - V", "Rs 87,000"], ["Class VI - VIII", "Rs 95,000"], ["Class IX", "Rs 1,01,000"], ["Class X", "Rs 1,06,000"], ["Class XI (All Streams)", "Rs 1,22,000"], ["Class XII (All Streams)", "Rs 1,34,000"]],
-        feeNote: "Annual tuition fee for 2026-27, payable in two installments (at admission & by 31st July). Merit, sports, olympiad & coding scholarships available. Confirm current figures with the school.",
-        revs: ["If your child's all-round development is your focus, Euro International School is the ultimate choice. Both kids love going to school and are growing up into happy learners.", "Euro International School was my second home for all of my schooling years - it gave me mentors, friends and a strong foundation.", "I came here for admission and my experience was very good. The management is supportive and well-organized, and the students are well-disciplined.", "From the very beginning, the warmth and support made me feel part of a close-knit family. The education was transformative."]
-      },
-      {
-        id: "prince", website: "https://princecbse.com", img: "https://princecbse.com/assets/images/slider/CBSE-XII-Result-2026.png", logo: "https://princeeduhub.com/images/PrinceEduhubDark.png", name: "Prince Academy (CBSE School)", boards: ["cbse", "english", "prefoundation"], tags: ["CBSE", "Pre-Foundation"], rating: 4.7, reviews: 325, verified: true,
-        phone: "+91 96107 52222", email: "pcpsikar@gmail.com", area: "Jaipur-Bikaner Bypass, Palwas Rd", lat: 27.6073251, lng: 75.1066687, grades: "Class VI - XII", hue: 24,
-        about: "Prince Academy is the CBSE school wing of the Prince Eduhub group, delivering outstanding CBSE board results - in 2026, 04 students scored above 99%, 25 above 98%, 189 above 95% and 656 above 90%. Performance-oriented with a well-managed hostel, disciplined environment and competitive-exam preparation woven into school academics.",
-        usps: [["Top CBSE Results 2026", "04 students above 99%, 189 above 95%."], ["Integrated Foundation", "JEE/NEET foundation within school academics."], ["Well-Managed Hostel", "Disciplined residential environment with quality food."], ["Part of Prince Eduhub", "13+ campuses across 250+ acres."]],
-        facilities: ["Smart Classrooms", "Science Labs", "Library", "Hostel", "Sports Ground", "Transport", "Medicare"],
-        achievements: ["04 students above 99% (CBSE 2026)", "25 students above 98%", "189 students above 95%", "656 students above 90%"],
-        revs: ["Wonderful school with a positive atmosphere, great leadership and outstanding education quality. Excellent facilities and caring faculty.", "The campus is very good and the environment is the best I have ever seen - the faculty are outstanding.", "My bestest time of school life. Very grateful to be part of this institution.", "Highly disciplined, well-managed hostel with excellent food - everything reflects dedication and success."]
-      },
-      {
-        id: "swami", website: "https://www.keshwanandschool.com", img: "https://www.keshwanandschool.com/admin/banner/728SWAMI%20KESHWANAND%20SCHOOL.jpg", logo: "https://www.keshwanandschool.com/Uploads/org/422Logo%20Convent%20School.png", name: "Swami Keshwanand School", boards: ["cbse", "rbse", "english"], tags: ["CBSE", "RBSE"], rating: 4.4, reviews: 303, verified: true,
-        phone: "+91 98292 19402", email: "skniebhasikar@gmail.com", area: "NH-52, Bhadhadar, Sikar - 332315", lat: 27.6805883, lng: 75.0825876, grades: "Nursery - Class XII (Boarding)", hue: 130,
-        gallery: ["https://www.keshwanandschool.com/Uploads/gallery/674wami%20Keshwanand%20school.jpg", "https://www.keshwanandschool.com/Uploads/gallery/940hostel.jpg", "https://www.keshwanandschool.com/Uploads/gallery/706computer%20lab.jpg", "https://www.keshwanandschool.com/Uploads/gallery/456swimming%20pool.jpg", "https://www.keshwanandschool.com/Uploads/gallery/237basket%20ball%20ground.jpg"],
-        about: "Swami Keshwanand Convent School (est. 1997) on NH-52 Bhadhadar is one of the best boarding schools in Sikar, offering CBSE & RBSE from Nursery to Class XII. Set on a clean, secure campus 12 km from Sikar, it is renowned for exceptional sports (national swimming, boxing, netball, football champions), strong hostel facilities for boys and girls, a swimming pool, AI lab, and a NEET/IIT/NDA foundation academy.",
-        usps: [["National Sports Champions", "Swimming, boxing, netball & football national medalists."], ["Full Boarding Facilities", "Safe, supervised hostels for boys & girls."], ["Swimming Pool & AI Lab", "Modern facilities on a 12-km-out green campus."], ["NEET/IIT/NDA Academy", "Integrated competitive-exam foundation."]],
-        facilities: ["Smart Classrooms", "Science & Computer Labs", "Library", "Boys & Girls Hostel", "Swimming Pool", "Basketball Court", "Mess", "Transport", "AI Lab"],
-        achievements: ["CBSE Arts stream 98.20% - school record", "Class X 98.17% - school record", "National swimming, boxing & netball medals", "Multiple NDA & Army selections"],
-        revs: ["Very happy with the environment. Teachers are caring and dedicated, focusing on both academics and personal development.", "One of the best boarding schools in Sikar with excellent, safe hostel facilities and proper supervision.", "The campus is well-maintained, clean and welcoming, with a visible sense of discipline and creativity.", "Situated in a very pleasant environment; the Director has a commendable demeanor and is easily approachable for parents and students."]
-      },
-      {
-        id: "prince-sainik", website: "https://princesainikschool.com", img: "https://princeeduhub.com/images/bg/slider/Defence.jpg", logo: "https://princeeduhub.com/images/PrinceEduhubDark.png", name: "Prince Sainik School", boards: ["cbse", "english", "prefoundation"], tags: ["CBSE", "Pre-Foundation"], rating: 4.8, reviews: 226, verified: true,
-        phone: "+91 96108 72222", email: "pcpsikar@gmail.com", area: "Palwas Rd, Sikar", lat: 27.6003422, lng: 75.0975397, grades: "Class VI - XII (NDA focus)", hue: 222,
-        about: "Prince Sainik School, part of the Prince Eduhub group, is one of North India's leading Sainik-style residential academies, built around NDA and defence-exam preparation. With 214 students clearing UPSC NDA-1 2026, AIR-1 in the 151st NDA course (Bhavika, 2024) and 149 SSB recommendations (2022-2026), it combines a disciplined military-style curriculum with a strong safety record - including dedicated, secure facilities for girls.",
-        usps: [["AIR-1 NDA 151 Course", "Bhavika topped India (2024)."], ["214 NDA-1 2026 Selections", "Among the best defence results in the region."], ["Safe Facilities for Girls", "Dedicated, secure defence training for girls."], ["Military-Style Discipline", "Structured curriculum aligned to SSB & NDA."]],
-        facilities: ["Residential Campus", "Physical Training Grounds", "Smart Classrooms", "Science Labs", "Hostel", "Mess", "Sports Complex"],
-        achievements: ["AIR-1 151st NDA Course (Bhavika, 2024)", "214 students cleared UPSC NDA-1 2026", "149 SSB recommendations (2022-2026)"],
-        revs: ["Grooming children with the best and great discipline environment.", "Great campus, brilliant team and structured curriculum aligned with defence exam goals.", "Best coaching for Sainik in North India - perfect for girls with the best safety. All the girls are happy.", "Best school environment, food facilities and sports - all good."]
-      },
-      {
-        id: "vidyabharati", website: "http://vps.ac.in", img: "http://vps.ac.in/Sliderimages/HomePageSlider/Home_65PJjk.jpg", logo: "http://vps.ac.in/store/H31C0K_web.jpg", name: "Vidya Bharati Public School (VPS)", boards: ["cbse", "english"], tags: ["CBSE", "English Medium"], rating: 4.1, reviews: 259, verified: true,
-        phone: "+91 1572 274015", email: "bschirana@vps.ac.in", area: "Todi Nagar, Sikar - 332001", lat: 27.5784197, lng: 75.1457592, grades: "Class I - XII", hue: 280,
-        gallery: ["http://vps.ac.in/images/fac1.jpg", "http://vps.ac.in/images/fac3.jpg", "http://vps.ac.in/images/fac2.jpg", "http://vps.ac.in/images/fac11.jpg", "http://vps.ac.in/images/fac9.jpg"],
-        about: "Vidya Bharati Public School (VPS) is a long-established CBSE school in Todi Nagar, Sikar, set on a wi-fi campus in a silent zone with 24-hour power back-up and RO water. With 6 branches, 300+ staff, 5000 students and 40,000+ alumni, VPS is known for a 1:1 student-computer ratio, a unique Sanskar Lab for value education, and a Cricket Academy recognised by the Rajasthan Cricket Association.",
-        usps: [["1:1 Computer Ratio", "Two computer labs, strong digital-skills focus."], ["Sanskar Lab", "Dedicated value-education & ethics programme."], ["Cricket Academy", "Recognised by the Rajasthan Cricket Association."], ["Wi-Fi Silent-Zone Campus", "24-hour power back-up & RO water."]],
-        facilities: ["Smart Classrooms", "Science Labs", "Computer Labs", "Library (Manthan)", "Gymnasium", "Sanskar Lab", "Art & Craft", "Sports Ground", "Hostel"],
-        achievements: ["18 students visited IIT Kanpur for TOSC Phase-II", "9 teams selected (out of 50) all-India", "40,000+ alumni across 6 branches"],
-        revs: ["Known for its disciplined environment and quality education, with focus on individual growth.", "The teachers use modern teaching methods and sports and cultural activities are well-organized.", "A large campus that conducts major exams and competitions.", "Ensures holistic development of students through balanced academics and activities."]
-      },
-      {
-        id: "prince-lotus", website: "https://princelotusvalley.com", img: "https://princeeduhub.com/images/bg/slider/Lotus.jpg", logo: "https://princeeduhub.com/images/PrinceEduhubDark.png", name: "Prince Lotus Valley School", boards: ["cbse", "english"], tags: ["CBSE", "English Medium"], rating: 4.7, reviews: 148, verified: true,
-        phone: "+91 96103 02222", email: "pcpsikar@gmail.com", area: "Palwas Road Campus, Sikar", lat: 27.6060276, lng: 75.1048306, grades: "Class I - XII", hue: 190,
-        about: "Prince Lotus Valley School, part of the Prince Eduhub group, is a premier CBSE day campus known for personalised attention, top-notch facilities and a balance of academics, sports and extracurriculars in a nurturing, safe setting. Strong focus on communication, confidence and behaviour from the early grades.",
-        usps: [["Personalised Attention", "Special focus on each child's overall development."], ["Premier Facilities", "Smart classrooms & modern learning resources."], ["Confidence & Behaviour", "Spoken skills, confidence and values focus."], ["Part of Prince Eduhub", "Backed by a leading education group."]],
-        facilities: ["Smart Classrooms", "Science Labs", "Library", "Sports Ground", "Transport", "Activity Rooms"],
-        achievements: ["Consistently strong CBSE results", "Active sports & cultural programme"],
-        revs: ["The most premier school in Sikar - an outstanding learning environment fostering academic and personal growth.", "Best education facilities, experienced teachers and smart classrooms with a positive environment.", "Special focus on overall development of the child - spoken skills, confidence and good behaviour.", "Top-notch resources and facilities allowing a well-rounded education."]
-      },
-      {
-        id: "mhs-world", website: "https://www.mhsworldschool.org", img: "https://mhsworldschool.org/assets/img/slider/slider1.webp", logo: "https://mhsworldschool.org/assets/img/logos/logo.png", name: "MHS World School (Matrix)", boards: ["rbse", "english", "prefoundation"], tags: ["RBSE", "Pre-Foundation"], rating: 4.9, reviews: 110, verified: true,
-        phone: "+91 92160 61999", email: "school@matrixedu.in", area: "Near Saket City, Piprali Circle, Sikar - 332001", lat: 27.6293339, lng: 75.1831741, grades: "Class V - X (RBSE)", hue: 16,
-        gallery: ["https://mhsworldschool.org/assets/img/slider/slider2.webp", "https://mhsworldschool.org/assets/img/slider/slider3.webp", "https://mhsworldschool.org/assets/img/gallery/img1.jpg", "https://mhsworldschool.org/assets/img/gallery/img6.jpg", "https://mhsworldschool.org/assets/img/gallery/img2.jpg"],
-        about: "MHS World School is the RBSE school of the renowned Matrix group, established in 2014 by top educators from IITs and IIMs. It is widely rated the best RBSE school in Sikar, combining the RBSE curriculum (classes 5-10) with a competitive-exam Foundation Program for STSE, NTSE, Olympiads, JEE and NEET. Known for IIT/IIM-alumni faculty, smart digital classrooms, monthly counselling, dedicated doubt counters and Matrix-designed study material.",
-        usps: [["IIT/IIM-Alumni Faculty", "Founded by IIT Kharagpur & IIM Ahmedabad educators."], ["Foundation Program", "RBSE + STSE/NTSE/Olympiad/JEE/NEET prep (Cl 5-10)."], ["Doubt Counters", "One-on-one instant doubt resolution."], ["Digital Learning", "Smart boards, 3D models & Matrix study modules."]],
-        facilities: ["Smart Digital Classrooms", "Science Labs", "Library", "Online & Video Lab", "Sports Facilities", "24x7 Power Backup"],
-        achievements: ["Rated best RBSE school in Sikar", "Strong Olympiad & STSE results", "Founded by IIT/IIM educators (2014)"],
-        revs: ["New campus, nice facilities and good teachers.", "The smart classrooms and modern teaching methods make learning very engaging - one of the finest schools in Sikar.", "A great learning environment with supportive teachers and excellent academic guidance.", "The pre-foundation program is good; students need to stay consistent to get the best results."]
-      },
-      {
-        id: "tagore", website: "https://tagoreedu.in", img: "https://tagoreedu.in/images/slider/slider-06.jpg", logo: "https://tagoreedu.in/images/logo.png", name: "Tagore International School", boards: ["cbse", "rbse", "english"], tags: ["CBSE", "RBSE", "English Medium"], rating: 4.8, reviews: 64, verified: true,
-        phone: "+91 80947 70888", email: "info@tagoreedu.in", area: "Kishan Colony, Nawalgarh Road, Sikar", lat: 27.651163, lng: 75.1699254, grades: "Pre-School - Class 12", hue: 172,
-        gallery: ["https://tagoreedu.in/images/slider/slider-05.jpg", "https://tagoreedu.in/images/slider/slider-07.jpg", "https://tagoreedu.in/images/slider/slider-01.jpg", "https://tagoreedu.in/images/Classroom-Facilities.jpg", "https://tagoreedu.in/images/why_tagore_school.jpeg"],
-        about: "Tagore International School, Sikar is a co-educational CBSE & RBSE school on Nawalgarh Road serving students from pre-kindergarten through Grade 12, with day-scholar and boarding options. It focuses on the moral, intellectual and physical development of every child, with smart classrooms (LCD projectors, whiteboards), an enriched curriculum spanning arts, athletics and enrichment programmes, and a peaceful, disciplined atmosphere.",
-        usps: [["Day & Boarding", "Integrated campus for day scholars & residents."], ["Pre-KG to Grade 12", "Full journey with strong early-years wing."], ["Smart Classrooms", "LCD projectors & modern classroom resources."], ["Moral & Character Focus", "Values and character building alongside academics."]],
-        facilities: ["Smart Classes", "Science Lab", "Computer Lab", "Library", "Music Room", "Hostel", "Transport", "Sports"],
-        achievements: ["Strong CBSE & RBSE board results", "Active Olympiad programme", "Recognised co-educational campus"],
-        revs: ["A truly outstanding school with dedicated teachers, quality education and a positive atmosphere.", "Very nice campus with a positive and peaceful environment and proper care for every student.", "Focuses on discipline, moral values and character building with experienced, supportive teachers.", "Excellent environment and excellent education - the most satisfying schooling."]
-      },
-      {
-        id: "floreto", website: "https://floretoworldschool.com", img: "https://princeeduhub.com/images/bg/slider/Floreto.jpg", logo: "https://princeeduhub.com/images/PrinceEduhubDark.png", name: "Floreto World School", boards: ["icse", "english"], tags: ["ICSE", "English Medium"], rating: 4.8, reviews: 50, verified: true,
-        phone: "+91 96107 12222", email: "pcpsikar@gmail.com", area: "Jaipur-Bikaner Highway, Palwas Rd Crossing", lat: 27.6052611, lng: 75.1053358, grades: "Montessori - Senior Secondary", hue: 300,
-        about: "Floreto World School is the ICSE (CISCE) school of the Prince Eduhub group - a rare ICSE option in Sikar. It's an activity-rich campus with a strong Montessori and early-years programme, digitalised learning, robotics and weekly new activities. Floreto students are strong in sports, winning 14 gold medals at the CISCE Zonal Yoga Tournament and 13 medals at the Zonal Badminton Tournament, and the campus even hosted a model Parliament Session.",
-        usps: [["Rare ICSE Option", "One of Sikar's few CISCE / ICSE schools."], ["Montessori Early Years", "Playful, activity-based early learning."], ["Robotics & Weekly Activities", "Games, culture and robotics every week."], ["Sports Champions", "14 gold at CISCE Zonal Yoga; 13 badminton medals."]],
-        facilities: ["Montessori Wing", "Smart Classrooms", "Robotics Lab", "Science Labs", "Library", "Sports Ground", "Transport"],
-        achievements: ["14 gold medals - CISCE Zonal Yoga Tournament", "13 medals - Zonal Badminton Tournament", "Hosted model Parliament Session"],
-        revs: ["New activities every week - games, culture, robotics. A good environment and excellent school.", "The teachers are very helpful and new students never feel strange in the school environment.", "My kid is in Montessori and the change in his behaviour is fabulous. Thank you Floreto.", "Beautiful infrastructure and a fabulous combination of digitalised learning."]
-      },
-      {
-        id: "daffodils", website: "https://daffodilsworldschool.com", img: "https://daffodilsworldschool.com/wp-content/uploads/2026/07/DWS8605-scaled.jpg", logo: "https://daffodilsworldschool.com/wp-content/uploads/2024/09/logo-1.png", name: "Daffodils World School", boards: ["cbse", "english"], tags: ["CBSE", "English Medium"], rating: 4.3, reviews: 35, verified: true,
-        phone: "+91 74528 74528", email: "daffodilsworldschool@yahoo.com", area: "Jeevan Nagar, Opp. Todi Nagar, Sanwali Road, Sikar - 332021", lat: 27.5885, lng: 75.132, grades: "Nursery - Class 12", hue: 52,
-        gallery: ["https://daffodilsworldschool.com/wp-content/uploads/2026/07/DWS8497-scaled.jpg", "https://daffodilsworldschool.com/wp-content/uploads/2026/07/DWS8607-scaled.jpg", "https://daffodilsworldschool.com/wp-content/uploads/2026/07/DWS8735-scaled.jpg", "https://daffodilsworldschool.com/wp-content/uploads/2026/07/DSC08766-scaled.jpg", "https://daffodilsworldschool.com/wp-content/uploads/2026/07/DWS9014-scaled.jpg"],
-        about: "Daffodils World School, founded in 2008 with just 17 students under Director Mr. Sanjeev Kulhari, has grown into one of Sikar's well-regarded CBSE day schools on a serene, green campus in Jeevan Nagar, Sanwali. An English-medium co-ed school especially known for its strong primary and junior wing, Daffodils emphasises holistic education, smart classrooms, an Innovation Hub and individual attention for every child.",
-        usps: [["Strong Primary Wing", "Especially known for its junior/primary teaching."], ["Innovation Hub", "Place-based, hands-on learning focus."], ["Serene Green Campus", "Calm environment away from the urban bustle."], ["Since 2008", "Grown from 17 students to a leading Sikar school."]],
-        facilities: ["Smart Classrooms", "Computer Lab", "Smart Library", "Innovation Lab", "Multi-Activity Hall", "Science Lab", "Sports Complex", "Transport"],
-        achievements: ["Grown from 17 students (2008) to a leading school", "CLAT, CUET & CA Foundation achievers", "Strong Grade 10 & 12 results"],
-        revs: ["A serene, green campus that offers a great balance of academics and activities for young learners.", "The primary wing is excellent - caring teachers who give individual attention to every child.", "Good CBSE school with smart classrooms and a focus on holistic development.", "My child has grown in confidence since joining Daffodils - happy with the environment."]
-      },
-      {
-        id: "narayana", website: "https://www.narayanaschools.in/rajasthan/sikar", img: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=900&q=70&auto=format&fit=crop", logo: "", name: "Narayana e-Techno School", boards: ["cbse", "english", "prefoundation"], tags: ["CBSE", "Pre-Foundation"], rating: 4.8, reviews: 50, verified: true,
-        phone: "+91 1800 102 3344", email: "info@narayanaschools.in", area: "Nawalgarh Rd, near Vaishali Nagar, Bhadwasi", lat: 27.6477202, lng: 75.1575095, grades: "Playgroup - Class 12", hue: 206,
-        about: "Narayana e-Techno School, Sikar is part of the national Narayana group - one of India's largest school & competitive-exam networks. Academically focused with concept-clarity teaching, regular assessments and a strong Foundation orientation for JEE, NEET and Olympiads, backed by Narayana's proven pan-India curriculum and well-maintained classrooms.",
-        usps: [["National Narayana Network", "Backed by one of India's largest school groups."], ["Concept-Clarity Teaching", "Regular assessments & structured practice."], ["Foundation Focus", "Early JEE/NEET/Olympiad orientation."], ["Proven Curriculum", "Pan-India Narayana academic system."]],
-        facilities: ["Smart Classrooms", "Science Labs", "Computer Lab", "Library", "Sports", "Transport"],
-        achievements: ["Part of national Narayana group", "Strong Foundation & Olympiad focus"],
-        revs: ["Strong focus on concept clarity and regular practice - helps students perform well in exams.", "Excellent academic standards with dedicated teachers and clear, interactive teaching methods.", "Dedicated staff, a safe environment and balanced, holistic development.", "Best schooling - superb academics plus all-round development through activities."]
-      },
-      {
-        id: "prince-rbse", website: "https://princeschoolsikar.com", img: "https://www.princeschoolsikar.com/assets/slider/RBSE-12-2026.png", logo: "https://princeeduhub.com/images/PrinceEduhubDark.png", name: "Prince School (RBSE)", boards: ["rbse", "english"], tags: ["RBSE", "English Medium"], rating: 4.6, reviews: 30, verified: true,
-        phone: "+91 96106 92222", email: "pcpsikar@gmail.com", area: "Palwas Rd & Piprali Rd, Sikar", lat: 27.6099375, lng: 75.1213125, grades: "Class IV - XII (RBSE)", hue: 38,
-        about: "Prince School is the RBSE stream of the Prince Eduhub group, offering day-scholar and residential options from Class IV to XII. In RBSE 2026 it delivered 08 students above 99% and 49 state-level merit positions in Class XII, plus 23 state-level merit ranks in Class X. A positive learning environment with smart classrooms, safe transport, medical room, playgrounds and science & computer labs.",
-        usps: [["Top RBSE Results 2026", "08 students >99%, 49 state-merit in Class XII."], ["Day & Residential", "Flexible options from Class IV-XII."], ["State-Merit Ranks", "23 Class X state-level merit positions."], ["Part of Prince Eduhub", "Backed by a leading education group."]],
-        facilities: ["Smart Classrooms", "Science & Computer Labs", "Library", "Hostel", "Medical Room", "Playgrounds", "Safe Transport"],
-        achievements: ["08 Class XII students above 99% (RBSE 2026)", "49 Class XII state-level merit", "23 Class X state-level merit"],
-        revs: ["A positive learning environment with supportive teachers.", "Nice school with caring staff and good discipline.", "Smart classrooms, safe transportation, medical room, playgrounds, science and computer labs - very good facilities.", "Strong RBSE results and a disciplined, caring atmosphere."]
-      },
-      {
-        id: "vardhan", website: "", img: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=900&q=70&auto=format&fit=crop", logo: "", name: "Vardhan World School", boards: ["cbse", "english"], tags: ["CBSE", "English Medium"], rating: 5.0, reviews: 17, verified: true,
-        phone: "+91 78911 11295", email: "", area: "Saket Nand City, Jaipur-Bikaner Bypass Rd", lat: 27.5992634, lng: 75.1126807, grades: "Playgroup - Class 12", hue: 146,
-        about: "Vardhan World School is a newer CBSE campus on the Jaipur-Bikaner Bypass with a peaceful environment, supportive staff and strong transport facilities. Parents highlight a positive atmosphere and a good mix of activities alongside academics and personality development.",
-        usps: [["Peaceful Environment", "Calm, positive campus for young learners."], ["Strong Transport", "Reliable, well-managed bus facilities."], ["All-Round Development", "Academics plus activities & personality growth."], ["Supportive Staff", "Friendly, caring teachers."]],
-        facilities: ["Smart Classrooms", "Library", "Computer Lab", "Sports Ground", "Transport", "Activity Rooms"],
-        achievements: ["Consistently high parent ratings", "Growing new campus"],
-        revs: ["Peaceful and best environment for kids to study. Staff is very supportive and caring, with amazing transport facilities.", "One of the best schools in the area - focuses on both academics and student growth.", "Very good environment for child development, with a positive vibe.", "Excellent teaching quality and friendly teachers, with focus on overall personality development."]
-      }
-    ];
-
-    let BLOGS = [
-      {
-        id: 1, img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=70&auto=format&fit=crop", title: "How to choose the right school in Sikar", cat: "Admissions", author: "Editorial Team", date: "Feb 2026", hue: 158,
-        body: "Choosing a school is one of the biggest decisions a parent makes, and in a city like Sikar with dozens of options, it can feel overwhelming. Start with the practical basics: which board fits your child's long-term goals, how far the school is from home, and what the real all-in cost looks like once transport and extras are added.\nVisit in person before you decide. A brochure can't tell you whether classrooms are actually used well, whether children look happy, or how staff respond to questions. Ask about class sizes, teacher retention, and how the school communicates with parents through the year.\nFinally, talk to current parents. Google Maps reviews are a good starting signal, but a five-minute conversation at the school gate often tells you more than any rating."
-      },
-      {
-        id: 2, img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=900&q=70&auto=format&fit=crop", title: "CBSE vs RBSE vs ICSE: what fits your child", cat: "Boards", author: "Editorial Team", date: "Jan 2026", hue: 24,
-        body: "Sikar offers schools across CBSE, RBSE and ICSE, and each suits a slightly different path. CBSE is the national standard, widely chosen by families aiming for JEE, NEET and other competitive exams, with a syllabus that aligns closely to those tests.\nRBSE, the Rajasthan state board, is strong for students who plan to stay within the state system and can offer a more locally-rooted curriculum, often at a lower fee. ICSE tends to go deeper on English and project work, which some families value for communication skills.\nThere is no single best board - only the best fit for your child's strengths and goals. Decide the destination first, then pick the board that gets them there most comfortably."
-      },
-      {
-        id: 3, img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&q=70&auto=format&fit=crop", title: "Understanding school fees in Sikar", cat: "Fees", author: "Editorial Team", date: "Jan 2026", hue: 222,
-        body: "Advertised tuition is rarely the full story. When budgeting for a Sikar school, add transport, admission and registration charges, uniforms, books, activity fees and - for boarding schools - hostel and mess costs.\nAsk for a written fee structure that lists every head, and check whether fees are quoted per term or per year. Clarify the refund policy if you withdraw, and ask about annual increments so you aren't surprised in year two.\nMany Sikar schools offer scholarships based on merit or need. It's always worth asking - a good school would rather have a bright, motivated student than an empty seat."
-      }
-    ];
-    let blogSeq = 100;
-
-    function go(tab) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.getElementById('page-' + tab).classList.add('active');
-      document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab || (tab === 'detail' && t.dataset.tab === 'schools') || (tab === 'blogpost' && t.dataset.tab === 'blogs')));
-      document.getElementById('tabs').classList.remove('show');
-      window.scrollTo({ top: 0 });
-    }
-
-    function renderVoices() {
-      const picks = [
-        { q: SCHOOLS.find(s => s.id === 'euro').revs[0], who: "Parent", role: "Euro International School" },
-        { q: SCHOOLS.find(s => s.id === 'prince').revs[0], who: "Student", role: "Prince Academy" },
-        { q: SCHOOLS.find(s => s.id === 'swami').revs[1], who: "Parent", role: "Swami Keshwanand School" }
-      ];
-      document.getElementById('homeVoices').innerHTML = picks.map(p =>
-        '<div class="voice"><div class="st">\u2605\u2605\u2605\u2605\u2605</div><p>"' + p.q + '"</p><div class="who">' + p.who + '</div><div class="role">' + p.role + '</div></div>'
-      ).join('');
-      document.getElementById('statSchools').textContent = SCHOOLS.length;
-      const tot = SCHOOLS.reduce((a, s) => a + s.reviews, 0);
-      document.getElementById('statReviews').textContent = (tot >= 1000 ? (tot / 1000).toFixed(1) + 'k' : tot);
-    }
-
-    let activeFilter = "all";
-    function setFilter(el) { document.querySelectorAll('.chip').forEach(c => c.classList.remove('active')); el.classList.add('active'); activeFilter = el.dataset.filter; renderSchools(); }
-    function setFilterByKey(k) { const el = document.querySelector('.chip[data-filter="' + k + '"]'); if (el) setFilter(el); }
-    function stars(r) { let f = Math.round(r); return "\u2605\u2605\u2605\u2605\u2605".slice(0, f) + "\u2606\u2606\u2606\u2606\u2606".slice(0, 5 - f); }
-    function shortName(s) { return s.id === 'euro' ? 'Euro' : s.name.split(' ').slice(0, 2).join(' '); }
-    function photoBg(hue) { return "background:linear-gradient(135deg,hsl(" + hue + ",42%,42%),hsl(" + ((hue + 40) % 360) + ",38%,30%));"; }
-    const BOARD_LABEL = { cbse: "CBSE", rbse: "RBSE", icse: "ICSE", english: "English Medium", prefoundation: "Pre-Foundation" };
-    function badgeHtml(s) {
-      // show board/stream badges (skip generic 'english' unless it's the only one)
-      let list = s.boards.filter(b => b !== 'english');
-      if (!list.length) list = s.boards;
-      return list.map(b => '<span class="board ' + b + '">' + BOARD_LABEL[b] + '</span>').join('');
-    }
-    function cardPhoto(s) {
-      if (s.img) return "background-image:linear-gradient(rgba(10,30,25,.12),rgba(10,30,25,.30)),url('" + s.img + "');background-size:cover;background-position:center;";
-      return photoBg(s.hue);
-    }
-
-    function renderSchools() {
-      const list = SCHOOLS.slice().sort((a, b) => {
-        if (a.id === 'euro') return -1;   // Euro always first
-        if (b.id === 'euro') return 1;
-        return b.reviews - a.reviews;    // everyone else by review count
-      });
-      const filtered = list.filter(s => activeFilter === "all" || s.boards.indexOf(activeFilter) > -1);
-      document.getElementById('resultCount').textContent = filtered.length + (filtered.length === 1 ? " school" : " schools");
-      document.getElementById('schoolGrid').innerHTML = filtered.map((s, i) =>
-        '<div class="card' + (s.featured ? ' featured' : '') + '" onclick="openSchool(\'' + s.id + '\')">'
-        + '<div class="card-photo" style="' + cardPhoto(s) + '"><span class="rank">#' + (i + 1) + '</span>'
-        + (s.featured ? '<span class="feat-badge">\u2605 Featured</span>' : '')
-        + '<span class="boards">' + badgeHtml(s) + '</span></div>'
-        + '<div class="card-body">'
-        + '<h3>' + s.name + (s.verified ? ' <span class="verified" title="Verified listing">\u2714</span>' : '') + '</h3>'
-        + '<div class="gm"><span class="sc">' + s.rating.toFixed(1) + '</span><span class="st">' + stars(s.rating) + '</span><span class="ct">' + s.reviews + ' reviews</span></div>'
-        + '<div class="loc">\uD83D\uDCCD ' + s.area + '</div>'
-        + '<div class="ph">\uD83D\uDCDE ' + s.phone + '</div>'
-        + '<div class="open">View full details \u2192</div>'
-        + '</div></div>'
-      ).join('');
-    }
-
-    function openSchool(id) {
-      const s = SCHOOLS.find(x => x.id === id); if (!s) return;
-      const gm = "https://www.google.com/maps/search/?api=1&query=" + s.lat + "," + s.lng;
-      const lbls = ["Campus", "Classrooms", "Activities", "Sports", "Events"];
-      const gallery = [0, 1, 2, 3, 4].map(n => {
-        // prefer real scraped gallery images, then main img for the first tile
-        const realImg = (s.gallery && s.gallery[n]) ? s.gallery[n] : (n === 0 ? s.img : null);
-        if (realImg) {
-          return '<div style="background-image:linear-gradient(rgba(10,30,25,.05),rgba(10,30,25,.32)),url(\'' + realImg + '\');background-size:cover;background-position:center"><span class="lbl">' + lbls[n] + '</span></div>';
-        }
-        const h = (s.hue + n * 22) % 360;
-        return '<div style="background:linear-gradient(135deg,hsl(' + h + ',44%,' + (46 - n * 3) + '%),hsl(' + ((h + 50) % 360) + ',40%,' + (30 - n * 2) + '%))"><span class="lbl">' + lbls[n] + '</span></div>';
-      }).join('');
-      document.getElementById('detailContent').innerHTML =
-        '<div class="detail-hero"><div>'
-        + '<h1>' + s.name + (s.verified ? ' <span class="verified" style="font-size:1.3rem">\u2714</span>' : '') + '</h1>'
-        + '<div class="loc">\uD83D\uDCCD ' + s.area + ', Sikar, Rajasthan</div>'
-        + '<div class="boards">' + s.tags.map(t => '<span class="tagpill">' + t + '</span>').join('') + '</div>'
-        + '</div>'
-        + '<div class="detail-score"><div class="big">' + s.rating.toFixed(1) + '</div><div class="st">' + stars(s.rating) + '</div><div class="ct">' + s.reviews + ' Google reviews</div></div>'
-        + '</div>'
-        + '<div class="gallery">' + gallery + '</div>'
-        + (s.tagline ? '<div class="tagline-bar">' + esc(s.tagline) + '</div>' : '')
-        + '<div class="detail-cols"><div>'
-        + '<h3>About the school</h3><p class="about">' + s.about + '</p>'
-        + (s.website ? '<a class="btn accent" href="' + s.website + '" target="_blank" rel="noopener" style="margin-bottom:26px">Visit Official Website \u2192</a>' : '')
-        + (s.usps ? '<h3>Why ' + shortName(s) + '</h3><div class="usp-grid">'
-          + s.usps.map(u => '<div class="usp"><div class="usp-t">' + esc(u[0]) + '</div><div class="usp-d">' + esc(u[1]) + '</div></div>').join('')
-          + '</div>' : '')
-        + (s.facilities ? '<h3>World-Class Facilities</h3><div class="pill-row">'
-          + s.facilities.map(f => '<span class="pill">' + esc(f) + '</span>').join('') + '</div>' : '')
-        + (s.achievements ? '<h3>Achievements</h3><ul class="tick-list">'
-          + s.achievements.map(a => '<li>' + esc(a) + '</li>').join('') + '</ul>' : '')
-        + (s.awards ? '<h3>Awards &amp; Recognition</h3><ul class="tick-list award">'
-          + s.awards.map(a => '<li>' + esc(a) + '</li>').join('') + '</ul>' : '')
-        + (s.fees ? '<h3>Fee Structure <span class="feeyear">2026-27</span></h3>'
-          + '<table class="fee-table"><thead><tr><th>Grade</th><th>Annual Tuition Fee</th></tr></thead><tbody>'
-          + s.fees.map(f => '<tr><td>' + esc(f[0]) + '</td><td>' + esc(f[1]) + '</td></tr>').join('')
-          + '</tbody></table>'
-          + (s.feeNote ? '<p class="feenote">' + esc(s.feeNote) + '</p>' : '')
-          + (s.id === 'euro' ? '<a class="btn" href="' + s.website + '/admissions-euro-international-school#fee_structure" target="_blank" rel="noopener" style="margin-top:6px">See full fees & scholarships \u2192</a>' : '') : '')
-        + '<h3>What parents &amp; students say</h3>'
-        + s.revs.map(r => '<div class="rev"><div class="st">\u2605\u2605\u2605\u2605\u2605</div><p>"' + r + '"</p></div>').join('')
-        + '</div><div>'
-        + '<div class="infobox">'
-        + (s.logo ? '<img src="' + s.logo + '" alt="' + esc(s.name) + '" style="width:100%;max-height:70px;object-fit:contain;background:var(--ink);border-radius:8px;padding:10px;margin-bottom:16px">' : '')
-        + '<div class="ir"><span class="ik">Google rating</span><span class="iv">' + s.rating.toFixed(1) + ' \u2605</span></div>'
-        + '<div class="ir"><span class="ik">Reviews</span><span class="iv">' + s.reviews + '</span></div>'
-        + '<div class="ir"><span class="ik">Board / stream</span><span class="iv">' + s.tags.join(', ') + '</span></div>'
-        + '<div class="ir"><span class="ik">Grades</span><span class="iv">' + s.grades + '</span></div>'
-        + '<div class="ir"><span class="ik">Contact</span><span class="iv">' + s.phone + '</span></div>'
-        + (s.email ? '<div class="ir"><span class="ik">Email</span><span class="iv" style="font-size:.8rem">' + s.email + '</span></div>' : '')
-        + '<div class="ir"><span class="ik">Status</span><span class="iv" style="color:var(--verify)">' + (s.verified ? 'Verified \u2714' : 'Listed') + '</span></div>'
-        + (s.website ? '<a class="btn primary maplink" href="' + s.website + '" target="_blank" rel="noopener">Visit Official Website</a>'
-          + (s.id === 'euro' ? '<a class="btn maplink" href="' + s.website + '/admissions-euro-international-school" target="_blank" rel="noopener">Apply for Admission</a>' : '')
-          + '<a class="btn maplink" href="' + gm + '" target="_blank" rel="noopener">Open in Google Maps</a>'
-          + '<a class="btn maplink" href="tel:' + s.phone.replace(/\s/g, '') + '">Call the school</a>'
-          : '<a class="btn primary maplink" href="' + gm + '" target="_blank" rel="noopener">Open in Google Maps</a>'
-          + '<a class="btn maplink" href="tel:' + s.phone.replace(/\s/g, '') + '">Call the school</a>')
-        + '</div></div></div>';
-      go('detail');
-    }
-
-    function renderBlogs() {
-      const grid = document.getElementById('blogGrid');
-      const empty = document.getElementById('blogEmpty');
-      if (!BLOGS.length) {
-        grid.innerHTML = '';
-        if (empty) empty.style.display = 'block';
-        return;
-      }
-      if (empty) empty.style.display = 'none';
-      grid.innerHTML = BLOGS.map(b =>
-        '<div class="blog">'
-        + '<div class="blog-img" style="' + blogBg(b) + '" onclick="openBlog(' + jid(b.id) + ')"><span class="blog-tag">' + esc(b.cat) + '</span></div>'
-        + '<div class="blog-body" onclick="openBlog(' + jid(b.id) + ')" style="cursor:pointer"><h4>' + esc(b.title) + '</h4>'
-        + '<p>' + esc(b.body.replace(/\n/g, ' ').slice(0, 110)) + (b.body.length > 110 ? '...' : '') + '</p>'
-        + '<div class="blog-date">' + esc(b.date) + ' \u00B7 ' + esc(b.author) + '</div></div>'
-        + (ADMIN ? '<div class="admin-actions" style="padding:0 22px 20px">'
-          + '<button onclick="editBlog(' + jid(b.id) + ')">Edit</button>'
-          + '<button class="del" onclick="deleteBlog(' + jid(b.id) + ')">Delete</button></div>' : '')
-        + '</div>'
-      ).join('');
-    }
-    function jid(id) { return typeof id === 'number' ? id : "'" + id + "'"; }
-
-    function openBlog(id) {
-      const b = BLOGS.find(x => x.id === id); if (!b) return;
-      document.getElementById('blogPostContent').innerHTML =
-        '<div style="height:260px;border-radius:14px;margin:16px 0 24px;' + blogBg(b) + 'display:flex;align-items:flex-end;padding:18px"><span class="blog-tag">' + esc(b.cat) + '</span></div>'
-        + '<h1 style="font-size:clamp(1.9rem,4vw,2.8rem);letter-spacing:-.02em;line-height:1.1">' + esc(b.title) + '</h1>'
-        + '<div class="sans" style="color:var(--muted);font-size:.85rem;margin:12px 0 24px;text-transform:uppercase;letter-spacing:.06em">' + esc(b.date) + ' \u00B7 ' + esc(b.author) + ' \u00B7 ' + esc(b.cat) + '</div>'
-        + b.body.split('\n').filter(x => x.trim()).map(p => '<p class="sans" style="font-size:1.05rem;color:#2b3b40;margin-bottom:18px">' + esc(p) + '</p>').join('');
-      go('blogpost');
-    }
-    function esc(t) { return (t || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
-    function blogBg(b) {
-      if (b.img) return "background-image:linear-gradient(rgba(10,30,25,.12),rgba(10,30,25,.34)),url('" + b.img + "');background-size:cover;background-position:center;";
-      return photoBg(b.hue);
-    }
-
-    let blogImageData = null;
-    let editingId = null;   // null = adding, otherwise editing this post id
-    function previewBlogImage(ev) {
-      const file = ev.target.files && ev.target.files[0];
-      if (!file) { blogImageData = null; document.getElementById('bImgPreview').style.display = 'none'; return; }
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        blogImageData = e.target.result;
-        document.getElementById('bImgTag').src = blogImageData;
-        document.getElementById('bImgPreview').style.display = 'block';
-      };
-      reader.readAsDataURL(file);
-    }
-    function openBlogModal() {
-      if (!ADMIN) return;                 // guard: only admins
-      editingId = null; blogImageData = null;
-      document.getElementById('modalTitle').textContent = 'Add a Blog Post';
-      document.getElementById('modalSub').textContent = 'Publish a new post to the blog.';
-      document.getElementById('modalSubmit').textContent = 'Publish Post';
-      resetBlogForm();
-      document.getElementById('blogModal').classList.add('open');
-    }
-    function editBlog(id) {
-      if (!ADMIN) return;
-      const b = BLOGS.find(x => x.id === id); if (!b) return;
-      editingId = id; blogImageData = null;
-      document.getElementById('modalTitle').textContent = 'Edit Blog Post';
-      document.getElementById('modalSub').textContent = 'Update this post. Leave the image empty to keep the current one.';
-      document.getElementById('modalSubmit').textContent = 'Save Changes';
-      document.getElementById('bTitle').value = b.title;
-      document.getElementById('bBody').value = b.body;
-      document.getElementById('bAuthor').value = b.author;
-      document.getElementById('bCat').value = b.cat;
-      document.getElementById('bImage').value = '';
-      document.getElementById('bImgPreview').style.display = 'none';
-      document.getElementById('blogModal').classList.add('open');
-    }
-    function closeBlogModal() {
-      document.getElementById('blogModal').classList.remove('open');
-      ['errTitle', 'errBody'].forEach(e => document.getElementById(e).style.display = 'none');
-    }
-
-    function submitBlog() {
-      const t = document.getElementById('bTitle').value.trim();
-      const body = document.getElementById('bBody').value.trim();
-      const author = document.getElementById('bAuthor').value.trim() || "Guest Contributor";
-      const cat = document.getElementById('bCat').value;
-      let ok = true;
-      if (t) { document.getElementById('errTitle').style.display = 'none'; } else { document.getElementById('errTitle').style.display = 'block'; ok = false; }
-      if (body) { document.getElementById('errBody').style.display = 'none'; } else { document.getElementById('errBody').style.display = 'block'; ok = false; }
-      if (!ok) return;
-
-      if (SB_ENABLED) { submitBlogToSupabase(t, body, author, cat); return; }
-
-      // ---- fallback: in-memory (no database configured) ----
-      if (editingId !== null) {
-        const b = BLOGS.find(x => x.id === editingId);
-        if (b) { b.title = t; b.body = body; b.author = author; b.cat = cat; if (blogImageData) b.img = blogImageData; }
-      } else {
-        const hues = [158, 24, 222, 300, 190, 16, 130];
-        BLOGS.unshift({ id: ++blogSeq, img: blogImageData, title: t, cat: cat, author: author, date: new Date().toLocaleDateString('en-IN', { month: 'short', year: 'numeric' }), hue: hues[Math.floor(Math.random() * hues.length)], body: body });
-      }
-      resetBlogForm(); closeBlogModal(); renderBlogs(); go('blogs');
-    }
-
-    function deleteBlog(id) {
-      if (!ADMIN) return;
-      if (!confirm('Delete this post permanently?')) return;
-      if (SB_ENABLED) { deleteBlogFromSupabase(id); return; }
-      BLOGS = BLOGS.filter(x => x.id !== id);
-      renderBlogs();
-    }
-
-    function resetBlogForm() {
-      document.getElementById('bTitle').value = ''; document.getElementById('bBody').value = ''; document.getElementById('bAuthor').value = '';
-      document.getElementById('bImage').value = ''; document.getElementById('bImgPreview').style.display = 'none'; blogImageData = null;
-    }
-
-    /* ---- Supabase: add OR edit a post ---- */
-    async function submitBlogToSupabase(t, body, author, cat) {
-      const btn = document.getElementById('modalSubmit');
-      const oldLabel = btn.textContent; btn.textContent = 'Saving...'; btn.style.opacity = .7;
-      try {
-        let image_url = null;
-        const file = document.getElementById('bImage').files[0];
-        if (file) {
-          const path = Date.now() + '-' + file.name.replace(/[^a-zA-Z0-9.]/g, '_');
-          const up = await sb.storage.from('blog-images').upload(path, file);
-          if (up.error) throw up.error;
-          image_url = sb.storage.from('blog-images').getPublicUrl(path).data.publicUrl;
-        }
-        if (editingId !== null) {
-          const patch = { title: t, category: cat, author: author, body: body };
-          if (image_url) patch.image_url = image_url;   // only overwrite image if a new one was chosen
-          const up = await sb.from('blog_posts').update(patch).eq('id', editingId).select();
-          if (up.error) throw up.error;
-          if (!up.data || !up.data.length) throw new Error('Update affected 0 rows. Your UPDATE policy is probably missing (see setup).');
-        } else {
-          const ins = await sb.from('blog_posts').insert({ title: t, category: cat, author: author, body: body, image_url: image_url }).select();
-          if (ins.error) throw ins.error;
-          if (!ins.data || !ins.data.length) throw new Error('Insert affected 0 rows. Your INSERT policy is probably missing (see setup).');
-        }
-        resetBlogForm(); closeBlogModal(); await loadBlogs(); go('blogs');
-      } catch (err) {
-        alert('Could not save: ' + (err.message || err));
-      } finally {
-        btn.textContent = oldLabel; btn.style.opacity = 1;
-      }
-    }
-
-    async function deleteBlogFromSupabase(id) {
-      try {
-        const del = await sb.from('blog_posts').delete().eq('id', id).select();
-        if (del.error) throw del.error;
-        if (!del.data || !del.data.length) throw new Error('Delete affected 0 rows. Your DELETE policy is probably missing (see setup).');
-        await loadBlogs();
-      } catch (err) {
-        alert('Could not delete: ' + (err.message || err));
-      }
-    }
-
-    /* ---- Supabase: load all posts (newest first) ---- */
-    async function loadBlogs() {
-      if (!SB_ENABLED) { renderBlogs(); return; }
-      try {
-        const { data, error } = await sb.from('blog_posts').select('*').order('created_at', { ascending: false });
-        if (error) throw error;
-        console.log("[BSG] Loaded " + data.length + " posts from database");
-        const hues = [158, 24, 222, 300, 190, 16, 130];
-        BLOGS = data.map((p, i) => ({
-          id: p.id, title: p.title, cat: p.category, author: p.author, body: p.body, img: p.image_url,
-          date: new Date(p.created_at).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' }),
-          hue: hues[i % hues.length]
-        }));
-        renderBlogs();
-      } catch (err) {
-        console.error('[BSG] loadBlogs failed:', err);
-        alert('Could not load posts from database:\n' + (err.message || err));
-        renderBlogs();
-      }
-    }
-
-    /* ============================================================
-       ADMIN ACCESS  (blog management only, hidden from the site)
-       Change the password below to whatever you want.
-       Open the "Admin" link in the footer to log in.
-       ============================================================ */
-    const ADMIN_PASSWORD = "sikar2026";   // <-- change this
-    let ADMIN = (sessionStorage.getItem('bsg_admin') === '1');
-
-    function handleAdminLink() {
-      if (ADMIN) { adminLogout(); }
-      else { document.getElementById('adminModal').classList.add('open'); setTimeout(() => document.getElementById('adminPass').focus(), 50); }
-    }
-    function closeAdminModal() {
-      document.getElementById('adminModal').classList.remove('open');
-      document.getElementById('errAdmin').style.display = 'none';
-      document.getElementById('adminPass').value = '';
-    }
-    function doAdminLogin() {
-      const p = document.getElementById('adminPass').value;
-      if (p === ADMIN_PASSWORD) {
-        ADMIN = true; sessionStorage.setItem('bsg_admin', '1');
-        closeAdminModal(); applyAdminUI(); renderBlogs(); go('blogs');
-      } else {
-        document.getElementById('errAdmin').style.display = 'block';
-      }
-    }
-    function adminLogout() {
-      ADMIN = false; sessionStorage.removeItem('bsg_admin');
-      applyAdminUI(); renderBlogs();
-    }
-    function applyAdminUI() {
-      document.getElementById('adminAddBtn').style.display = ADMIN ? 'inline-block' : 'none';
-      document.getElementById('adminFootLink').textContent = ADMIN ? 'Log out' : 'Admin';
-      document.getElementById('adminStatus').innerHTML = ADMIN
-        ? 'Made in Sikar'
-        : 'Made in Sikar';
-    }
-
-    document.getElementById('blogModal').addEventListener('click', function (e) { if (e.target === this) closeBlogModal(); });
-    document.getElementById('adminModal').addEventListener('click', function (e) { if (e.target === this) closeAdminModal(); });
-
-    renderVoices();
-    renderSchools();
-    applyAdminUI();
-    loadBlogs();
-  </script>
+<!-- Supabase client (read-only public access, protected by RLS) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- App scripts -->
+<script src="js/config.js"></script>
+<script src="data/schools.js"></script>
+<script src="js/app.js"></script>
 </body>
-
 </html>
