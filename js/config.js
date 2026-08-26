@@ -13,8 +13,8 @@
 
 window.BSG_CONFIG = {
   // From Supabase -> Project Settings -> API
-  SUPABASE_URL: "PASTE_YOUR_PROJECT_URL_HERE",     // e.g. https://abcd1234.supabase.co
-  SUPABASE_ANON_KEY: "PASTE_YOUR_ANON_PUBLIC_KEY_HERE"
+  SUPABASE_URL: "https://axswincjhsbwqgfgdicn.supabase.co",     // e.g. https://abcd1234.supabase.co
+  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF4c3dpbmNqaHNid3FnZmdkaWNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc3MTcwMTksImV4cCI6MjEwMzI5MzAxOX0.97rjxtKlg2OMLiqxjLRzd6DObnbczSJbrafI6PfhbQI"
 };
 
 // Enabled only when real values are filled in. Until then the site

@@ -40,7 +40,7 @@ select cron.schedule(
   '30 3 * * *',
   $$
   select net.http_post(
-    url := 'https://YOUR-PROJECT-REF.functions.supabase.co/generate-blog-draft',
+    url := 'https://axswincjhsbwqgfgdicn.functions.supabase.co/generate-blog-draft',
     headers := '{"Content-Type":"application/json"}'::jsonb
   );
   $$

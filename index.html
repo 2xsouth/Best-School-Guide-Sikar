@@ -1,255 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best School Guide Sikar — School Directory, Ratings & Reviews 2026</title>
-<meta name="description" content="An independent guide to the best schools in Sikar, Rajasthan. All boards — CBSE, RBSE, ICSE, English medium and pre-foundation. Ratings from Google Maps.">
-<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best School Guide Sikar — School Directory, Ratings & Reviews 2026</title>
+  <meta name="description"
+    content="An independent guide to the best schools in Sikar, Rajasthan. All boards — CBSE, RBSE, ICSE, English medium and pre-foundation. Ratings from Google Maps.">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-<header>
-  <div class="wrap bar">
-    <button class="logo" onclick="go('home')">Best School Guide<span> Sikar</span></button>
-    <nav class="tabs" id="tabs">
-      <button class="tab active" data-tab="home" onclick="go('home')">Home</button>
-      <button class="tab" data-tab="schools" onclick="go('schools')">Schools</button>
-      <button class="tab" data-tab="blogs" onclick="go('blogs')">Blogs</button>
-      <button class="tab" data-tab="about" onclick="go('about')">About</button>
-    </nav>
-    <button class="menu-btn sans" onclick="document.getElementById('tabs').classList.toggle('show')">&#9776;</button>
-  </div>
-</header>
-
-<!-- ================= HOME ================= -->
-<main id="page-home" class="page active">
-  <section class="hero">
-    <div class="wrap">
-      <div class="eyebrow">Sikar, Rajasthan &middot; 2026&ndash;27 Session</div>
-      <h1>Every good school in <em>Sikar</em>, in one honest place.</h1>
-      <p>Best School Guide Sikar is an independent directory that helps parents compare schools across every board &mdash; CBSE, RBSE, ICSE, English medium and pre-foundation.</p>
-      <div class="hero-cta">
-        <button class="btn primary" onclick="go('schools')">Browse Schools</button>
-        <button class="btn" onclick="go('about')">About This Guide</button>
-      </div>
-      <div class="hero-stats">
-        <div><div class="n" id="statSchools">&mdash;</div><div class="l">Schools listed</div></div>
-        <div><div class="n" id="statReviews">&mdash;</div><div class="l">Google reviews counted</div></div>
-        <div><div class="n">5</div><div class="l">Boards &amp; streams</div></div>
-      </div>
+  <header>
+    <div class="wrap bar">
+      <button class="logo" onclick="go('home')">Best School Guide<span> Sikar</span></button>
+      <nav class="tabs" id="tabs">
+        <button class="tab active" data-tab="home" onclick="go('home')">Home</button>
+        <button class="tab" data-tab="schools" onclick="go('schools')">Schools</button>
+        <button class="tab" data-tab="blogs" onclick="go('blogs')">Blogs</button>
+        <button class="tab" data-tab="about" onclick="go('about')">About</button>
+      </nav>
+      <button class="menu-btn sans" onclick="document.getElementById('tabs').classList.toggle('show')">&#9776;</button>
     </div>
-  </section>
+  </header>
 
-  <section class="band" style="border:none;padding-bottom:0">
-    <div class="wrap">
-      <div class="euro-spotlight">
-        <div class="es-media" style="background-image:linear-gradient(rgba(10,26,20,.35),rgba(10,26,20,.55)),url('https://eurointernationalschool.in/images/slider/xxl/slider02.jpg')">
-          <img src="https://eurointernationalschool.in/images/logos/logo-white-orange-340.png" alt="Euro International School" class="es-logo">
+  <!-- ================= HOME ================= -->
+  <main id="page-home" class="page active">
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Sikar, Rajasthan &middot; 2026&ndash;27 Session</div>
+        <h1>Every good school in <em>Sikar</em>, in one honest place.</h1>
+        <p>Best School Guide Sikar is an independent directory that helps parents compare schools across every board
+          &mdash; CBSE, RBSE, ICSE, English medium and pre-foundation.</p>
+        <div class="hero-cta">
+          <button class="btn primary" onclick="go('schools')">Browse Schools</button>
+          <button class="btn" onclick="go('about')">About This Guide</button>
         </div>
-        <div class="es-body">
-          <div class="eyebrow" style="margin-bottom:12px">Sikar's Top-Rated CBSE School</div>
-          <h2>Euro International School</h2>
-          <p class="es-tag">The First Futuristic CBSE School in Sikar &mdash; where coding, financial literacy, a Finland-model preschool and 120+ national gold medals meet the best CBSE board results in Sikar.</p>
-          <div class="es-stats">
-            <div><span class="esn">20+</span><span class="esl">Years</span></div>
-            <div><span class="esn">2000+</span><span class="esl">Students</span></div>
-            <div><span class="esn">1:16</span><span class="esl">Teacher Ratio</span></div>
-            <div><span class="esn">120+</span><span class="esl">Gold Medals</span></div>
+        <div class="hero-stats">
+          <div>
+            <div class="n" id="statSchools">&mdash;</div>
+            <div class="l">Schools listed</div>
           </div>
-          <div class="es-cta">
-            <button class="btn primary" onclick="openSchool('euro')">View Full Profile</button>
-            <a class="btn accent" href="https://eurointernationalschool.in" target="_blank" rel="noopener">Visit Official Website &rarr;</a>
+          <div>
+            <div class="n" id="statReviews">&mdash;</div>
+            <div class="l">Google reviews counted</div>
+          </div>
+          <div>
+            <div class="n">5</div>
+            <div class="l">Boards &amp; streams</div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="band">
-    <div class="wrap two">
-      <div>
-        <div class="eyebrow">About the guide</div>
-        <h2>Choosing a school shouldn't mean guessing.</h2>
-        <p>Every admission season, parents in Sikar juggle a dozen brochures, WhatsApp forwards and conflicting "top 10" lists.</p>
-        <p>This guide gathers real, publicly available Google Maps ratings and parent reviews for schools across Sikar. Topping the list is <span class="inline-euro" onclick="openSchool('euro')">Euro International School</span> &mdash; Sikar's first futuristic CBSE school.</p>
-        <p>It's free for parents, always.</p>
+    <section class="band" style="border:none;padding-bottom:0">
+      <div class="wrap">
+        <div class="euro-spotlight">
+          <div class="es-media"
+            style="background-image:linear-gradient(rgba(10,26,20,.35),rgba(10,26,20,.55)),url('https://eurointernationalschool.in/images/slider/xxl/slider02.jpg')">
+            <img src="https://eurointernationalschool.in/images/logos/logo-white-orange-340.png"
+              alt="Euro International School" class="es-logo">
+          </div>
+          <div class="es-body">
+            <div class="eyebrow" style="margin-bottom:12px">Sikar's Top-Rated CBSE School</div>
+            <h2>Euro International School</h2>
+            <p class="es-tag">The First Futuristic CBSE School in Sikar &mdash; where coding, financial literacy, a
+              Finland-model preschool and 120+ national gold medals meet the best CBSE board results in Sikar.</p>
+            <div class="es-stats">
+              <div><span class="esn">20+</span><span class="esl">Years</span></div>
+              <div><span class="esn">2000+</span><span class="esl">Students</span></div>
+              <div><span class="esn">1:16</span><span class="esl">Teacher Ratio</span></div>
+              <div><span class="esn">120+</span><span class="esl">Gold Medals</span></div>
+            </div>
+            <div class="es-cta">
+              <button class="btn primary" onclick="openSchool('euro')">View Full Profile</button>
+              <a class="btn accent" href="https://eurointernationalschool.in" target="_blank" rel="noopener">Visit
+                Official Website &rarr;</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <ul class="factlist">
-        <li><span class="fn">01</span><span class="ft"><strong>Featured school.</strong> <span class="inline-euro" onclick="openSchool('euro')">Euro International School</span> leads our directory &mdash; <a href="https://eurointernationalschool.in" target="_blank" rel="noopener">visit their site</a>.</span></li>
-        <li><span class="fn">02</span><span class="ft"><strong>All boards.</strong> CBSE, RBSE, ICSE, English medium and pre-foundation, side by side.</span></li>
-        <li><span class="fn">03</span><span class="ft"><strong>Real reviews.</strong> Ratings and comments sourced from Google Maps.</span></li>
-        <li><span class="fn">04</span><span class="ft"><strong>Parent-first.</strong> Photos, contact numbers and locations so you can visit and decide.</span></li>
-      </ul>
-    </div>
-  </section>
+    </section>
 
-  <section class="band dark">
-    <div class="wrap two">
-      <div>
-        <div class="eyebrow">The Sikar story</div>
-        <h2>A desert town that became Rajasthan's classroom.</h2>
-        <p>Once known mainly for its coaching institutes, Sikar has quietly grown into one of India's most talked-about education hubs. Families from Jaipur, Delhi and across the Shekhawati region now send their children here for strong board results and early competitive-exam foundations.</p>
-        <p>Today the city offers everything from playgroup-to-12 day schools with reliable transport to disciplined residential campuses with hostels, NDA academies and pre-foundation programmes for JEE and NEET.</p>
+    <section class="band">
+      <div class="wrap two">
+        <div>
+          <div class="eyebrow">About the guide</div>
+          <h2>Choosing a school shouldn't mean guessing.</h2>
+          <p>Every admission season, parents in Sikar juggle a dozen brochures, WhatsApp forwards and conflicting "top
+            10" lists.</p>
+          <p>This guide gathers real, publicly available Google Maps ratings and parent reviews for schools across
+            Sikar. Topping the list is <span class="inline-euro" onclick="openSchool('euro')">Euro International
+              School</span> &mdash; Sikar's first futuristic CBSE school.</p>
+          <p>It's free for parents, always.</p>
+        </div>
+        <ul class="factlist">
+          <li><span class="fn">01</span><span class="ft"><strong>Featured school.</strong> <span class="inline-euro"
+                onclick="openSchool('euro')">Euro International School</span> leads our directory &mdash; <a
+                href="https://eurointernationalschool.in" target="_blank" rel="noopener">visit their site</a>.</span>
+          </li>
+          <li><span class="fn">02</span><span class="ft"><strong>All boards.</strong> CBSE, RBSE, ICSE, English medium
+              and pre-foundation, side by side.</span></li>
+          <li><span class="fn">03</span><span class="ft"><strong>Real reviews.</strong> Ratings and comments sourced
+              from Google Maps.</span></li>
+          <li><span class="fn">04</span><span class="ft"><strong>Parent-first.</strong> Photos, contact numbers and
+              locations so you can visit and decide.</span></li>
+        </ul>
       </div>
-      <div class="why-grid">
-        <div class="item"><h4>Results that travel</h4><p>Consistently strong CBSE and RBSE board results, with early JEE/NEET foundations built in.</p></div>
-        <div class="item"><h4>Modern campuses</h4><p>Smart classrooms, science and computer labs, sports grounds and wellness programmes as standard.</p></div>
-        <div class="item"><h4>Day &amp; boarding</h4><p>Real choice for local and outstation families, from transport routes to supervised hostels.</p></div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="band">
+    <section class="band dark">
+      <div class="wrap two">
+        <div>
+          <div class="eyebrow">The Sikar story</div>
+          <h2>A desert town that became Rajasthan's classroom.</h2>
+          <p>Once known mainly for its coaching institutes, Sikar has quietly grown into one of India's most
+            talked-about education hubs. Families from Jaipur, Delhi and across the Shekhawati region now send their
+            children here for strong board results and early competitive-exam foundations.</p>
+          <p>Today the city offers everything from playgroup-to-12 day schools with reliable transport to disciplined
+            residential campuses with hostels, NDA academies and pre-foundation programmes for JEE and NEET.</p>
+        </div>
+        <div class="why-grid">
+          <div class="item">
+            <h4>Results that travel</h4>
+            <p>Consistently strong CBSE and RBSE board results, with early JEE/NEET foundations built in.</p>
+          </div>
+          <div class="item">
+            <h4>Modern campuses</h4>
+            <p>Smart classrooms, science and computer labs, sports grounds and wellness programmes as standard.</p>
+          </div>
+          <div class="item">
+            <h4>Day &amp; boarding</h4>
+            <p>Real choice for local and outstation families, from transport routes to supervised hostels.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <div class="eyebrow">What parents say</div>
+        <h2 class="sec">Voices from Sikar families</h2>
+        <p class="sub">Real comments left on Google Maps by parents and students of Sikar schools.</p>
+        <div class="voices" id="homeVoices"></div>
+      </div>
+    </section>
+
+    <section class="band" style="text-align:center;border:none">
+      <div class="wrap">
+        <h2 class="sec" style="max-width:24ch;margin:0 auto 12px">Give your child Sikar's most future-ready education
+        </h2>
+        <p class="sub" style="max-width:52ch;margin:0 auto 24px">Explore Euro International School &mdash; the first
+          futuristic CBSE school in Sikar &mdash; or compare every school in the directory.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <button class="btn primary" onclick="openSchool('euro')">View Euro's Profile</button>
+          <a class="btn accent" href="https://eurointernationalschool.in" target="_blank" rel="noopener">Visit
+            eurointernationalschool.in &rarr;</a>
+          <button class="btn" onclick="go('schools')">Explore the Directory</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= SCHOOLS ================= -->
+  <main id="page-schools" class="page">
+    <div class="wrap page-head">
+      <h1>Schools in <em>Sikar</em></h1>
+      <p>Ranked by Google Maps reviews. Tap any school to see photos, reviews, location and contact details.</p>
+    </div>
+    <div class="wrap filterbar">
+      <div class="row">
+        <div class="chips" id="chips">
+          <div class="chip active" data-filter="all" onclick="setFilter(this)">All</div>
+          <div class="chip" data-filter="cbse" onclick="setFilter(this)">CBSE</div>
+          <div class="chip" data-filter="rbse" onclick="setFilter(this)">RBSE</div>
+          <div class="chip" data-filter="icse" onclick="setFilter(this)">ICSE</div>
+          <div class="chip" data-filter="english" onclick="setFilter(this)">English Medium</div>
+          <div class="chip" data-filter="prefoundation" onclick="setFilter(this)">Pre-Foundation</div>
+        </div>
+        <div class="sortnote">&darr; Sorted by Google Maps reviews</div>
+      </div>
+      <div class="count" id="resultCount"></div>
+    </div>
     <div class="wrap">
-      <div class="eyebrow">What parents say</div>
-      <h2 class="sec">Voices from Sikar families</h2>
-      <p class="sub">Real comments left on Google Maps by parents and students of Sikar schools.</p>
-      <div class="voices" id="homeVoices"></div>
+      <div class="grid" id="schoolGrid"></div>
     </div>
-  </section>
+  </main>
 
-  <section class="band" style="text-align:center;border:none">
+  <!-- ================= SCHOOL DETAIL ================= -->
+  <main id="page-detail" class="page">
     <div class="wrap">
-      <h2 class="sec" style="max-width:24ch;margin:0 auto 12px">Give your child Sikar's most future-ready education</h2>
-      <p class="sub" style="max-width:52ch;margin:0 auto 24px">Explore Euro International School &mdash; the first futuristic CBSE school in Sikar &mdash; or compare every school in the directory.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <button class="btn primary" onclick="openSchool('euro')">View Euro's Profile</button>
-        <a class="btn accent" href="https://eurointernationalschool.in" target="_blank" rel="noopener">Visit eurointernationalschool.in &rarr;</a>
-        <button class="btn" onclick="go('schools')">Explore the Directory</button>
+      <button class="back" onclick="go('schools')">&larr; Back to all schools</button>
+      <div id="detailContent"></div>
+    </div>
+  </main>
+
+  <!-- ================= BLOGS ================= -->
+  <main id="page-blogs" class="page">
+    <div class="wrap page-head">
+      <div class="blog-top">
+        <div>
+          <h1>The <em>Blog</em></h1>
+          <p>Guides and advice for Sikar parents &mdash; admissions, boards, fees and campus life.</p>
+        </div>
       </div>
     </div>
-  </section>
-</main>
-
-<!-- ================= SCHOOLS ================= -->
-<main id="page-schools" class="page">
-  <div class="wrap page-head">
-    <h1>Schools in <em>Sikar</em></h1>
-    <p>Ranked by Google Maps reviews. Tap any school to see photos, reviews, location and contact details.</p>
-  </div>
-  <div class="wrap filterbar">
-    <div class="row">
-      <div class="chips" id="chips">
-        <div class="chip active" data-filter="all" onclick="setFilter(this)">All</div>
-        <div class="chip" data-filter="cbse" onclick="setFilter(this)">CBSE</div>
-        <div class="chip" data-filter="rbse" onclick="setFilter(this)">RBSE</div>
-        <div class="chip" data-filter="icse" onclick="setFilter(this)">ICSE</div>
-        <div class="chip" data-filter="english" onclick="setFilter(this)">English Medium</div>
-        <div class="chip" data-filter="prefoundation" onclick="setFilter(this)">Pre-Foundation</div>
-      </div>
-      <div class="sortnote">&darr; Sorted by Google Maps reviews</div>
+    <div class="wrap">
+      <div class="blog-grid" id="blogGrid"></div>
     </div>
-    <div class="count" id="resultCount"></div>
-  </div>
-  <div class="wrap"><div class="grid" id="schoolGrid"></div></div>
-</main>
-
-<!-- ================= SCHOOL DETAIL ================= -->
-<main id="page-detail" class="page">
-  <div class="wrap">
-    <button class="back" onclick="go('schools')">&larr; Back to all schools</button>
-    <div id="detailContent"></div>
-  </div>
-</main>
-
-<!-- ================= BLOGS ================= -->
-<main id="page-blogs" class="page">
-  <div class="wrap page-head">
-    <div class="blog-top">
-      <div>
-        <h1>The <em>Blog</em></h1>
-        <p>Guides and advice for Sikar parents &mdash; admissions, boards, fees and campus life.</p>
+    <div class="wrap" id="blogEmpty" style="display:none;padding:20px 0 60px">
+      <div
+        style="text-align:center;font-family:'Segoe UI',sans-serif;color:var(--muted);padding:48px 20px;border:1.5px dashed var(--line);border-radius:14px">
+        No blog posts yet. Check back soon for guides and advice for Sikar parents.
       </div>
     </div>
-  </div>
-  <div class="wrap"><div class="blog-grid" id="blogGrid"></div></div>
-  <div class="wrap" id="blogEmpty" style="display:none;padding:20px 0 60px">
-    <div style="text-align:center;font-family:'Segoe UI',sans-serif;color:var(--muted);padding:48px 20px;border:1.5px dashed var(--line);border-radius:14px">
-      No blog posts yet. Check back soon for guides and advice for Sikar parents.
+  </main>
+
+  <!-- ================= BLOG DETAIL ================= -->
+  <main id="page-blogpost" class="page">
+    <div class="wrap" style="max-width:780px">
+      <button class="back" onclick="go('blogs')">&larr; Back to blog</button>
+      <div id="blogPostContent"></div>
     </div>
-  </div>
-</main>
+  </main>
 
-<!-- ================= BLOG DETAIL ================= -->
-<main id="page-blogpost" class="page">
-  <div class="wrap" style="max-width:780px">
-    <button class="back" onclick="go('blogs')">&larr; Back to blog</button>
-    <div id="blogPostContent"></div>
-  </div>
-</main>
-
-<!-- ================= ABOUT ================= -->
-<main id="page-about" class="page">
-  <div class="wrap page-head">
-    <h1>About <em>Best School Guide Sikar</em></h1>
-    <p>Why this guide exists, how it works, and how we rank schools.</p>
-  </div>
-  <div class="wrap band" style="border:none;padding-top:24px">
-    <div class="two">
-      <div>
-        <div class="eyebrow">Our mission</div>
-        <h2>Make school choice in Sikar transparent and free.</h2>
-        <p>Best School Guide Sikar is an independent directory of schools across Sikar city and district. We list schools across every board and stream &mdash; CBSE, RBSE, ICSE, English medium and pre-foundation &mdash; with the information parents actually ask for: ratings, reviews, photos, location and a phone number.</p>
-      </div>
-      <ul class="factlist">
-        <li><span class="fn">1</span><span class="ft"><strong>How we rank.</strong> Schools are ordered by the number of Google Maps reviews &mdash; more reviews means more families have shared real experiences.</span></li>
-        <li><span class="fn">2</span><span class="ft"><strong>Where data comes from.</strong> Ratings, review counts and comments are drawn from public Google Maps listings. Always verify with the school.</span></li>
-        <li><span class="fn">3</span><span class="ft"><strong>Featured school.</strong> <span class="inline-euro" onclick="openSchool('euro')">Euro International School</span> is our featured campus.</span></li>
-        <li><span class="fn">4</span><span class="ft"><strong>Get listed.</strong> Run a Sikar school and want to be added or corrected? Reach out and we'll review it.</span></li>
-      </ul>
+  <!-- ================= ABOUT ================= -->
+  <main id="page-about" class="page">
+    <div class="wrap page-head">
+      <h1>About <em>Best School Guide Sikar</em></h1>
+      <p>Why this guide exists, how it works, and how we rank schools.</p>
     </div>
-  </div>
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div style="max-width:340px">
-        <div class="flogo">Best School Guide<span> Sikar</span></div>
-        <p>An independent guide helping parents in Sikar, Rajasthan compare and choose the right school for their child.</p>
-      </div>
-      <div>
-        <h5>Explore</h5>
-        <ul>
-          <li><span class="fl" onclick="go('home')">Home</span></li>
-          <li><span class="fl" onclick="go('schools')">Schools</span></li>
-          <li><span class="fl" onclick="go('blogs')">Blogs</span></li>
-          <li><span class="fl" onclick="go('about')">About</span></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Featured School</h5>
-        <ul>
-          <li><span class="fl" onclick="openSchool('euro')">Euro Int'l School Profile</span></li>
-          <li><a class="fl" href="https://eurointernationalschool.in" target="_blank" rel="noopener">Official Website</a></li>
-          <li><a class="fl" href="https://eurointernationalschool.in/admissions-euro-international-school" target="_blank" rel="noopener">Admissions</a></li>
-          <li><a class="fl" href="https://eurointernationalschool.in/admissions-euro-international-school#fee_structure" target="_blank" rel="noopener">Fee Structure</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Boards</h5>
-        <ul>
-          <li><span class="fl" onclick="go('schools');setFilterByKey('cbse')">CBSE Schools</span></li>
-          <li><span class="fl" onclick="go('schools');setFilterByKey('rbse')">RBSE Schools</span></li>
-          <li><span class="fl" onclick="go('schools');setFilterByKey('icse')">ICSE Schools</span></li>
-          <li><span class="fl" onclick="go('schools');setFilterByKey('prefoundation')">Pre-Foundation</span></li>
+    <div class="wrap band" style="border:none;padding-top:24px">
+      <div class="two">
+        <div>
+          <div class="eyebrow">Our mission</div>
+          <h2>Make school choice in Sikar transparent and free.</h2>
+          <p>Best School Guide Sikar is an independent directory of schools across Sikar city and district. We list
+            schools across every board and stream &mdash; CBSE, RBSE, ICSE, English medium and pre-foundation &mdash;
+            with the information parents actually ask for: ratings, reviews, photos, location and a phone number.</p>
+        </div>
+        <ul class="factlist">
+          <li><span class="fn">1</span><span class="ft"><strong>How we rank.</strong> Schools are ordered by the number
+              of Google Maps reviews &mdash; more reviews means more families have shared real experiences.</span></li>
+          <li><span class="fn">2</span><span class="ft"><strong>Where data comes from.</strong> Ratings, review counts
+              and comments are drawn from public Google Maps listings. Always verify with the school.</span></li>
+          <li><span class="fn">3</span><span class="ft"><strong>Featured school.</strong> <span class="inline-euro"
+                onclick="openSchool('euro')">Euro International School</span> is our featured campus.</span></li>
+          <li><span class="fn">4</span><span class="ft"><strong>Get listed.</strong> Run a Sikar school and want to be
+              added or corrected? Reach out and we'll review it.</span></li>
         </ul>
       </div>
     </div>
-    <div class="copyright">
-      <span>&copy; 2026 Best School Guide Sikar &middot; Ratings from Google Maps &mdash; verify details directly with schools.</span>
-      <span>Made in Sikar</span>
-    </div>
-  </div>
-</footer>
+  </main>
 
-<!-- Supabase client (read-only public access, protected by RLS) -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<!-- App scripts -->
-<script src="js/config.js"></script>
-<script src="data/schools.js"></script>
-<script src="js/app.js"></script>
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div style="max-width:340px">
+          <div class="flogo">Best School Guide<span> Sikar</span></div>
+          <p>An independent guide helping parents in Sikar, Rajasthan compare and choose the right school for their
+            child.</p>
+        </div>
+        <div>
+          <h5>Explore</h5>
+          <ul>
+            <li><span class="fl" onclick="go('home')">Home</span></li>
+            <li><span class="fl" onclick="go('schools')">Schools</span></li>
+            <li><span class="fl" onclick="go('blogs')">Blogs</span></li>
+            <li><span class="fl" onclick="go('about')">About</span></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Featured School</h5>
+          <ul>
+            <li><span class="fl" onclick="openSchool('euro')">Euro Int'l School Profile</span></li>
+            <li><a class="fl" href="https://eurointernationalschool.in" target="_blank" rel="noopener">Official
+                Website</a></li>
+            <li><a class="fl" href="https://eurointernationalschool.in/admissions-euro-international-school"
+                target="_blank" rel="noopener">Admissions</a></li>
+            <li><a class="fl"
+                href="https://eurointernationalschool.in/admissions-euro-international-school#fee_structure"
+                target="_blank" rel="noopener">Fee Structure</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Boards</h5>
+          <ul>
+            <li><span class="fl" onclick="go('schools');setFilterByKey('cbse')">CBSE Schools</span></li>
+            <li><span class="fl" onclick="go('schools');setFilterByKey('rbse')">RBSE Schools</span></li>
+            <li><span class="fl" onclick="go('schools');setFilterByKey('icse')">ICSE Schools</span></li>
+            <li><span class="fl" onclick="go('schools');setFilterByKey('prefoundation')">Pre-Foundation</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <span>&copy; 2026 Best School Guide Sikar &middot; Ratings from Google Maps &mdash; verify details directly with
+          schools.</span>
+        <span>Made in Sikar</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Supabase client (read-only public access, protected by RLS) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- App scripts -->
+  <script src="js/config.js"></script>
+  <script src="data/schools.js"></script>
+  <script src="js/app.js"></script>
 </body>
+
 </html>
