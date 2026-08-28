@@ -48,7 +48,7 @@ Deno.serve(async () => {
 
     const school = SCHOOLS[new Date().getDate() % SCHOOLS.length];
 
-    // 2) Gemini writes an ORIGINAL post (free tier: gemini-1.5-flash)
+    // 2) Gemini writes an ORIGINAL post (model: gemini-3.6-flash, free tier)
     const prompt =
 `You write for "Best School Guide Sikar", a directory helping parents in Sikar, Rajasthan.
 A news topic today (headline only): "${item.title}" (source: ${item.source}).
@@ -62,16 +62,10 @@ STRICT RULES:
 Return STRICT JSON only, no markdown, no backticks:
 {"title": string, "category": one of ["Admissions","Boards","Fees","Parenting","Exams","Campus Life"], "body": string with \\n between paragraphs}`;
 
-    const gRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_KEY}`,
-      {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
-      }
-    );
-    const g = await gRes.json();
-    const raw = g?.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
+    // Call Gemini (model: gemini-3.6-flash) with retries for 503 "high demand".
+    const MODEL = "gemini-3.6-flash";
+    const raw = await callGeminiWithRetry(MODEL, prompt, 4);
+    if (!raw) return json({ ok: false, reason: "gemini unavailable after retries" });
     const post = JSON.parse(raw.replace(/```json|```/g, "").trim());
 
     // 3) Save as DRAFT (invisible to the public site)
@@ -112,6 +106,34 @@ Return STRICT JSON only, no markdown, no backticks:
 });
 
 // --- helpers ---
+// Calls Gemini generateContent; retries on 503 "high demand" with backoff.
+async function callGeminiWithRetry(model: string, prompt: string, maxTries: number): Promise<string | null> {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_KEY}`;
+  for (let attempt = 1; attempt <= maxTries; attempt++) {
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
+      });
+      if (res.status === 503 || res.status === 429) {
+        // overloaded / rate-limited — wait and retry
+        await sleep(attempt * 4000);
+        continue;
+      }
+      const g = await res.json();
+      const text = g?.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
+      if (text) return text;
+      // empty response — retry once more
+      await sleep(attempt * 2000);
+    } catch (_e) {
+      await sleep(attempt * 2000);
+    }
+  }
+  return null;
+}
+function sleep(ms: number) { return new Promise((r) => setTimeout(r, ms)); }
+
 function parseFirstItem(xml: string) {
   const block = xml.split("<item>")[1];
   if (!block) return null;
