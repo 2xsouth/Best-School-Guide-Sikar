@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post — Best School Guide Sikar</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrap bar">
+            <a href="index.html" class="logo" style="text-decoration:none;">Best School Guide<span> Sikar</span></a>
+            <nav class="tabs" id="tabs">
+                <a href="index.html" class="tab">Home</a>
+                <a href="schools.html" class="tab">Schools</a>
+                <a href="blogs.html" class="tab active">Blogs</a>
+                <a href="about.html" class="tab">About</a>
+            </nav>
+            <button class="menu-btn sans"
+                onclick="document.getElementById('tabs').classList.toggle('show')">&#9776;</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrap" style="max-width:780px">
+            <a href="blogs.html" class="back" style="text-decoration:none; display:inline-block; margin-top:24px">&larr;
+                Back to blog</a>
+            <div id="blogPostContent"></div>
+        </div>
+    </main>
+
+    <!-- (Insert identical Footer here) -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/app.js?v=4"></script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guides & Advice for Sikar Parents — Best School Guide</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrap bar">
+            <a href="index.html" class="logo" style="text-decoration:none;">Best School Guide<span> Sikar</span></a>
+            <nav class="tabs" id="tabs">
+                <a href="index.html" class="tab">Home</a>
+                <a href="schools.html" class="tab">Schools</a>
+                <a href="blogs.html" class="tab active">Blogs</a>
+                <a href="about.html" class="tab">About</a>
+            </nav>
+            <button class="menu-btn sans"
+                onclick="document.getElementById('tabs').classList.toggle('show')">&#9776;</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrap page-head">
+            <div class="blog-top">
+                <div>
+                    <h1>The <em>Blog</em></h1>
+                    <p>Guides and advice for Sikar parents &mdash; admissions, boards, fees and campus life.</p>
+                </div>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="blog-grid" id="blogGrid"></div>
+        </div>
+        <div class="wrap" id="blogEmpty" style="display:none;padding:20px 0 60px">
+            <div
+                style="text-align:center;font-family:'Segoe UI',sans-serif;color:var(--muted);padding:48px 20px;border:1.5px dashed var(--line);border-radius:14px">
+                No blog posts yet. Check back soon for guides and advice for Sikar parents.
+            </div>
+        </div>
+    </main>
+
+    <!-- (Insert identical Footer here) -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/app.js?v=4"></script>
+</body>
+
+</html>

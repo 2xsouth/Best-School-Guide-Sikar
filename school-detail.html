@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Profile — Best School Guide Sikar</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrap bar">
+            <a href="index.html" class="logo" style="text-decoration:none;">Best School Guide<span> Sikar</span></a>
+            <nav class="tabs" id="tabs">
+                <a href="index.html" class="tab">Home</a>
+                <a href="schools.html" class="tab active">Schools</a>
+                <a href="blogs.html" class="tab">Blogs</a>
+                <a href="about.html" class="tab">About</a>
+            </nav>
+            <button class="menu-btn sans"
+                onclick="document.getElementById('tabs').classList.toggle('show')">&#9776;</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrap">
+            <a href="schools.html" class="back"
+                style="text-decoration:none; display:inline-block; margin-top:24px">&larr; Back to all schools</a>
+            <div id="detailContent"></div>
+        </div>
+    </main>
+
+    <!-- (Insert identical Footer here) -->
+
+    <script src="js/config.js"></script>
+    <script src="schools.js"></script>
+    <script src="js/app.js?v=4"></script>
+</body>
+
+</html>

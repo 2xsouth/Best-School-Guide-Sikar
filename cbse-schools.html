@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top CBSE Schools in Sikar — Admissions & Fees 2026</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrap bar">
+            <a href="index.html" class="logo" style="text-decoration:none;">Best School Guide<span> Sikar</span></a>
+            <nav class="tabs" id="tabs">
+                <a href="index.html" class="tab">Home</a>
+                <a href="schools.html" class="tab active">Schools</a>
+                <a href="blogs.html" class="tab">Blogs</a>
+                <a href="about.html" class="tab">About</a>
+            </nav>
+            <button class="menu-btn sans"
+                onclick="document.getElementById('tabs').classList.toggle('show')">&#9776;</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrap page-head">
+            <h1>CBSE Schools in <em>Sikar</em></h1>
+            <p>Compare the top-rated CBSE board schools across Sikar. Tap to see facilities, fees, and reviews.</p>
+        </div>
+        <div class="wrap filterbar">
+            <div class="row">
+                <div class="chips" id="chips">
+                    <a href="schools.html" class="chip" style="text-decoration:none">All</a>
+                    <a href="cbse-schools.html" class="chip active" style="text-decoration:none">CBSE</a>
+                    <a href="rbse-schools.html" class="chip" style="text-decoration:none">RBSE</a>
+                    <a href="icse-schools.html" class="chip" style="text-decoration:none">ICSE</a>
+                    <a href="pre-foundation.html" class="chip" style="text-decoration:none">Pre-Foundation</a>
+                </div>
+                <div class="sortnote">&darr; Sorted by Google Maps reviews</div>
+            </div>
+            <div class="count" id="resultCount"></div>
+        </div>
+        <div class="wrap">
+            <div class="grid" id="schoolGrid"></div>
+        </div>
+    </main>
+
+    <!-- (Insert identical Footer here) -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="schools.js"></script>
+    <script>
+        // This tells app.js to auto-filter the grid before rendering
+        window.BOARD_FILTER = 'cbse'; 
+    </script>
+    <script src="js/app.js?v=4"></script>
+</body>
+
+</html>
