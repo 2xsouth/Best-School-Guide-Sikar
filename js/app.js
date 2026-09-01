@@ -47,16 +47,23 @@ const ALLOWED_LINK_HOSTS = [
 ];
 // Escapes text but re-permits ONLY safe <a href="https://allowed-host...">label</a>.
 // Escapes text but re-permits ONLY safe <a href="https://allowed-host...">label</a>.
+// Escapes text but re-permits ONLY safe <a href="https://allowed-host...">label</a>.
 function safeBody(text) {
   const safe = esc(text || '');
 
-  // Updated regex: Uses .*? to allow attributes before and after href, and ["'] to support single or double quotes
-  return safe.replace(/&lt;a\b.*?href=["']([^"']+)["'].*?&gt;([\s\S]*?)&lt;\/a&gt;/gi,
+  // Uses \s+ instead of \b for a guaranteed boundary match
+  return safe.replace(/&lt;a\s+.*?href=["']([^"']+)["'].*?&gt;([\s\S]*?)&lt;\/a&gt;/gi,
     function (m, url, label) {
       try {
-        const u = new URL(url);
-        // Only recreate the link if it matches an exact whitelisted host
-        if (u.protocol === 'https:' && ALLOWED_LINK_HOSTS.indexOf(u.host) > -1) {
+        // Revert any &amp; back to & so the URL parses correctly
+        const cleanUrl = url.replace(/&amp;/g, '&');
+        const u = new URL(cleanUrl);
+
+        // Strip 'www.' for the whitelist check
+        const host = u.host.replace(/^www\./, '');
+
+        // ALLOWED_LINK_HOSTS MUST be defined above this function
+        if (u.protocol === 'https:' && ALLOWED_LINK_HOSTS.map(h => h.replace(/^www\./, '')).indexOf(host) > -1) {
           return '<a href="' + u.href + '" target="_blank" rel="noopener" style="color:var(--brand);font-weight:600">' + label + '</a>';
         }
       } catch (e) { }

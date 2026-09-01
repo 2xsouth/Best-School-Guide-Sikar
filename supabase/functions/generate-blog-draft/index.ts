@@ -35,24 +35,36 @@ const RSS_FEEDS = [
 // `keywords` decide topic match. Euro is the featured school and is preferred.
 // `desc` is how the AI should refer to it. Order matters: Euro first.
 const SCHOOL_TABLE = [
-  { name: "Euro International School", url: "https://eurointernationalschool.in", featured: true,
+  {
+    name: "Euro International School", url: "https://eurointernationalschool.in", featured: true,
     desc: "the first futuristic CBSE school in Sikar",
-    keywords: ["cbse","coding","skill","wellbeing","well-being","mental","preschool","primary","admission","parenting","future","holistic","english","finland","entrepreneur","financial"] },
-  { name: "PCP Sikar", url: "https://pcpsikar.com", featured: false,
+    keywords: ["cbse", "coding", "skill", "wellbeing", "well-being", "mental", "preschool", "primary", "admission", "parenting", "future", "holistic", "english", "finland", "entrepreneur", "financial", "robotics"]
+  },
+  {
+    name: "PCP Sikar", url: "https://pcpsikar.com", featured: true,
     desc: "a leading JEE/NEET foundation campus in Sikar",
-    keywords: ["jee","neet","foundation","competitive","medical","engineering","iit","aiims","dropper","olympiad"] },
-  { name: "Prince Sainik School", url: "https://princesainikschool.com", featured: false,
+    keywords: ["jee", "neet", "foundation", "competitive", "medical", "engineering", "iit", "aiims", "dropper", "olympiad"]
+  },
+  {
+    name: "Prince Sainik School", url: "https://princesainikschool.com", featured: true,
     desc: "a leading NDA / defence academy in Sikar",
-    keywords: ["nda","defence","defense","army","sainik","military","ssb"] },
-  { name: "Swami Keshwanand School", url: "https://www.keshwanandschool.com", featured: false,
+    keywords: ["nda", "defence", "defense", "army", "sainik", "military", "ssb"]
+  },
+  {
+    name: "Swami Keshwanand School", url: "https://www.keshwanandschool.com", featured: false,
     desc: "a well-known boarding school in Sikar",
-    keywords: ["boarding","hostel","residential","sports","swimming","outstation"] },
-  { name: "Floreto World School", url: "https://floretoworldschool.com", featured: false,
+    keywords: ["boarding", "hostel", "residential", "sports", "swimming", "outstation"]
+  },
+  {
+    name: "Floreto World School", url: "https://floretoworldschool.com", featured: true,
     desc: "a leading ICSE school in Sikar",
-    keywords: ["icse","cisce","montessori","early years","robotics"] },
-  { name: "MHS World School", url: "https://www.mhsworldschool.org", featured: false,
+    keywords: ["icse", "cisce", "montessori", "early years"]
+  },
+  {
+    name: "MHS World School", url: "https://www.mhsworldschool.org", featured: true,
     desc: "a top RBSE school in Sikar",
-    keywords: ["rbse","rajasthan board","state board","stse","ntse"] },
+    keywords: ["rbse", "rajasthan board", "state board", "stse", "ntse"]
+  },
 ];
 
 Deno.serve(async (req) => {
@@ -72,12 +84,11 @@ Deno.serve(async (req) => {
       }
     } catch (_e) { /* no body = normal daily run */ }
 
-    // 1) Pick a topic. Fresh run uses a time seed; regenerate advances the
-    //    previous seed so it lands on a DIFFERENT topic each tap.
+    // 1) Pick a topic using the randomized feed function
     const seed = regenerate
       ? (prevSeed + 1 + Math.floor(Math.random() * 3))
       : Math.floor(Date.now() / 1000) % 1000;
-    const item = await getTopic(seed);
+    const item = await getTopic();
     if (!item) return json({ ok: false, reason: "no rss item" });
 
     // Pick the most relevant school for THIS topic (Euro preferred when it fits).
@@ -86,12 +97,12 @@ Deno.serve(async (req) => {
 
     // 2) Gemini writes an ORIGINAL post (model: gemini-3.6-flash, free tier)
     const prompt =
-`You write for "Best School Guide Sikar", a directory helping parents in Sikar, Rajasthan.
+      `You write for "Best School Guide Sikar", a directory helping parents in Sikar, Rajasthan.
 A news topic today (headline only): "${item.title}" (source: ${item.source}).
 
-Write an ORIGINAL 400-500 word blog post for Sikar parents INSPIRED BY this topic.
+Write an ORIGINAL 800-900 word blog post for Sikar parents INSPIRED BY this topic.
 STRICT RULES:
-- Do NOT copy any sentence from the source. 100% your own words.
+- Do NOT copy any sentence from the source. 100% your own humanized words.
 - Make it genuinely useful and specific to Sikar families.
 ${school ? `- Mention "${school.name}" (${school.desc}) exactly once, naturally, ONLY if it genuinely fits the topic. Write the school's name in full and exactly as given so it can be linked. If it does not fit, do not force it.` : `- Do not mention any specific school.`}
 - Warm, clear, practical tone. No hype.
@@ -171,54 +182,46 @@ Return STRICT JSON only, no markdown, no backticks:
   }
 });
 
-// The 4-button layout shared by fresh + regenerated drafts.
 function fourButtons(id: number | string) {
   return {
     inline_keyboard: [
       [{ text: "🔄 New text", callback_data: `text:${id}` },
-       { text: "🖼️ New image", callback_data: `image:${id}` }],
+      { text: "🖼️ New image", callback_data: `image:${id}` }],
       [{ text: "✅ Approve & Publish", callback_data: `approve:${id}` },
-       { text: "❌ Reject", callback_data: `reject:${id}` }],
+      { text: "❌ Reject", callback_data: `reject:${id}` }],
     ],
   };
 }
 
-// --- helpers ---
-
-// Pick a topic from the RSS feeds using a seed, so different seeds -> different
-// feed + different headline (used by "New text" to move to a fresh topic).
-async function getTopic(seed: number) {
-  const feed = RSS_FEEDS[seed % RSS_FEEDS.length];
+// Randomizer properly isolated inside the fetch function
+async function getTopic() {
+  // 1. Pick a random feed URL from the array
+  const feed = RSS_FEEDS[Math.floor(Math.random() * RSS_FEEDS.length)];
   try {
     const xml = await (await fetch(feed)).text();
     const items = parseItems(xml, 8);
     if (!items.length) return null;
-    // pick a headline offset by the seed so repeats land on different stories
-    return items[Math.floor(seed / RSS_FEEDS.length) % items.length];
+
+    // 2. Pick a random article from the top 3 items of that specific feed
+    const availableItems = Math.min(items.length, 3);
+    const randomIndex = Math.floor(Math.random() * availableItems);
+
+    return items[randomIndex];
   } catch (_e) {
     return null;
   }
 }
 
-// Choose the best school for a topic. Euro (featured) wins if it matches OR
-// if nothing else matches (it fits most general parenting/admissions topics).
 function pickSchool(topicText: string) {
   const euro = SCHOOL_TABLE.find((s) => s.featured)!;
-  // 1) A non-Euro school whose keyword strongly matches the topic takes priority
-  //    ONLY for clearly specialised topics (boarding, NDA, JEE/NEET, ICSE, RBSE).
   for (const s of SCHOOL_TABLE) {
     if (s.featured) continue;
     if (s.keywords.some((k) => topicText.includes(k))) return s;
   }
-  // 2) Otherwise Euro if it matches any of its (broad) keywords
   if (euro.keywords.some((k) => topicText.includes(k))) return euro;
-  // 3) Fallback: Euro anyway (featured school, fits general topics)
   return euro;
 }
 
-// Wrap the FIRST occurrence of a known school name with a link to its official
-// site. Only exact known names are linked, from our trusted table — the AI never
-// supplies a URL. Names are matched once each to avoid over-linking.
 function insertSchoolLinks(body: string): string {
   let out = body;
   for (const s of SCHOOL_TABLE) {
@@ -230,11 +233,8 @@ function insertSchoolLinks(body: string): string {
   return out;
 }
 
-// Free, licensed thumbnails from Pexels, strongly biased toward Indian schools.
-// Returns a LIST of landscape image URLs (for the Change-image cycle).
 async function fetchPexelsImages(category: string, _title: string): Promise<string[]> {
   if (!PEXELS_KEY) return [];
-  // Indian-first search terms per category.
   const map: Record<string, string> = {
     Admissions: "indian school students admission",
     Boards: "indian students classroom exam",
@@ -244,13 +244,11 @@ async function fetchPexelsImages(category: string, _title: string): Promise<stri
     "Campus Life": "indian school children playground",
   };
   const primary = map[category] || "indian school education";
-  // Try the Indian query first; if too few results, fall back to a broader one.
   let urls = await pexelsSearch(primary);
   if (urls.length < 3) {
     const extra = await pexelsSearch("india education classroom");
     urls = urls.concat(extra);
   }
-  // de-dupe, keep up to 15
   return [...new Set(urls)].slice(0, 15);
 }
 
@@ -270,7 +268,6 @@ async function pexelsSearch(query: string): Promise<string[]> {
   }
 }
 
-// Small Telegram API helper.
 async function tg(method: string, payload: unknown) {
   return fetch(`https://api.telegram.org/bot${TG_TOKEN}/${method}`, {
     method: "POST",
@@ -279,7 +276,6 @@ async function tg(method: string, payload: unknown) {
   });
 }
 
-// Calls Gemini generateContent; retries on 503 "high demand" with backoff.
 async function callGeminiWithRetry(model: string, prompt: string, maxTries: number): Promise<string | null> {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_KEY}`;
   for (let attempt = 1; attempt <= maxTries; attempt++) {
@@ -290,14 +286,12 @@ async function callGeminiWithRetry(model: string, prompt: string, maxTries: numb
         body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
       });
       if (res.status === 503 || res.status === 429) {
-        // overloaded / rate-limited — wait and retry
         await sleep(attempt * 4000);
         continue;
       }
       const g = await res.json();
       const text = g?.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
       if (text) return text;
-      // empty response — retry once more
       await sleep(attempt * 2000);
     } catch (_e) {
       await sleep(attempt * 2000);
@@ -307,7 +301,6 @@ async function callGeminiWithRetry(model: string, prompt: string, maxTries: numb
 }
 function sleep(ms: number) { return new Promise((r) => setTimeout(r, ms)); }
 
-// Parse up to N items from an RSS feed (title/link/source each).
 function parseItems(xml: string, max = 8) {
   const blocks = xml.split("<item>").slice(1, max + 1);
   const items: { title: string; link: string; source: string }[] = [];
