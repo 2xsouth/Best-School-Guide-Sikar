@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# 1. Remove index.html and redirect to the root domain
+RewriteCond %{THE_REQUEST} ^.*/index\.html
+RewriteRule ^(.*)index.html$ /$1 [R=301,L]
+
+# 2. Redirect visible .html extensions to clean URLs
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R=301]
+
+# 3. Silently serve the .html file when a clean URL is requested
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^ %{REQUEST_URI}.html [NC,L]
