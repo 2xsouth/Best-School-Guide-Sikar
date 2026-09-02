@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guides & Advice for Sikar Parents — Best School Guide</title>
+    <title>Top ICSE Schools in Sikar — Admissions & Fees 2026</title>
     <link rel="icon" type="image/jpeg" href="logo.png">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -15,8 +15,8 @@
             <a href="index.html" class="logo" style="text-decoration:none;">Best School Guide<span> Sikar</span></a>
             <nav class="tabs" id="tabs">
                 <a href="index.html" class="tab">Home</a>
-                <a href="schools.html" class="tab">Schools</a>
-                <a href="blogs.html" class="tab active">Blogs</a>
+                <a href="schools.html" class="tab active">Schools</a>
+                <a href="blogs.html" class="tab">Blogs</a>
                 <a href="about.html" class="tab">About</a>
             </nav>
             <button class="menu-btn sans"
@@ -26,21 +26,24 @@
 
     <main>
         <div class="wrap page-head">
-            <div class="blog-top">
-                <div>
-                    <h1>The <em>Blog</em></h1>
-                    <p>Guides and advice for Sikar parents &mdash; admissions, boards, fees and campus life.</p>
+            <h1>ICSE Schools in <em>Sikar</em></h1>
+            <p>Compare the top-rated ICSE (CISCE) schools across Sikar. Tap to see facilities, fees, and reviews.</p>
+        </div>
+        <div class="wrap filterbar">
+            <div class="row">
+                <div class="chips" id="chips">
+                    <a href="schools.html" class="chip" style="text-decoration:none">All</a>
+                    <a href="cbse-schools.html" class="chip" style="text-decoration:none">CBSE</a>
+                    <a href="rbse-schools.html" class="chip" style="text-decoration:none">RBSE</a>
+                    <a href="icse-schools.html" class="chip active" style="text-decoration:none">ICSE</a>
+                    <a href="pre-foundation.html" class="chip" style="text-decoration:none">Pre-Foundation</a>
                 </div>
+                <div class="sortnote">&darr; Sorted by Google Maps reviews</div>
             </div>
+            <div class="count" id="resultCount"></div>
         </div>
         <div class="wrap">
-            <div class="blog-grid" id="blogGrid"></div>
-        </div>
-        <div class="wrap" id="blogEmpty" style="display:none;padding:20px 0 60px">
-            <div
-                style="text-align:center;font-family:'Segoe UI',sans-serif;color:var(--muted);padding:48px 20px;border:1.5px dashed var(--line);border-radius:14px">
-                No blog posts yet. Check back soon for guides and advice for Sikar parents.
-            </div>
+            <div class="grid" id="schoolGrid"></div>
         </div>
     </main>
 
@@ -50,8 +53,7 @@
                 <div style="max-width:340px">
                     <div class="flogo">Best School Guide<span> Sikar</span></div>
                     <p>An independent guide helping parents in Sikar, Rajasthan compare and choose the right school for
-                        their
-                        child.</p>
+                        their child.</p>
                 </div>
                 <div>
                     <h5>Explore</h5>
@@ -67,8 +69,7 @@
                     <ul>
                         <li><a class="fl" href="school-detail.html?id=euro">Euro Int'l School Profile</a></li>
                         <li><a class="fl" href="https://eurointernationalschool.in" target="_blank"
-                                rel="noopener">Official
-                                Website</a></li>
+                                rel="noopener">Official Website</a></li>
                         <li><a class="fl" href="https://eurointernationalschool.in/admissions-euro-international-school"
                                 target="_blank" rel="noopener">Admissions</a></li>
                         <li><a class="fl"
@@ -88,8 +89,7 @@
             </div>
             <div class="copyright">
                 <span>&copy; 2026 Best School Guide Sikar &middot; Ratings from Google Maps &mdash; verify details
-                    directly with
-                    schools.</span>
+                    directly with schools.</span>
                 <span>Made in Sikar</span>
             </div>
         </div>
@@ -97,6 +97,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/config.js"></script>
+    <script src="schools.js"></script>
+    <script>
+        window.BOARD_FILTER = 'icse'; 
+    </script>
     <script src="js/app.js?v=4"></script>
 </body>
 
